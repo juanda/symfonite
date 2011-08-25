@@ -4,7 +4,6 @@ SYMFONITE
 http://ntic.educacion.es/desarrollo/symfonite/
 
 # Introducción
---------------
 
 Symfonite es una extensión del framework de desarrollo de aplicaciones web symfony (versión 1.4) con la que se pretende:
 
