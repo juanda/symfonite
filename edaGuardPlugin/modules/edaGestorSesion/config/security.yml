@@ -1,0 +1,26 @@
+signin:
+  is_secure: false
+
+registro:
+  is_secure: false
+
+enviarTokenRegistro:
+  is_secure: false
+  
+reinicioPassword:
+  is_secure: false
+
+enviarTokenReinicioPassword:
+  is_secure: false
+
+cambiarPassword:
+  is_secure: false
+
+grabarPassword:
+  is_secure: false
+  
+signout:
+  is_secure: false
+
+perfiles:
+  credentials: []

@@ -1,0 +1,6 @@
+all:
+  credentials: [ EDAGESTIONPLUGIN_administracion ]
+edit:
+  credentials: inhabilitado
+new:
+  credentials: inhabilitado

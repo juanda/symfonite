@@ -1,0 +1,28 @@
+generator:
+  class: sfPropelGenerator
+  param:
+    model_class:           EdaAmbitos
+    theme:                 admin
+    non_verbose_templates: true
+    with_show:             false
+    singular:              EdaAmbitos
+    plural:                EdaAmbitoss
+    route_prefix:          eda_ambitos_asociaambitos
+    with_propel_route:     1
+    actions_base_class:    sfActions
+    css:                   none
+
+    config:
+      actions: ~
+      fields:
+        EdaAmbitosTipos: { label: Tipo de Ámbito }
+        EdaPeriodos:     { label: Periodo }
+      list:
+        title: Selecciona ambitos
+        display: [ Nombre, Descripcion, EdaPeriodos, Estado]
+        max_per_page: 10
+      filter:
+        class: AmbitosModuloFormFilter
+      form:    ~
+      edit:    ~
+      new:     ~

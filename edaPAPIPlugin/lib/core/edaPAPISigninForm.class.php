@@ -1,0 +1,43 @@
+<?php
+/*
+ * Copyright 2010 Instituto de Tecnologías Educativas - Ministerio de Educación de España
+ *
+ * Licencia con arreglo a la EUPL, Versión 1.1 exclusivamente
+ * (la «Licencia»);
+ * Solo podrá usarse esta obra si se respeta la Licencia.
+ * Puede obtenerse una copia de la Licencia en:
+ *
+ * http://ec.europa.eu/idabc/eupl5
+ *
+ * y también en:
+
+ * http://ec.europa.eu/idabc/en/document/7774.html
+ *
+ * Salvo cuando lo exija la legislación aplicable o se acuerde
+ * por escrito, el programa distribuido con arreglo a la
+ * Licencia se distribuye «TAL CUAL»,
+ * SIN GARANTÍAS NI CONDICIONES DE NINGÚN TIPO, ni expresas
+ * ni implícitas.
+ * Véase la Licencia en el idioma concreto que rige
+ * los permisos y limitaciones que establece la Licencia.
+ */
+?>
+<?php
+
+class edaPAPISigninForm extends sfForm
+{
+  public function configure()
+  {
+    $this->setWidgets(array(
+      'username' => new sfWidgetFormInput(),
+      'password' => new sfWidgetFormInput(array('type' => 'password')),      
+    ));
+
+    $this->setValidators(array(
+      'username' => new sfValidatorString(),
+      'password' => new sfValidatorString(),      
+    ));
+   
+    $this->widgetSchema->setNameFormat('signin[%s]');
+  }  
+}

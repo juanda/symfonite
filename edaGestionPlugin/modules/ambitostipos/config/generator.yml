@@ -1,0 +1,30 @@
+generator:
+  class: sfPropelGenerator
+  param:
+    model_class:           EdaAmbitosTipos
+    theme:                 admin
+    non_verbose_templates: true
+    with_show:             false
+    singular:              EdaAmbitosTipos
+    plural:                EdaAmbitosTiposs
+    route_prefix:          eda_ambitos_tipos
+    with_propel_route:     1
+    actions_base_class:    sfActions
+    css:                   none
+
+    config:
+      actions: ~
+      fields:  ~
+      list:
+        title: Listado de Tipos de Ámbitos
+        display: [ nombre, descripcion ]
+        object_actions:
+          _edit: ~
+          _delete: ~
+          gestionarAmbitos: { label: Ámbitos }
+      filter:  ~
+      form:    ~
+      edit:
+        title: Edición del Tipo de Ámbito: %%NOMBRE%%
+      new:
+        title: Nuevo Tipo de Ámbito

@@ -1,0 +1,59 @@
+<?php
+/*
+* Copyright 2010 Instituto de Tecnologías Educativas - Ministerio de Educación de España
+*
+* Licencia con arreglo a la EUPL, Versión 1.1 exclusivamente
+* (la «Licencia»);
+* Solo podrá usarse esta obra si se respeta la Licencia.
+* Puede obtenerse una copia de la Licencia en:
+*
+* http://ec.europa.eu/idabc/eupl5
+* 
+* y también en:
+
+* http://ec.europa.eu/idabc/en/document/7774.html
+*
+* Salvo cuando lo exija la legislación aplicable o se acuerde
+* por escrito, el programa distribuido con arreglo a la
+* Licencia se distribuye «TAL CUAL»,
+* SIN GARANTÍAS NI CONDICIONES DE NINGÚN TIPO, ni expresas
+* ni implícitas.
+* Véase la Licencia en el idioma concreto que rige
+* los permisos y limitaciones que establece la Licencia.
+*/
+?>
+<?php
+
+/**
+ * EdaEmails form.
+ *
+ * @package    ##PROJECT_NAME##
+ * @subpackage form
+ * @author     ##AUTHOR_NAME##
+ * @version    SVN: $Id: sfPropelFormTemplate.php 10377 2008-07-21 07:10:32Z dwhittle $
+ */
+class EdaEmailsForm extends BaseEdaEmailsForm
+{
+    public function configure()
+    {
+        $this -> widgetSchema['id_persona'] = new sfWidgetFormInputHidden();
+        $this -> widgetSchema['id_organismo'] = new sfWidgetFormInputHidden();
+        
+        $this -> widgetSchema['predeterminado'] = new sfWidgetFormChoice(array(
+            'expanded' =>true ,
+            'multiple' => false,
+            'choices'  => array('1' => 'primario', '0' => 'secundario')));
+
+
+        $this -> validatorSchema['direccion']      = new sfValidatorString(array('max_length' => 255, 'required' => false));
+        $this -> validatorSchema['predeterminado'] = new sfValidatorChoice(array ('choices' => array('0','1'), 'required' => false));
+
+        unset ($this -> widgetSchema['created_at']);
+        unset ($this -> widgetSchema['updated_at']);
+        unset ($this -> validatorSchema['created_at']);
+        unset ($this -> validatorSchema['updated_at']);
+
+        $this -> setDefault('id_persona', $this -> getOption('id_persona'));
+        $this -> setDefault('id_organismo', $this -> getOption('id_organismo'));
+    }
+}

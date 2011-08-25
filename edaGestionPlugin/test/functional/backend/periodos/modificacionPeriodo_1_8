@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head profile="http://selenium-ide.openqa.org/profiles/test-case">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<link rel="selenium.base" href="http://localhost/" />
+<title>modificacionPeriodo_1_8</title>
+</head>
+<body>
+<table cellpadding="1" cellspacing="1" border="1">
+<thead>
+<tr><td rowspan="1" colspan="3">modificacionPeriodo_1_8</td></tr>
+</thead><tbody>
+<tr>
+	<td>open</td>
+	<td>/symfonite/web/backend_dev.php/periodos/1/edit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>css=input[type=submit]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>eda_periodos_codigo</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>css=input[type=submit]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>eda_periodos_codigo</td>
+	<td>UO0</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>css=input[type=submit]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>eda_periodos_codigo</td>
+	<td>73jl2rpit54c7oaq9r59w20qsgtif8d4pz2yy5kz802c3t655ba6k38r690581v6098fa45824dpcqv3o3d2g830mxv349xso2x52m6114brr26pwb9m23q1nfbdu906oi7k1rp9ew1utu2y81ondjpp99xy3p1bsl191116l32e1q096n34d4bx7d9ozud46x7852x4f0fien1c21bl67182g8n1grec03k2xhx37ybp72e75bk78428u3v133</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>css=input[type=submit]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>css=input[type=submit]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>eda_periodos_codigo</td>
+	<td>6r393wj4qg2m26kg6s7p9qsw75wvp0l5i37u6xw7vv905d4nr3d075fr3n0aoo29eubmqrhjo4a6pt8xeccbl9rzv1hf50f5528dz169pc0m6v36b8y3ar606t5e1zo0150x49o5o49z4dy48i525386h271463yzvx5a3p15n12s9i74io55722j9ta782v2193s2210lx700zctd5crf6v1x0hzyww2e7x1n23id0q00291o8g8448b76p33jqncii09dz6z449f34tpv8md3urn243g127r2a2x751ug8ccz001447pqf822067w6ks5b6mlpq0o60v5lcdfjus7dfg0n87q3n7m58x36zh1054u7o7z51ez3nrz2z1px507l4q8pd014h6995v52lvgiy1j89wu4mk142gt3r6rzfn9t6awmso4gznc4538760qovspnp4cl856334a8297h9irw23ut0x0y71i2lf8f9ivu11e7</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>css=input[type=submit]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>eda_periodos_codigo</td>
+	<td>UO0</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>css=input[type=submit]</td>
+	<td></td>
+</tr>
+</tbody></table>
+</body>
+</html>

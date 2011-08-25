@@ -1,0 +1,7 @@
+login_papi:
+  url: /login_papi
+  param: { module: edaPAPISesion, action: index }
+
+papi_signin:
+  url: /papi_signin
+  param: { module: edaPAPIAS, action: signin }

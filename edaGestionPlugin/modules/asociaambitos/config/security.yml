@@ -1,0 +1,6 @@
+all:
+  credentials: [[EDAGESTIONPLUGIN_administracion, EDAGESTIONPLUGIN_administracion_uo]]
+edit:
+  credentials: inhabilitado
+new:
+  credentials: inhabilitado

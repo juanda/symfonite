@@ -1,0 +1,213 @@
+eda_usu_atributos_valores_asociaatributos:
+  class: sfPropelRouteCollection
+  options:
+    model:                EdaUsuAtributosValores
+    module:               asociaatributos
+    prefix_path:          /asociaatributos
+    column:               id
+    with_wildcard_routes: true
+eda_usu_atributos_valores:
+  class: sfPropelRouteCollection
+  options:
+    model:                EdaUsuAtributosValores
+    module:               asociaatributos
+    prefix_path:          /asociaatributos
+    column:               id
+    with_wildcard_routes: true
+
+eda_usu_atributos:
+  class: sfPropelRouteCollection
+  options:
+    model:                EdaUsuAtributos
+    module:               atributos
+    prefix_path:          /atributos
+    column:               id
+    with_wildcard_routes: true
+eda_ambitos_asociaambitos:
+  class: sfPropelRouteCollection
+  options:
+    model:                EdaAmbitos
+    module:               asociaambitos
+    prefix_path:          /asociaambitos
+    column:               id
+    with_wildcard_routes: true
+
+eda_ambitos_tipos:
+  class: sfPropelRouteCollection
+  options:
+    model:                EdaAmbitosTipos
+    module:               ambitostipos
+    prefix_path:          /ambitostipos
+    column:               id
+    with_wildcard_routes: true
+
+gen_provincias:
+  class: sfPropelRouteCollection
+  options:
+    model:                GenProvincias
+    module:               provincias
+    prefix_path:          /provincias
+    column:               id
+    with_wildcard_routes: true
+
+gen_paises:
+  class: sfPropelRouteCollection
+  options:
+    model:                GenPaises
+    module:               paises
+    prefix_path:          /paises
+    column:               id
+    with_wildcard_routes: true
+
+gen_comunidades:
+  class: sfPropelRouteCollection
+  options:
+    model:                GenComunidades
+    module:               comunidades
+    prefix_path:          /comunidades
+    column:               id
+    with_wildcard_routes: true
+
+eda_tipos_telefono:
+  class: sfPropelRouteCollection
+  options:
+    model:                EdaTiposTelefono
+    module:               tipostel
+    prefix_path:          /tipostel
+    column:               id
+    with_wildcard_routes: true
+
+eda_tipos_organismo:
+  class: sfPropelRouteCollection
+  options:
+    model:                EdaTiposOrganismo
+    module:               tiposorg
+    prefix_path:          /tiposorg
+    column:               id
+    with_wildcard_routes: true
+
+eda_tipos_direccion:
+  class: sfPropelRouteCollection
+  options:
+    model:                EdaTiposDireccion
+    module:               tiposdir
+    prefix_path:          /tiposdir
+    column:               id
+    with_wildcard_routes: true
+
+eda_organismos:
+  class: sfPropelRouteCollection
+  options:
+    model:                EdaOrganismos
+    module:               organismos
+    prefix_path:          /organismos
+    column:               id
+    with_wildcard_routes: true
+
+eda_perfiles_asociaperfiles:
+  class: sfPropelRouteCollection
+  options:
+    model:                EdaPerfiles
+    module:               asociaperfiles
+    prefix_path:          /asociaperfiles
+    column:               id
+    with_wildcard_routes: true
+
+gen_paises:
+  class: sfPropelRouteCollection
+  options:
+    model:                GenPaises
+    module:               paises
+    prefix_path:          /paises
+    column:               id
+    with_wildcard_routes: true
+
+eda_tipos_docidentificacion:
+  class: sfPropelRouteCollection
+  options:
+    model:                EdaTiposDocidentificacion
+    module:               tiposdoc
+    prefix_path:          /tiposdoc
+    column:               id
+    with_wildcard_routes: true
+
+eda_personas:
+  class: sfPropelRouteCollection
+  options:
+    model:                EdaPersonas
+    module:               personas
+    prefix_path:          /personas
+    column:               id
+    with_wildcard_routes: true
+
+eda_credenciales_asociacredenciales:
+  class: sfPropelRouteCollection
+  options:
+    model:                EdaCredenciales
+    module:               asociacredenciales
+    prefix_path:          /asociacredenciales
+    column:               id
+    with_wildcard_routes: true
+
+eda_culturas:
+  class: sfPropelRouteCollection
+  options:
+    model:                EdaCulturas
+    module:               culturas
+    prefix_path:          /culturas
+    column:               id
+    with_wildcard_routes: true
+
+eda_credenciales:
+  class: sfPropelRouteCollection
+  options:
+    model:                EdaCredenciales
+    module:               credenciales
+    prefix_path:          /credenciales
+    column:               id
+    with_wildcard_routes: true
+
+eda_aplicaciones:
+  class: sfPropelRouteCollection
+  options:
+    model:                EdaAplicaciones
+    module:               aplicaciones
+    prefix_path:          /aplicaciones
+    column:               id
+    with_wildcard_routes: true
+
+eda_ambitos:
+  class: sfPropelRouteCollection
+  options:
+    model:                EdaAmbitos
+    module:               ambitos
+    prefix_path:          /ambitos
+    column:               id
+    with_wildcard_routes: true
+
+eda_perfiles:
+  class: sfPropelRouteCollection
+  options:
+    model:                EdaPerfiles
+    module:               perfiles
+    prefix_path:          /perfiles
+    column:               id
+    with_wildcard_routes: true
+
+eda_uos:
+  class: sfPropelRouteCollection
+  options:
+    model:                EdaUos
+    module:               uos
+    prefix_path:          /uos
+    column:               id
+    with_wildcard_routes: true
+
+eda_periodos:
+  class: sfPropelRouteCollection
+  options:
+    model:                EdaPeriodos
+    module:               periodos
+    prefix_path:          /periodos
+    column:               id
+    with_wildcard_routes: true

@@ -1,0 +1,13 @@
+# You can find more information about this file on the symfony website:
+# http://www.symfony-project.org/reference/1_4/en/11-App
+
+# default values
+all:
+  clave: ##CLAVE##
+  codigo: ##CODIGO##
+  max_num_login_fails: 3
+
+  mantenimiento:
+    activo: 0
+    url_modulo: edaGestorErrores
+    url_accion: mantenimiento

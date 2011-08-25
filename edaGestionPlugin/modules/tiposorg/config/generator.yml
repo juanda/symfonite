@@ -1,0 +1,27 @@
+generator:
+  class: sfPropelGenerator
+  param:
+    model_class:           EdaTiposOrganismo
+    theme:                 admin
+    non_verbose_templates: true
+    with_show:             false
+    singular:              EdaTiposOrganismo
+    plural:                EdaTiposOrganismos
+    route_prefix:          eda_tipos_organismo
+    with_propel_route:     1
+    actions_base_class:    sfActions
+    css:                   none
+
+    config:
+      actions: ~
+      fields:  ~
+      list:
+        title: Listado de Tipos de Organismos
+        max_per_page: 10
+        display: [ nombre, codigo, descripcion ]
+      filter:  ~
+      form:    ~
+      edit:
+        title: Edición del Tipo de Organismo: %%NOMBRE%%
+      new:
+        title: Nuevo Tipo de Organismo

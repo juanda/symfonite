@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head profile="http://selenium-ide.openqa.org/profiles/test-case">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<link rel="selenium.base" href="http://localhost/symfonite/web/backend_dev.php/" />
+<title>alta_1_3</title>
+</head>
+<body>
+<table cellpadding="1" cellspacing="1" border="1">
+<thead>
+<tr><td rowspan="1" colspan="3">alta_1_3</td></tr>
+</thead><tbody>
+<tr>
+	<td>open</td>
+	<td>/symfonite/web/backend_dev.php/aplicaciones/new</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>_save_and_add</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>eda_aplicaciones_descripcion</td>
+	<td>descripcionprueba</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>_save_and_add</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>_save_and_add</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>eda_aplicaciones_descripcion</td>
+	<td>he same &quot;nombre&quot; already exist.</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>eda_aplicaciones_descripcion</td>
+	<td>226jcg34d6gwm1rfojg0w0j7tltm1x129lo0jyc60995ec9klr0n7ahn64k0e161cac87877w2ce6ktz01ua4vj63kh28dw8xydvia91x29182kdau1q5rdgi6ob2r9uxqm5c7bg1x0grtq0c7tgxnp5036t315b09017lum312w36pl6lj75229o5snvsan8w40z24ziazm1we2v5174m23udu7mk44a6cgz74xr74daw4n2j52v9l8a943f94t</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>_save_and_add</td>
+	<td></td>
+</tr>
+
+</tbody></table>
+</body>
+</html>

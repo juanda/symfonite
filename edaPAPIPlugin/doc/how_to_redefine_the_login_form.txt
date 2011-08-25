@@ -1,0 +1,27 @@
+How to redefine the login form
+==============================
+
+There are two possible scenes in which you have to redefine the login form:
+
+1. You would like to change the graphical design.
+
+2. The connector you are developping needs other data different of the classical
+'username' and 'password'.
+
+In both cases, you have to use a symfony form object, so you should know how the
+symfony forms work.
+
+In the first case, you have to add a new template wich render the form as you
+like. The template is a PHP file which must be put in the directory:
+'modules/edaPAPIAS/templates', and must be named
+{connector_name}SigninSuccess.php. For example, if the connector is named
+'array', then the form template will be: arraySigninSuccess.php.
+You can copy the content of the 'modules/edaPAPIAS/templates/signinSuccess.php'
+file and modify it.
+
+In the second case, you have to add a symfony form class which defines the
+form you need. This class must be named {connector_name}SigninForm and should
+live in the connector directory. In our array connector example:
+'lib/connectors/array/arraySigninForm.class.php' would be hold the class.
+If you also need to change the form template, you can do it as explained in the
+first case.

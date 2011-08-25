@@ -1,0 +1,3 @@
+mostrarperfiles:
+  url: /mostrarperfiles
+  param: { module: edaGestorSesion, action: perfiles }

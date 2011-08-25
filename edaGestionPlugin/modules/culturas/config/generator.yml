@@ -1,0 +1,31 @@
+generator:
+  class: sfPropelGenerator
+  param:
+    model_class:           EdaCulturas
+    theme:                 admin
+    non_verbose_templates: true
+    with_show:             false
+    singular:              EdaCulturas
+    plural:                EdaCulturass
+    route_prefix:          eda_culturas
+    with_propel_route:     1
+    actions_base_class:    sfActions
+    css:                   none
+
+    config:
+      actions: ~
+      fields:
+        nombre: { label: Nombre }
+        descripcion: { label: Descripción }
+      list:
+        title: Listado de Culturas
+        display: [ nombre , descripcion]
+        max_per_page: 10
+      filter:
+        display: [ nombre , descripcion]
+      form:
+        display: [ nombre , descripcion]
+      edit:
+        title: Edición de la Cultura: %%NOMBRE%%
+      new:
+        title: Nueva Cultura

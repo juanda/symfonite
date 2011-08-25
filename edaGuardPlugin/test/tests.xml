@@ -1,0 +1,30 @@
+<phpunit bootstrap="bootstrap/unit.php" colors="true">
+  <testsuites>
+    <testsuite name="Object_Suite">
+      <file>/lib/model/EdaAccesosAmbitoPeerTest.php</file>
+      <file>/lib/model/EdaAccesosAmbitoTest.php</file>
+      <file>/lib/model/EdaAccesosPeerTest.php</file>
+      <file>/lib/model/EdaAmbitosI18nPeerTest.php</file>
+      <file>/lib/model/EdaAmbitosI18nTest.php</file>
+      <file>/lib/model/EdaAmbitosI18nTest.php</file>
+      <file>/lib/model/EdaAmbitosTest.php</file>
+      <file>/lib/model/EdaAmbitosTiposPeerTest.php</file>
+      <file>/lib/model/EdaAmbitosTiposTest.php</file>
+      <file>/lib/model/EdaAplicacionesPeerTest.php</file>
+      <file>/lib/model/EdaAplicacionesSesionesPeerTest.php</file>
+      <file>/lib/model/EdaAplicacionesSesionesTest.php</file>
+      <file>/lib/model/EdaConfpersonalesPeerTest.php</file>
+      <file>/lib/model/EdaConfpersonalesTest.php</file>
+      <file>/lib/model/EdaCulturaPeerTest.php</file>
+      <file>/lib/model/EdaCulturaTest.php</file>
+      <file>/lib/model/EdaDireccionesPeerTest.php</file>
+      <file>/lib/model/EdaDireccionesTest.php</file>
+      <file>/lib/model/EdaEmailsPeerTest.php</file>
+      <file>/lib/model/EdaEmailsTest.php</file>
+      <file>/lib/model/EdaUsuAtributosValores.php</file>
+    </testsuite>
+  </testsuites>
+  <logging>
+        <log type="coverage-html" target="/tmp/coverage.html" charset="UTF-8" yui="true" highlight="false" lowUpperBound="35" highLowerBound="70"/>
+  </logging>
+</phpunit>

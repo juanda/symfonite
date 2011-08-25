@@ -1,0 +1,48 @@
+# You can find more information about this file on the symfony website:
+# http://www.symfony-project.org/reference/1_4/en/04-Settings
+
+prod:
+  .settings:
+    no_script_name:         ##NO_SCRIPT_NAME##
+    logging_enabled:        false
+
+dev:
+  .settings:
+    error_reporting:        <?php echo (E_ALL | E_STRICT)."\n" ?>
+    web_debug:              true
+    cache:                  false
+    no_script_name:         false
+    etag:                   false
+
+test:
+  .settings:
+    error_reporting:        <?php echo ((E_ALL | E_STRICT) ^ E_NOTICE)."\n" ?>
+    cache:                  false
+    web_debug:              false
+    no_script_name:         false
+    etag:                   false
+
+all:
+  .settings:
+    # Form security secret (CSRF protection)
+    csrf_secret:            ##CSRF_SECRET##
+
+    # Output escaping settings
+    escaping_strategy:      ##ESCAPING_STRATEGY##
+    escaping_method:        ESC_SPECIALCHARS
+
+    # Enable the database manager
+    use_database:           ##USE_DATABASE##
+
+    enabled_modules:       [ default, edaGestorSesion, edaGestorErrores, edaSAMLSesion, edaPAPISesion ]
+
+    error_404_module:       edaGestorErrores   # To be called when a 404 error is raised
+    error_404_action:       error404  # Or when the requested URL doesn't match any route
+
+    secure_module:          edaGestorErrores   # To be called when a user doesn't have
+    secure_action:          secure    # The credentials required for an action
+
+    login_module:           edaGestorSesion   # To be called when a non-authenticated user
+    login_action:           index     # Tries to access a secure page
+    check_lock:             true
+

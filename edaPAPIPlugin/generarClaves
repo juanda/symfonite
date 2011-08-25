@@ -1,0 +1,15 @@
+La privada
+-----------
+# default 512-bit key, sent to standard output
+openssl genrsa
+
+# 1024-bit key, saved to file named mykey.pem
+openssl genrsa -out mykey.pem 1024
+
+# same as above, but encrypted with a passphrase
+openssl genrsa -des3 -out mykey.pem 1024
+
+
+La pública
+------------
+openssl rsa -in mykey.pem -pubout

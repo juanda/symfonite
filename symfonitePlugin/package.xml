@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<package xmlns="http://pear.php.net/dtd/package-2.0" xmlns:tasks="http://pear.php.net/dtd/tasks-1.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" packagerversion="1.4.1" version="2.0" xsi:schemaLocation="http://pear.php.net/dtd/tasks-1.0 http://pear.php.net/dtd/tasks-1.0.xsd http://pear.php.net/dtd/package-2.0 http://pear.php.net/dtd/package-2.0.xsd">
+ <name>symfonitePlugin</name>
+ <channel>pear.symfony-project.com</channel>
+ <summary>RESUMEN</summary>
+ <description>DESCRIPCION</description>
+ <lead>
+  <name>Juan David Rodríguez</name>
+  <user>juanda</user>
+  <email>juandavid.rodriguez@ite.educacion.es</email>
+  <active>yes</active>
+ </lead>
+ <date>2010-10-27</date>
+ <version>
+   <release>0.8.0</release>
+   <api>0.8.0</api>
+ </version>
+ <stability>
+  <release>beta</release>
+  <api>beta</api>
+ </stability>
+<license uri="http://www.symfony-project.com/license">MIT</license>
+ <notes>-</notes>
+ <contents><dir name="/"><file name="LICENSE" role="data"/><file name="README" role="data"/><dir name="lib"><dir name="task"><dir name="skeleton"><dir name="appITE"><dir name="app"><dir name="i18n"/><dir name="config"><file name="settings.yml" role="data"/><file name="view.yml" role="data"/><file name="filters.yml" role="data"/><file name="routing.yml" role="data"/><file name="ApplicationConfiguration.class.php" role="data"/><file name="app.yml" role="data"/><file name="cache.yml" role="data"/><dir name="error"><file name="error.html.php" role="data"/></dir><file name="security.yml" role="data"/><file name="factories.yml" role="data"/><dir name="menus"/></dir><dir name="templates"><file name="layout.php" role="data"/><file name="ventanaNueva.php" role="data"/><file name="inicio.php" role="data"/></dir><dir name="modules"><dir name="inicio"><dir name="actions"><file name="actions.class.php" role="data"/></dir><dir name="config"><file name="security.yml" role="data"/></dir><dir name="templates"><file name="homepageSuccess.php" role="data"/></dir></dir></dir><dir name="lib"><file name="myUser.class.php" role="data"/></dir></dir><dir name="web"><file name="index.php" role="data"/></dir></dir></dir><file name="iteGenerateProjectTask.class.php" role="data"/><file name="iteGenerateAppTask.class.php" role="data"/></dir></dir></dir></contents>
+
+ <dependencies>
+  <required>
+   <php>
+    <min>5.2.4</min>
+   </php>
+   <pearinstaller>
+    <min>1.4.1</min>
+   </pearinstaller>
+   <package>
+    <name>symfony</name>
+    <channel>pear.symfony-project.com</channel>
+    <min>1.2.0</min>
+    <max>1.5.0</max>
+    <exclude>1.5.0</exclude>
+   </package>
+  </required>
+ </dependencies>
+
+ <phprelease>
+ </phprelease>
+
+ <changelog>
+ </changelog>
+</package>

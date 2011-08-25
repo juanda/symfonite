@@ -1,0 +1,23 @@
+all:
+  eda_papi_plugin_as:
+    connector: symfonite
+    layout:    inicio
+    id:        example_AS
+    pkey_file: <?php echo dirname(__FILE__).'/pkey.pem'.PHP_EOL ?>
+    log_file:  /tmp/aslog
+    ttl:       3600
+
+  eda_papi_plugin_connectors:
+    array:
+      prueba: test parameter
+
+  eda_papi_plugin_filters:
+    sequence:
+      attribute_prune:
+        class_name: AttributePrune
+        configuration:
+           attributes_to_prune: [ ePA, sn ]
+
+      attribute_reverse:
+        class_name: AttributeReverse
+            

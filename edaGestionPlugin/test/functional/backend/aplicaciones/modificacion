@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <meta content="text/html; charset=UTF-8" http-equiv="content-type" />
+  <title>Test Suite</title>
+</head>
+<body>
+<table id="suiteTable" cellpadding="1" cellspacing="1" border="1" class="selenium"><tbody>
+<tr><td><b>Test Suite</b></td></tr>
+<tr><td><a href="login">login</a></td></tr>
+<tr><td><a href="modificacion_1_1">modificacion_1_1</a></td></tr>
+<tr><td><a href="modificacion_1_2">modificacion_1_2</a></td></tr>
+<tr><td><a href="modificacion_1_3">modificacion_1_3</a></td></tr>
+<tr><td><a href="modificacion_1_4">modificacion_1_4</a></td></tr>
+<tr><td><a href="modificacion_1_5">modificacion_1_5</a></td></tr>
+<tr><td><a href="modificacion_1_6">modificacion_1_6</a></td></tr>
+<tr><td><a href="modificacion_1_7">modificacion_1_7</a></td></tr>
+<tr><td><a href="modificacion_1_8">modificacion_1_8</a></td></tr>
+<tr><td><a href="modificacion_1_9">modificacion_1_9</a></td></tr>
+<tr><td><a href="modificacion_1_11">modificacion_1_11</a></td></tr>
+<tr><td><a href="modificacion_1_12">modificacion_1_12</a></td></tr>
+<tr><td><a href="modificacion_1_13">modificacion_1_13</a></td></tr>
+<tr><td><a href="modificacion_1_14">modificacion_1_14</a></td></tr>
+<tr><td><a href="modificacion_1_15">modificacion_1_15</a></td></tr>
+<tr><td><a href="logout">logout</a></td></tr>
+</tbody></table>
+</body>
+</html>

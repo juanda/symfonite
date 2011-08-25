@@ -1,0 +1,26 @@
+index:
+  credentials: [[ EDAGESTIONPLUGIN_administracion, EDAGESTIONPLUGIN_administracion_uo ]]
+filter:
+  credentials: [[ EDAGESTIONPLUGIN_administracion, EDAGESTIONPLUGIN_administracion_uo ]]
+asociaPerfiles:
+  credentials: [[ EDAGESTIONPLUGIN_administracion, EDAGESTIONPLUGIN_administracion_uo ]]
+new:
+  credentials: EDAGESTIONPLUGIN_administracion
+create:
+  credentials: EDAGESTIONPLUGIN_administracion
+edit:
+  credentials: EDAGESTIONPLUGIN_administracion
+update:
+  credentials: EDAGESTIONPLUGIN_administracion
+batch:
+  credentials: EDAGESTIONPLUGIN_administracion
+batchDelete:
+  credentials: EDAGESTIONPLUGIN_administracion
+delete:
+   credentials: EDAGESTIONPLUGIN_administracion
+borraEmail:
+   credentials: EDAGESTIONPLUGIN_administracion
+borraTelefono:
+   credentials: EDAGESTIONPLUGIN_administracion
+borraDireccion:
+   credentials: EDAGESTIONPLUGIN_administracion
