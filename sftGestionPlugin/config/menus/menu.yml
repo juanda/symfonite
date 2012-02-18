@@ -1,0 +1,136 @@
+page: Inicio
+module: inicio
+action: index
+credential: SFTGESTIONPLUGIN_administracion
+menu:
+  -
+     page: UOS
+     module: uo
+     action: index
+     credential: SFTGESTIONPLUGIN_administracion
+     menu:
+       -
+         page: gestión de uos
+         module: uo
+         action: index
+         credential: SFTGESTIONPLUGIN_administracion
+       -
+         page: gestión de periodos
+         module: periodo
+         action: index
+         credential: SFTGESTIONPLUGIN_administracion
+       -
+         page: gestión de perfiles
+         module: perfil
+         action: index
+         credential: SFTGESTIONPLUGIN_administracion
+       -
+         page: gestión de ámbitos
+         module: ambitotipo
+         action: index
+         credential: SFTGESTIONPLUGIN_administracion
+  -
+     page: Usuarios
+     module: persona
+     action: index
+     credential: SFTGESTIONPLUGIN_administracion
+     menu:
+       -
+         page: gestión de personas
+         module: persona
+         action: index
+         credential: SFTGESTIONPLUGIN_administracion_uo
+       -
+         page: gestión de organismos
+         module: organismo
+         action: index
+         credential: SFTGESTIONPLUGIN_administracion_uo       
+  -
+     page: Aplicaciones
+     module: aplicacion
+     action: index
+     credential: SFTGESTIONPLUGIN_administracion
+     menu:
+       -
+         page: gestión de aplicaciones
+         module: aplicacion
+         action: index
+         credential: SFTGESTIONPLUGIN_administracion
+       -
+         page: gestión de culturas
+         module: cultura
+         action: index
+         credential: SFTGESTIONPLUGIN_administracion
+  -
+     page: Localizaciones
+     module: pais
+     action: index
+     credential: SFTGESTIONPLUGIN_administracion
+     menu:
+       -
+         page: gestión países
+         module: pais
+         action: index
+         credential: SFTGESTIONPLUGIN_administracion
+       -
+         page: gestión de comunidades
+         module: comunidad
+         action: index
+         credential: SFTGESTIONPLUGIN_administracion
+       -
+         page: gestión de provincias
+         module: provincia
+         action: index
+         credential: SFTGESTIONPLUGIN_administracion
+  -
+     page: Datos Auxiliares
+     module: tipodoc
+     action: index
+     credential: SFTGESTIONPLUGIN_administracion
+     menu:
+       -
+         page: gestión de tipos de documentos
+         module: tipodoc
+         action: index
+         credential: SFTGESTIONPLUGIN_administracion
+       -
+         page: gestión de tipos de direcciones
+         module: tipodir
+         action: index
+         credential: SFTGESTIONPLUGIN_administracion
+       -
+         page: gestión de tipos de organismos
+         module: tipoorg
+         action: index
+         credential: SFTGESTIONPLUGIN_administracion
+       -
+         page: gestión de tipos de telefonos
+         module: tipotel
+         action: index
+         credential: SFTGESTIONPLUGIN_administracion
+       -
+         page: gestión de atributos
+         module: atributo
+         action: index
+         credential: SFTGESTIONPLUGIN_administracion_uo
+  -
+     page: Identidad Federada
+     module: sftPAPIAdmin
+     action: poaParams
+     credential: SFTGESTIONPLUGIN_administracion
+     menu:
+       -
+         page: gestión del PoA PAPI
+         module: sftPAPIAdmin
+         action: poaParams
+         credential: SFTGESTIONPLUGIN_administracion
+       -
+         page: gestión de simpleSAMLphp
+         module: sftSAMLAdmin
+         action: runSAMLAdmin
+         credential: SFTGESTIONPLUGIN_administracion
+       -
+         page: mapeo de atributos
+         module: attrmapperadmin
+         action: index
+         credential: SFTGESTIONPLUGIN_administracion

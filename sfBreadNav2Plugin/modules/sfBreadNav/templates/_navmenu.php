@@ -20,7 +20,7 @@
     array_push($credArray,'unauthenticated');
   }
   array_push($credArray,''); 
-
+ 
 include_partial('sfBreadNav/navmenu_show', array('menu' => $menu, 'credArray' => $credArray,'credRoles' => $credRoles)); 
 
 ?>

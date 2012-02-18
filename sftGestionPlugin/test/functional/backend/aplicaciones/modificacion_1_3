@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head profile="http://selenium-ide.openqa.org/profiles/test-case">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<link rel="selenium.base" href="http://localhost/" />
+<title>modificacion_1_3</title>
+</head>
+<body>
+<table cellpadding="1" cellspacing="1" border="1">
+<thead>
+<tr><td rowspan="1" colspan="3">modificacion_1_3</td></tr>
+</thead><tbody>
+<tr>
+	<td>open</td>
+	<td>/symfonite/web/backend_dev.php/aplicaciones/4/edit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>eda_aplicaciones_nombre</td>
+	<td>Contabilidad2</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>css=input[type=submit]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>eda_aplicaciones_nombre</td>
+	<td>&nbsp;&nbsp;</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>eda_aplicaciones_nombre</td>
+	<td>d2usq7ondga5xz3d37971c0n662wm147l9w10tcifa535j6870bi988fdsq9n0d591le5jh9717a750230c38f74om8i5h8fg79hihb19b8072o55057q2g78gk84eb1znvka80f4t3cw1xv478357z9s0drz1l2ejs2hjs70oy3ijkv1t0d4w6udsk6pf6l98z0mgt26a395uyo829376010f83gkwx1049670g2t72c7ot6ur0v291511qhr83</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>css=input[type=submit]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>eda_aplicaciones_nombre</td>
+	<td>Contabilidad</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>css=input[type=submit]</td>
+	<td></td>
+</tr>
+
+</tbody></table>
+</body>
+</html>

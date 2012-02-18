@@ -1,0 +1,28 @@
+generator:
+  class: sfPropelGenerator
+  param:
+    model_class:           SftTipoDocidentificacion
+    theme:                 admin
+    non_verbose_templates: true
+    with_show:             false
+    singular:              SftTipoDocidentificacion
+    plural:                SftTipoDocidentificacions
+    route_prefix:          sft_tipo_docidentificacion
+    with_propel_route:     1
+    actions_base_class:    sfActions
+    css:                   none
+
+    config:
+      actions: ~
+      fields:
+        funciondecontrol: [ label: funciondecontrol ]
+      list:
+        title: Listado de tipos de documentos de identificación
+        display: [ nombre, funciondecontrol ]
+        max_per_page: 10
+      filter:  ~
+      form:    ~
+      edit:
+        title: Edición del tipo de documento de identificación: %%NOMBRE%%
+      new:
+        title: Nuevo tipo de documento de indentificación

@@ -1,50 +1,52 @@
-<?php 
+<?php
+
 class sfBreadNavAddPageForm extends sfForm
 {
-  public function configure()
-  {
-  }
 
-  public function setup()
-  {
-       
-	  
-	  $this->validatorSchema['id'] = new sfValidatorPass();
-      $this->validatorSchema['page'] = new sfValidatorString(array('max_length' => 255));
-      $this->validatorSchema['module'] = new sfValidatorString(array('max_length' => 128));
-      $this->validatorSchema['action'] = new sfValidatorString(array('max_length' => 128, 'required'=>false));
-      $this->validatorSchema['credential'] = new sfValidatorString(array('max_length' => 128, 'required'=>false));
-      $this->validatorSchema['catch_all'] = new sfValidatorPass();
-      $this->validatorSchema['parent'] = new sfValidatorPass();
-      $this->validatorSchema['order'] = new sfValidatorPass();
-      $this->validatorSchema['order_option'] = new sfValidatorPass();
-     $this->errorSchema = new sfValidatorErrorSchema($this->validatorSchema);
+    public function configure()
+    {
+        
+    }
 
-      $this->setDefault('order_option','below');
+    public function setup()
+    {
 
-      parent::setup();
-  }
 
-   public function setSelectBoxes($scope)
-   {
+        $this->validatorSchema['id'] = new sfValidatorPass();
+        $this->validatorSchema['page'] = new sfValidatorString(array('max_length' => 255));
+        $this->validatorSchema['module'] = new sfValidatorString(array('max_length' => 128));
+        $this->validatorSchema['action'] = new sfValidatorString(array('max_length' => 128, 'required' => false));
+        $this->validatorSchema['credential'] = new sfValidatorString(array('max_length' => 128, 'required' => false));
+        $this->validatorSchema['catch_all'] = new sfValidatorPass();
+        $this->validatorSchema['parent'] = new sfValidatorPass();
+        $this->validatorSchema['order'] = new sfValidatorPass();
+        $this->validatorSchema['order_option'] = new sfValidatorPass();
+        $this->errorSchema = new sfValidatorErrorSchema($this->validatorSchema);
 
-      $parents = sfBreadNavPeer::getParentArray($scope);
-      $order = sfBreadNavPeer::getOrderArray($scope);
+        $this->setDefault('order_option', 'below');
 
-      $orderoption = array('above'=>'above','below'=>'below');
+        parent::setup();
+    }
 
-      $this->widgetSchema['id'] = new sfWidgetFormInputHidden();
-      $this->widgetSchema['page'] = new sfWidgetFormInput();
-      $this->widgetSchema['module'] = new sfWidgetFormInput();
-      $this->widgetSchema['action'] = new sfWidgetFormInput();
-      $this->widgetSchema['credential'] = new sfWidgetFormInput();
-      $this->widgetSchema['catch_all'] = new sfWidgetFormInputCheckbox();
-      $this->widgetSchema['parent'] = new sfWidgetFormSelect(array('choices' => $parents));
-      $this->widgetSchema['order'] = new sfWidgetFormSelect(array('choices' => $order));
-      $this->widgetSchema['order_option'] = new sfWidgetFormSelectRadio(array('choices' => $orderoption));
+    public function setSelectBoxes($scope)
+    {
 
-      $this->widgetSchema->setNameFormat('sfbreadnavaddpageform[%s]');
-   }
+        $parents = sfBreadNavPeer::getParentArray($scope);
+        $order = sfBreadNavPeer::getOrderArray($scope);
 
-  
+        $orderoption = array('above' => 'above', 'below' => 'below');
+
+        $this->widgetSchema['id'] = new sfWidgetFormInputHidden();
+        $this->widgetSchema['page'] = new sfWidgetFormInput();
+        $this->widgetSchema['module'] = new sfWidgetFormInput();
+        $this->widgetSchema['action'] = new sfWidgetFormInput();
+        $this->widgetSchema['credential'] = new sfWidgetFormInput();
+        $this->widgetSchema['catch_all'] = new sfWidgetFormInputCheckbox();
+        $this->widgetSchema['parent'] = new sfWidgetFormSelect(array('choices' => $parents));
+        $this->widgetSchema['order'] = new sfWidgetFormSelect(array('choices' => $order));
+        $this->widgetSchema['order_option'] = new sfWidgetFormSelectRadio(array('choices' => $orderoption));
+
+        $this->widgetSchema->setNameFormat('sfbreadnavaddpageform[%s]');
+    }
+
 }

@@ -1,7 +1,7 @@
 <?php
     
 	//check for escaping strategy to get raw arrays when neccessary
-	$escaping_on =  (sfConfig::get('sf_escaping_strategy') == 1) ? true : false;
+$escaping_on =  (sfConfig::get('sf_escaping_strategy') == 1) ? true : false;
 	
 	
     $cssie56open  = '<!--[if gte IE 7]><!--></a><!--<![endif]--><!--[if lte IE 6]><table><tr><td><![endif]-->';
@@ -10,7 +10,7 @@
     echo '<style>.spacertable{ width:100%; }</style><!--[if lte IE 6]><style>.spacertable{ width:auto; display:none; }</style><![endif]-->';
     $cssff2= '<table  class="spacertable"><tr><td></td></tr></table>';
         
-	$c = $escaping_on ?  navbarfunctions::getCredentialCriteria($credArray->getRawValue(), $credRoles) : navbarfunctions::getCredentialCriteria($credArray, $credRoles);		       
+    $c = $escaping_on ?  navbarfunctions::getCredentialCriteria($credArray->getRawValue(), $credRoles) : navbarfunctions::getCredentialCriteria($credArray, $credRoles);		       
     $c->addAscendingOrderByColumn(sfBreadNavPeer::TREE_LEFT);
     $c->add(sfBreadNavApplicationPeer::NAME, $menu);
     $c->addJoin(sfBreadNavPeer::SCOPE, sfBreadNavApplicationPeer::ID);

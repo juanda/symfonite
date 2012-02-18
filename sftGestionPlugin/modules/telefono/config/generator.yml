@@ -1,0 +1,30 @@
+generator:
+  class: sfPropelGenerator
+  param:
+    model_class:           SftTelefono
+    theme:                 admin
+    non_verbose_templates: true
+    with_show:             false
+    singular:              SftTelefono
+    plural:                SftTelefonos
+    route_prefix:          sft_telefono
+    with_propel_route:     1
+    actions_base_class:    sfActions
+
+    config:
+      actions: ~
+      fields:  
+        numerotelefono: { label: número }
+        sfttipotelefono: { label: tipo}
+      list:    
+        title: Listado de teléfonos
+        max_per_page: 10
+        display: [ numerotelefono, sfttipotelefono ]
+      filter:  
+        class: TelefonoIdUsuarioHiddenFormFilter
+      form:    
+        class: TelefonoIdUsuarioHiddenForm
+      edit:    
+        title: Edicion del teléfono
+      new:     
+        title: Nuevo teléfono

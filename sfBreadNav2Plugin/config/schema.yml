@@ -1,4 +1,4 @@
-edae3:
+sft:
   _attributes:      { package: plugins.sfBreadNav2Plugin.lib.model }
   
   sf_BreadNav:
@@ -22,4 +22,4 @@ edae3:
     user_id:        { type: integer }
     name:           { type: varchar, size: 255, required: true }
     application:    { type: varchar, size: 255, required: true }
-    css:            { type: varchar, size: 2000, required: false }
+    css:            { type: varchar, size: 2000, required: true }

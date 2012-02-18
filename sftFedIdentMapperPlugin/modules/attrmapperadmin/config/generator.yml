@@ -1,0 +1,25 @@
+generator:
+  class: sfPropelGenerator
+  param:
+    model_class:           SftFidAtributo
+    theme:                 admin
+    non_verbose_templates: true
+    with_show:             false
+    singular:              SftFidAtributo
+    plural:                SftFidAtributos
+    route_prefix:          sft_fid_atributo
+    with_propel_route:     1
+    actions_base_class:    sfActions
+    css:                   false
+
+    config:
+      actions: ~
+      fields:  ~
+      list:    
+        title: Listado de Atributos de IdP's
+      filter:  ~
+      form:    ~
+      edit:    
+        title: Edición del atributo: %%atributo%%
+      new:     
+        title: Nuevo Atributo

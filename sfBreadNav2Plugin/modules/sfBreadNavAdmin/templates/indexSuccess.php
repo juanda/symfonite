@@ -1,46 +1,172 @@
-<br/>
-<strong><?php echo link_to('Manage application menus','sfBreadNavAdmin/list') ?></strong>
-<br/>
-<br/>
-<?php if (isset($nomenu)) {echo "Go to menu page to create a menu for the desired application"; return;}?>
-<?php include_partial ('select_menu', array('form' => $scopeform)); ?>
-<?php 
-
-if (isset($freshinstall)) {
-  echo "<br/><br/>";
-  echo link_to('Start By Creating A Home Page/Root', 'sfBreadNavAdmin/edithome?scope=' . $scope);
-  return;
-  }else{
-    if (!is_null($scope)) {
-         include_partial ('page_tree',array('scope' => $scope));
-    }
-  }
-    
-?>
 <style type="text/css"> 
-#breadnavtreetable tr.odd { background-color: #fff; padding: 1em; } 
-#breadnavtreetable tr.even { background-color: #ccc; padding: 1em; }
-#breadnavtreetable td {padding-left: 1em; padding-right: 1em;}
+    #breadnavtreetable tr.odd { background-color: #fff; padding: 1em; } 
+    #breadnavtreetable tr.even { background-color: #ccc; padding: 1em; }
+    #breadnavtreetable td {padding-left: 1em; padding-right: 1em;}
 </style> 
-<br/>
-<?php  if (isset($edit)){echo '<h3>Editing: '. $form->getDefault('page') .'</h3>'; }?>
-<form action="<?php echo url_for('sfBreadNavAdmin/index?scope='.$scope) ?>" method='POST'>
-<table style="text-align:left;">
-<?php echo $form ?>
-<tr>
-<td></td><td><input type='submit' value='<?php
-if (isset ($edit)) {echo 'Update Page'; }else{echo 'Add Page';} 
-?>' /></td>
-</tr>
-</table>
-</form>
-<?php if (isset($edit) ):?>
-<br/>
-<a href='<?php echo url_for('sfBreadNavAdmin/index?scope='.$scope) ?>'>New page</a>
-<br/>
-<br/>
-<form method="post" action='<?php echo url_for('sfBreadNavAdmin/deletepage?pageid=' . $form->getDefault('id') . "&scope=" . $scope );?>'>
-<input type='submit' value="delete" onclick="if (!confirm('Are you sure?')){return false;}">  
-</form>
+<?php use_helper('I18N') ?>
 
-<?php endif; ?>
+
+<div id="sf_admin_container">
+    <h1>Menú de la aplicación: <?php echo $aplicacion->getNombre() ?></h1>
+
+    <div id="sf_admin_header">
+
+        <div class="hint">
+            <?php if (!isset($freshinstall)): ?>
+                <?php echo __('Utiliza el formulario de al lado para añadir nuevos items de menú.
+               Para editar los existentes pulsa sobre el item en cuestión y actualízalo con dicho formulario.') ?> 
+            <?php else: ?>
+            <?php echo __('El menú tiene estructura de árbol (como un directorio).
+                Comienza creando un item de menú para la página de inicio. Todos los demás items serán hijos de
+                este.') ?>          
+            <?php endif; ?>
+        </div>
+    </div>
+
+
+    <div id="sf_admin_bar">
+        <?php if (!isset($freshinstall)): ?>
+            <div class="sf_admin_form">
+                <form action="<?php echo url_for('sfBreadNavAdmin/index?scope=' . $scope) ?>" method='POST'>
+
+                    <?php echo $form->renderGlobalErrors() ?>
+                    <?php echo $form->renderHiddenFields() ?>
+                    <fieldset id="sf_fieldset_1">
+                        <h2><?php
+                if (isset($edit))
+                {
+                    echo __('Editar') . ': ' . $form->getDefault('page');
+                } else
+                {
+                    echo __('Añadir item de Menú');
+                }
+                    ?></h2>
+
+
+
+                        <div class="sf_admin_form_row">
+                            <div>
+                                <label for="textedit2"><?php echo __('página') ?></label>
+                                <?php echo $form['page']->renderError() ?>
+                                <?php echo $form['page'] ?>
+                            </div>
+                        </div>
+
+                        <div class="sf_admin_form_row">
+                            <div>
+                                <label for="textedit2"><?php echo __('módulo') ?></label>
+                                <?php echo $form['module']->renderError() ?>
+                                <?php echo $form['module'] ?>
+                            </div>
+                        </div>
+
+                        <div class="sf_admin_form_row">
+                            <div>
+                                <label for="textedit2"><?php echo __('acción') ?></label>
+                                <?php echo $form['action']->renderError() ?>
+                                <?php echo $form['action'] ?>
+                            </div>
+                        </div>
+
+                        <div class="sf_admin_form_row">
+                            <div>
+                                <label for="textedit2"><?php echo __('credencial') ?></label>
+                                <?php echo $form['credential']->renderError() ?>
+                                <?php echo $form['credential'] ?>
+                            </div>
+                        </div>
+
+                        <div class="sf_admin_form_row">
+                            <div>
+                                <label for="textedit2"><?php echo __('catch all') ?></label>
+                                <?php echo $form['catch_all']->renderError() ?>
+                                <?php echo $form['catch_all'] ?>
+                            </div>
+                        </div>
+
+                        <div class="sf_admin_form_row">
+                            <div>
+                                <label for="textedit2"><?php echo __('menú padre') ?></label>
+                                <?php echo $form['parent']->renderError() ?>
+                                <?php echo $form['parent'] ?>
+                            </div>
+                        </div>
+
+                        <div class="sf_admin_form_row">
+                            <div>
+                                <label for="textedit2"><?php echo __('orden') ?></label>
+                                <?php echo $form['order']->renderError() ?>
+                                <?php echo $form['order'] ?>
+                            </div>
+                        </div>
+
+                        <div class="sf_admin_form_row">
+                            <div>
+                                <label for="textedit2"><?php echo __('posición') ?></label>
+                                <?php echo $form['order_option']->renderError() ?>
+                                <?php echo $form['order_option'] ?>
+                            </div>
+                        </div>
+
+                    </fieldset>
+
+
+                    <ul class="sf_admin_actions">
+                        <li><input type='submit' value='<?php
+                            if (isset($edit))
+                            {
+                                echo _('Actualizar item');
+                            } else
+                            {
+                                echo __('Añadir item');
+                            }
+                                ?>' /></li>
+                    </ul>
+                </form>
+            </div>
+
+            <?php if (isset($edit)): ?>
+                <div class="sf_admin_form">
+                    <form method="post" action='<?php echo url_for('sfBreadNavAdmin/deletepage?pageid=' . $form->getDefault('id') . "&scope=" . $scope); ?>'>
+
+                        <ul class="sf_admin_actions">
+                            <li>
+                                <a href='<?php echo url_for('sfBreadNavAdmin/index?scope=' . $scope) ?>'><?php echo __('Nuevo Item') ?></a>
+                            </li>
+                            <li>
+                                <input type='submit' value="<?php echo __('borrar') ?>" onclick="if (!confirm('Are you sure?')){return false;}">  
+                            </li>
+                        </ul>
+                    </form>
+                </div>
+            <?php endif; ?> 
+
+        <?php endif; ?>
+    </div>
+
+
+    <div id="sf_admin_content">
+        <form>
+            <div class="sf_admin_list">
+                <?php include_partial('select_menu', array('form' => $scopeform)); ?>
+                <?php
+                if (isset($freshinstall))
+                {
+                    echo '<div class="sf_admin_container"><ul class="sf_admin_actions"><li>'.link_to(__('Crear item de menú de inicio'), 'sfBreadNavAdmin/edithome?scope=' . $scope).'</li></ul></div>';
+                    return;
+                } else
+                {
+                    if (!is_null($scope))
+                    {
+                        include_partial('page_tree', array('scope' => $scope));
+                    }
+                }
+                ?>
+            </div>
+        </form>
+    </div>
+
+    <div id="sf_admin_footer">
+    </div>
+
+</div>

@@ -1,0 +1,124 @@
+Availables connectors
+=====================
+
+* arrayConnector
+* symfoniteConnector
+
+arrayConnector
+--------------
+
+
+symfoniteConnector
+------------------
+This connector allows to retrieve the user information from the database  used
+as backend for the sfGuardPlugin and/or the sftGuardPlugin.
+
+The first one is a well and stable symfony plugin developed by the symfony team
+and used to perform the authentication process and also to assign permissions to
+them directly or through defined groups. The plugin also allows to manage the
+users, permissions and groups by means of their corresponding backend modules.
+
+The sftGuardPlugin is an extension of the sfGuardPlugin which defines a more
+complex data model conceived to group the users of the system in a very flexible
+organizational structure. This plugin is a part of the symfonite system, which
+extends the symfony framework throught a set of plugins, speeding up the
+web application development proccess by automatically building applications
+functional "skeleton" with common functionalities:
+    - authentication process,
+    - credential an permission assignement,
+    - access control to registered applications
+    - role switching
+    - personal configuration setting
+    - federated identification througth SAML and PAPI protocols
+
+The symfonite system also incorpores a backend to manage all these elements.
+
+In this documents we are going to explain how to use the symfoniteConnector
+with the sfGuardPlugin alone, since symfonite has its own documentation where
+the use of the sftPAPIPlugin is explained.
+
+It is recommended to deploy the AS in a symfony application and the backend
+in another different application (this is not a must). In the following steps
+we are going to create two symfony applications named "as" and "backend". The
+first one will hold the AS, and the second will hold the administration backend.
+Obviously the election of these names are up to you.
+
+* Generate a propel project
+
+  $ symfony generate:project project_name --orm=Propel
+
+* Generate the applications
+
+  $ symfony generate:app as
+  $ symfony generate:app backend
+
+* Install the plugin
+
+  $ symfony plugin:install sfGuardPlugin
+
+* Create the database and set the connection parameter in the config/databases.yml
+  file of the project.
+
+* Build the model, forms, filters, sql and build de database:
+  
+  $ symfony propel:build-model
+  $ symfony propel:build-form
+  $ symfony propel:build-filters
+  $ symfony propel:build-sql
+  $ symfony propel:insert-sql
+
+* Enable the admin modules and the authentication module and set the login_module
+  and login_action in the backend application. Edit the file
+  apps/backend/config/app.yml and add:
+
+ #apps/backend/config/app.yml
+ [yaml]
+ all:
+  .settings:
+    enabled_modules:  [default, sfGuardAuth, sfGuardUser, sfGuardGroup, sfGuardPermission]
+    login_module: sfGuardAuth
+    login_action: signin
+
+* Change the class myUser in the backend application:
+
+  [php]
+  #apps/backend/lib/myUser.class.php
+  <?php
+
+  class myUser extends sfGuardSecurityUser
+  {
+  }
+
+* Create a system admin user:
+
+  $ symfony guard:create-user admin admin
+  $ symfony guard:promote admin
+
+* Securize the backend application. Edit the file apps/backend/config/security.yml
+
+  [yaml]
+  #apps/backend/config/security.yml
+  default:
+    is_secure: true
+
+* Now you can manage users, permissions and groups through the following URL's:
+
+  http://domain.name/path_to_the_web_directory/backend.php/sfGuardUser
+  http://domain.name/path_to_the_web_directory/backend.php/sfGuardPermission
+  http://domain.name/path_to_the_web_directory/backend.php/sfGuardGroup
+
+  In order to use this plugin and it's database as user's information system, 
+  you must set "symfonite" as the connector:
+
+  [yaml]
+  #apps/plugins/sftPAPIPlugin/config/app.yml
+  all:
+    sft_papi_plugin_as:
+      connector: symfonite
+
+  Now you can test the AS from a PoA which uses this AS.
+
+
+
+
+

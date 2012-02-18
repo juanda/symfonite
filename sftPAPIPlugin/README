@@ -1,0 +1,105 @@
+sftPAPIPlugin
+=============
+
+This is a plugin wich allows
+
+- to deploy a PAPI Authentification Server (AS)
+- to guard your application through an PAPI Point Of Access (PAPI)
+
+That is, this plugins gives the tools to build a PAPI identification federation.
+
+Installation
+------------
+* Install the plugin
+
+  $ symfony plugin:install sftPAPIPlugin
+
+Building a PAPI AS
+------------------
+* Generate a symfony application which will hold the Authentication Server
+
+  $ symfony generate:app as
+
+* Enable in the application settings.yml file the plugin module sftPAPIAS:
+  [php]
+   all:
+    .settings:
+      enabled_modules:      [default, sftPAPIAS]
+
+* Configure the AS. The whole configuration is made through the app.yml
+  file of the plugin (plugins/sftPAPIPlugin/config/app.yml):
+
+  [yaml]
+  all:
+    sft_papi_plugin_as:
+      connector: array
+      layout:    layout
+      id:        example_AS
+      pkey_file: <?php echo dirname(__FILE__).'/pkey.pem'.PHP_EOL ?>
+      log_file:  /tmp/aslog
+      ttl:       3600
+
+    sft_papi_plugin_connectors:
+      array:
+        prueba: test parameter
+
+    sft_papi_plugin_filters:
+      sequence:
+        attribute_prune:
+          class_name: AttributePrune
+          configuration:
+            attributes_to_prune: [ ePA, sn ]
+
+        attribute_reverse:
+          class_name: AttributeReverse
+
+   parameter explanation:
+
+   -> sft_papi_plugin_as_connector: the connector name you are using to access
+      the information system where your users data are stored. By default is set
+      to "array" which is a connector example you can use like a model to develop
+      yours own connectors.
+   -> sft_papi_plugin_as_layout: The layout name you are going to use when
+      rendering the login form. By default is set to 'layout', that is, the
+      layout.php file use by default by the symfony framework.
+   -> sft_papi_plugin_as_id: The identification name of the Authentication Server
+      you are deploying.
+   -> sft_papi_plugin_as_pkey_file: The absolute path file where the private key
+      is stored.
+   -> sft_papi_plugin_as_log_file: The absolute path file where the log info is
+      dumped
+   -> sft_papi_plugin_as_ttl: The session's Time To Live
+   -> sft_papi_plugin_connectors: is the section where you can set the parameter
+      needed by the connectors.
+   -> sft_papi_plugin_filters: is the section where you can activate the
+      existing filters to apply on the retrieved attributes before the assertion
+      is builded. The document 'how_to_use_and_create_filters.txt' explain every
+      thing about the filters.
+
+   Important! The plugin is delivered with a private key which you can use just
+   for testing. In a production enviroment you MUST generate your own private
+   key.
+
+* Assign a custom route to the signin action. By default the URL to access the
+  AS is:
+  http://domain.name/path_to_the_index/index.php/signin
+
+  You can customize the resource name (signin) by modifying the config/routing.yml
+
+This Authentication Server uses which has been called a "connector" in order to
+retrieve information about the user which is being logged into the system. Such
+a connector is an object of a class implementing a set of well defined method
+needed by the PAPI framework in order to get such information and do the work.
+You can see the available connector that have been developed up to the moment
+in the file 'doc/connectors.txt'. However, if you don't find there a connector that
+matches your needs, you can develop your own easily with a minimum knowledge of
+PHP. The file 'doc/how_to_create_a_connector.txt' explain how to do this. You are
+encouraged to develop your own connector and to let us known in order to add
+him to the 'sftPAPIPlugin' distribution.
+
+In order to test you can use the 'arrayConnector' available with this plugin.
+Such connector gets the users data from a PHP array, showing clearly the interface
+of a connector class.
+
+Convert your application in a PAPI Point Of Access
+--------------------------------------------------

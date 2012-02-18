@@ -1,0 +1,172 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head profile="http://selenium-ide.openqa.org/profiles/test-case">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<link rel="selenium.base" href="http://localhost/" />
+<title>ousUseCases</title>
+</head>
+<body>
+<table cellpadding="1" cellspacing="1" border="1">
+<thead>
+<tr><td rowspan="1" colspan="3">ousUseCases</td></tr>
+</thead><tbody>
+<tr>
+	<td>open</td>
+	<td>/LaMadraza/web/backend_dev.php/uos</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>signin_username</td>
+	<td>anselmo</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>signin_password</td>
+	<td>pruebas</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>//input[@value='Continuar']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>link=gestión de uos</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>link=New</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>eda_uos_codigo</td>
+	<td>11</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>eda_uos_observaciones</td>
+	<td>Observaciones de Unidad</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>eda_uos_marca</td>
+	<td>marca</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>eda_uos_es_ES_nombre</td>
+	<td>Usuarios</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>eda_uos_es_ES_abreviatura</td>
+	<td>usu</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>eda_uos_es_ES_cabecera</td>
+	<td>cabecera</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>eda_uos_es_ES_descripcion</td>
+	<td>descripcion</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>eda_uos_en_GB_nombre</td>
+	<td>Users</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>eda_uos_en_GB_abreviatura</td>
+	<td>usu</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>eda_uos_en_GB_cabecera</td>
+	<td>head</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>eda_uos_en_GB_descripcion</td>
+	<td>description</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>eda_uos_it_IT_nombre</td>
+	<td>utttenti</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>eda_uos_it_IT_abreviatura</td>
+	<td>usu</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>eda_uos_it_IT_cabecera</td>
+	<td>head</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>eda_uos_it_IT_descripcion</td>
+	<td>description</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>//input[@value='Save']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>link=Back to list</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>link=Edit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>link=Back to list</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>//div[@id='sf_admin_content']/form/div/table/tbody/tr[4]/td[6]/ul/li[1]/a</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>eda_uos_marca</td>
+	<td>gral</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>link=Back to list</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//div[@id='sf_admin_content']/form/div/table/tbody/tr[4]/td[6]/ul/li[2]/a</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertConfirmation</td>
+	<td>Are you sure?</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>link=salir</td>
+	<td></td>
+</tr>
+
+</tbody></table>
+</body>
+</html>

@@ -1,0 +1,251 @@
+gen_localidad:
+  class: sfPropelRouteCollection
+  options:
+    model:                GenLocalidad
+    module:               localidad
+    prefix_path:          /localidad
+    column:               id
+    with_wildcard_routes: true
+
+sft_telefono:
+  class: sfPropelRouteCollection
+  options:
+    model:                SftTelefono
+    module:               telefono
+    prefix_path:          /telefono
+    column:               id
+    with_wildcard_routes: true
+
+sft_direccion:
+  class: sfPropelRouteCollection
+  options:
+    model:                SftDireccion
+    module:               direccion
+    prefix_path:          /direccion
+    column:               id
+    with_wildcard_routes: true
+
+sft_email:
+  class: sfPropelRouteCollection
+  options:
+    model:                SftEmail
+    module:               email
+    prefix_path:          /email
+    column:               id
+    with_wildcard_routes: true
+    
+sft_usu_atributo_valor_asociaatributos:
+  class: sfPropelRouteCollection
+  options:
+    model:                SftUsuAtributoValor
+    module:               asociaatributos
+    prefix_path:          /asociaatributos
+    column:               id
+    with_wildcard_routes: true
+    
+sft_usu_atributo_valor:
+  class: sfPropelRouteCollection
+  options:
+    model:                SftUsuAtributoValor
+    module:               asociaatributos
+    prefix_path:          /asociaatributos
+    column:               id
+    with_wildcard_routes: true
+
+sft_usu_atributo:
+  class: sfPropelRouteCollection
+  options:
+    model:                SftUsuAtributo
+    module:               atributo
+    prefix_path:          /atributo
+    column:               id
+    with_wildcard_routes: true
+    
+sft_ambito_asociaambitos:
+  class: sfPropelRouteCollection
+  options:
+    model:                SftAmbito
+    module:               asociaambitos
+    prefix_path:          /asociaambitos
+    column:               id
+    with_wildcard_routes: true
+
+sft_ambito_tipo:
+  class: sfPropelRouteCollection
+  options:
+    model:                SftAmbitoTipo
+    module:               ambitotipo
+    prefix_path:          /ambitotipo
+    column:               id
+    with_wildcard_routes: true
+
+gen_provincia:
+  class: sfPropelRouteCollection
+  options:
+    model:                GenProvincia
+    module:               provincia
+    prefix_path:          /provincia
+    column:               id
+    with_wildcard_routes: true
+
+gen_pais:
+  class: sfPropelRouteCollection
+  options:
+    model:                GenPais
+    module:               pais
+    prefix_path:          /pais
+    column:               id
+    with_wildcard_routes: true
+
+gen_comunidad:
+  class: sfPropelRouteCollection
+  options:
+    model:                GenComunidad
+    module:               comunidad
+    prefix_path:          /comunidad
+    column:               id
+    with_wildcard_routes: true
+
+sft_tipo_telefono:
+  class: sfPropelRouteCollection
+  options:
+    model:                SftTipoTelefono
+    module:               tipotel
+    prefix_path:          /tipotel
+    column:               id
+    with_wildcard_routes: true
+
+sft_tipo_organismo:
+  class: sfPropelRouteCollection
+  options:
+    model:                SftTipoOrganismo
+    module:               tipoorg
+    prefix_path:          /tipoorg
+    column:               id
+    with_wildcard_routes: true
+
+sft_tipo_direccion:
+  class: sfPropelRouteCollection
+  options:
+    model:                SftTipoDireccion
+    module:               tipodir
+    prefix_path:          /tipodir
+    column:               id
+    with_wildcard_routes: true
+
+sft_organismo:
+  class: sfPropelRouteCollection
+  options:
+    model:                SftOrganismo
+    module:               organismo
+    prefix_path:          /organismo
+    column:               id
+    with_wildcard_routes: true
+
+sft_perfil_asociaperfiles:
+  class: sfPropelRouteCollection
+  options:
+    model:                SftPerfil
+    module:               asociaperfiles
+    prefix_path:          /asociaperfiles
+    column:               id
+    with_wildcard_routes: true
+
+sft_tipo_docidentificacion:
+  class: sfPropelRouteCollection
+  options:
+    model:                SftTipoDocidentificacion
+    module:               tipodoc
+    prefix_path:          /tipodoc
+    column:               id
+    with_wildcard_routes: true
+
+sft_persona:
+  class: sfPropelRouteCollection
+  options:
+    model:                SftPersona
+    module:               persona
+    prefix_path:          /persona
+    column:               id
+    with_wildcard_routes: true
+
+busca_personas:
+  class: sfPropelRouteCollection
+  options:
+    model:                SftPersona
+    module:               busca_personas
+    prefix_path:          /busca_personas
+    column:               id
+    with_wildcard_routes: true
+
+sft_credencial_asociacredenciales:
+  class: sfPropelRouteCollection
+  options:
+    model:                SftCredencial
+    module:               asociacredenciales
+    prefix_path:          /asociacredenciales
+    column:               id
+    with_wildcard_routes: true
+
+sft_cultura:
+  class: sfPropelRouteCollection
+  options:
+    model:                SftCultura
+    module:               cultura
+    prefix_path:          /cultura
+    column:               id
+    with_wildcard_routes: true
+
+sft_credencial:
+  class: sfPropelRouteCollection
+  options:
+    model:                SftCredencial
+    module:               credencial
+    prefix_path:          /credencial
+    column:               id
+    with_wildcard_routes: true
+
+sft_aplicacion:
+  class: sfPropelRouteCollection
+  options:
+    model:                SftAplicacion
+    module:               aplicacion
+    prefix_path:          /aplicacion
+    column:               id
+    with_wildcard_routes: true
+
+sft_ambito:
+  class: sfPropelRouteCollection
+  options:
+    model:                SftAmbito
+    module:               ambito
+    prefix_path:          /ambito
+    column:               id
+    with_wildcard_routes: true
+
+sft_perfil:
+  class: sfPropelRouteCollection
+  options:
+    model:                SftPerfil
+    module:               perfil
+    prefix_path:          /perfil
+    column:               id
+    with_wildcard_routes: true
+
+sft_uo:
+  class: sfPropelRouteCollection
+  options:
+    model:                SftUo
+    module:               uo
+    prefix_path:          /uo
+    column:               id
+    with_wildcard_routes: true
+
+sft_periodo:
+  class: sfPropelRouteCollection
+  options:
+    model:                SftPeriodo
+    module:               periodo
+    prefix_path:          /periodo
+    column:               id
+    with_wildcard_routes: true

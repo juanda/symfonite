@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<package xmlns="http://pear.php.net/dtd/package-2.0" xmlns:tasks="http://pear.php.net/dtd/tasks-1.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" packagerversion="1.4.1" version="2.0" xsi:schemaLocation="http://pear.php.net/dtd/tasks-1.0 http://pear.php.net/dtd/tasks-1.0.xsd http://pear.php.net/dtd/package-2.0 http://pear.php.net/dtd/package-2.0.xsd">
+ <name>ActivosPlugin</name>
+ <channel>pear.symfony-project.com</channel>
+ <summary>RESUMEN</summary>
+ <description>DESCRIPCION</description>
+ <lead>
+  <name>Juan David Rodríguez</name>
+  <user>juanda</user>
+  <email>juandavid.rodriguez@ite.educacion.es</email>
+  <active>yes</active>
+ </lead>
+ <date>2010-10-27</date>
+ <version>
+   <release>0.8.0</release>
+   <api>0.8.0</api>
+ </version>
+ <stability>
+  <release>beta</release>
+  <api>beta</api>
+ </stability>
+<license uri="http://www.symfony-project.com/license">MIT</license>
+ <notes>-</notes>
+ <contents><dir name="/"><file name="LICENSE" role="data"/><file name="README" role="data"/><dir name="web"><dir name="sf"><dir name="sf_default"><dir name="css"><file name="pngfix.htc" role="data"/><file name="ie.css" role="data"/><file name="screen.css" role="data"/></dir><dir name="images"><file name="bg_body.jpg" role="data"/><file name="bg_sfTAlert.jpg" role="data"/><file name="bg_sfTLock.jpg" role="data"/><file name="sfTLogo.png" role="data"/><file name="trans.gif" role="data"/><dir name="icons"><file name="db16.png" role="data"/><file name="lock48.png" role="data"/><file name="cancel48.png" role="data"/><file name="folder16.png" role="data"/><file name="ok48.png" role="data"/><file name="tools48.png" role="data"/><file name="edit16.png" role="data"/><file name="reload16.png" role="data"/><file name="disabled48.png" role="data"/><file name="colour16.png" role="data"/><file name="linkOut16.png" role="data"/></dir><file name="bg_sfTMessage.jpg" role="data"/></dir></dir><dir name="calendar"><file name="calendar.js" role="data"/><file name="calendar-system.css" role="data"/><dir name="skins"><dir name="aqua"><file name="active-bg.gif" role="data"/><file name="rowhover-bg.gif" role="data"/><file name="theme.css" role="data"/><file name="hover-bg.gif" role="data"/><file name="normal-bg.gif" role="data"/><file name="menuarrow.gif" role="data"/><file name="title-bg.gif" role="data"/><file name="dark-bg.gif" role="data"/><file name="status-bg.gif" role="data"/><file name="today-bg.gif" role="data"/></dir></dir><dir name="lang"><file name="calendar-hu.js" role="data"/><file name="calendar-da.js" role="data"/><file name="calendar-eu.js" role="data"/><file name="calendar-he.js" role="data"/><file name="calendar-fi.js" role="data"/><file name="calendar-ca.js" role="data"/><file name="calendar-en.js" role="data"/><file name="calendar-ja.js" role="data"/><file name="calendar-sr.js" role="data"/><file name="calendar-it.js" role="data"/><file name="calendar-af.js" role="data"/><file name="calendar-sv.js" role="data"/><file name="calendar-fr.js" role="data"/><file name="calendar-de.js" role="data"/><file name="calendar-nl.js" role="data"/><file name="calendar-es.js" role="data"/><file name="calendar-ru.js" role="data"/><file name="calendar-ro.js" role="data"/><file name="calendar-sl.js" role="data"/><file name="calendar-pt.js" role="data"/><file name="calendar-lt.js" role="data"/><file name="calendar-pt_BR.js" role="data"/><file name="calendar-cs.js" role="data"/><file name="calendar-sk.js" role="data"/><file name="calendar-tr.js" role="data"/><file name="calendar-hr.js" role="data"/><file name="calendar-bg.js" role="data"/><file name="calendar-zh.js" role="data"/><file name="calendar-el.js" role="data"/><file name="calendar-sq.js" role="data"/><file name="calendar-ko.js" role="data"/><file name="calendar-no.js" role="data"/><file name="calendar-lv.js" role="data"/><file name="calendar-pl.js" role="data"/></dir><file name="calendar-setup.js" role="data"/></dir><dir name="sf_admin"><dir name="js"><file name="collapse.js" role="data"/><file name="double_list.js" role="data"/></dir><dir name="css"><file name="main.css" role="data"/></dir><dir name="images"><file name="delete.png" role="data"/><file name="default_icon.png" role="data"/><file name="delete_icon.png" role="data"/><file name="ok.png" role="data"/><file name="help.png" role="data"/><file name="previous.png" role="data"/><file name="filter.png" role="data"/><file name="list.png" role="data"/><file name="date.png" role="data"/><file name="add.png" role="data"/><file name="tick.png" role="data"/><file name="edit_icon.png" role="data"/><file name="last.png" role="data"/><file name="first.png" role="data"/><file name="save.png" role="data"/><file name="cancel.png" role="data"/><file name="error.png" role="data"/><file name="edit.png" role="data"/><file name="next.png" role="data"/><file name="reset.png" role="data"/></dir></dir><dir name="prototype"><dir name="js"><file name="slider.js" role="data"/><file name="sound.js" role="data"/><file name="index.html" role="data"/><file name="builder.js" role="data"/><file name="unittest.js" role="data"/><file name="dragdrop.js" role="data"/><file name="controls.js" role="data"/><file name="prototype.js" role="data"/><file name="effects.js" role="data"/><file name="scriptaculous.js" role="data"/></dir><dir name="css"><file name="input_auto_complete_tag.css" role="data"/></dir></dir><dir name="sf_web_debug"><dir name="js"><file name="main.js" role="data"/></dir><dir name="css"><file name="main.css" role="data"/></dir><dir name="images"><file name="reload.png" role="data"/><file name="config.png" role="data"/><file name="sf.png" role="data"/><file name="close.png" role="data"/><file name="memory.png" role="data"/><file name="time.png" role="data"/><file name="toggle.gif" role="data"/><file name="warning.png" role="data"/><file name="comment.png" role="data"/><file name="error.png" role="data"/><file name="database.png" role="data"/><file name="info.png" role="data"/></dir></dir></dir><dir name="js"><dir name="colorbox"><file name="jquery.colorbox.js" role="data"/></dir><dir name="javapp"><file name="ntr2ozs.js" role="data"/><file name="pong.js" role="data"/><file name="notas.js" role="data"/></dir></dir><dir name="css"><file name="colorbox.css" role="data"/><file name="main.css" role="data"/><file name="menu.css" role="data"/><dir name="img_default"><file name="desc.png" role="data"/><file name="arriba.png" role="data"/><file name="logo.png" role="data"/><file name="fondo_wrapper.jpg" role="data"/><file name="asc.png" role="data"/><file name="menu_izq.gif" role="data"/><file name="logo-me.gif" role="data"/><file name="menu_der.gif" role="data"/><file name="abajo.png" role="data"/><file name="fon-home.jpg" role="data"/></dir><dir name="img_menu"><file name="button4a.gif" role="data"/><file name="vineta_menu.gif" role="data"/><file name="fd_menu.gif" role="data"/></dir><dir name="img_contenido"><file name="delete.png" role="data"/><file name="list.png" role="data"/><file name="tick.png" role="data"/><file name="new.png" role="data"/><file name="error.png" role="data"/><file name="edit.png" role="data"/><file name="default.png" role="data"/></dir><file name="contenido.css" role="data"/><file name="default.css" role="data"/></dir><dir name="images"><file name="lock48.png" role="data"/><file name="cancel48.png" role="data"/><dir name="iconos"><dir name="16x16"><file name="clean.png" role="data"/><file name="personal.png" role="data"/><file name="agt_action_fail.png" role="data"/><file name="help.png" role="data"/><file name="agt_action_success.png" role="data"/><file name="agt_runit.png" role="data"/><file name="lock.png" role="data"/><file name="add_user.png" role="data"/><file name="logout.png" role="data"/><file name="kedit.png" role="data"/><file name="agt_family.png" role="data"/><file name="14_layer_visible.png" role="data"/><file name="timespan.png" role="data"/><file name="advancedsettings.png" role="data"/></dir><dir name="48x48"><file name="software-development.png" role="data"/></dir></dir><file name="previous.png" role="data"/><file name="menu_izq.gif" role="data"/><file name="tick.png" role="data"/><file name="last.png" role="data"/><file name="first.png" role="data"/><dir name="javapp"><file name="close.png" role="data"/><dir name="twoot"><file name="jquery-latest.pack.js" role="data"/><file name="icon.png" role="data"/></dir><file name="ball-white.png" role="data"/></dir><file name="icono_prohibido.gif" role="data"/><file name="menu_der.gif" role="data"/><file name="icono_check.gif" role="data"/><file name="next.png" role="data"/></dir></dir></dir></contents>
+
+ <dependencies>
+  <required>
+   <php>
+    <min>5.2.4</min>
+   </php>
+   <pearinstaller>
+    <min>1.4.1</min>
+   </pearinstaller>
+   <package>
+    <name>symfony</name>
+    <channel>pear.symfony-project.com</channel>
+    <min>1.2.0</min>
+    <max>1.5.0</max>
+    <exclude>1.5.0</exclude>
+   </package>
+  </required>
+ </dependencies>
+
+ <phprelease>
+ </phprelease>
+
+ <changelog>
+ </changelog>
+</package>

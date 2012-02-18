@@ -1,0 +1,2 @@
+all:
+  credentials: [[SFTGESTIONPLUGIN_administracion, SFTGESTIONPLUGIN_administracion_uo]]

@@ -28,8 +28,8 @@ function bool2string ($bool) {
 ?>
 
 <br/>
-    <table style='border-spacing: 0px 0px; border-style: none; border-collapse: collapse;' id="breadnavtreetable">
-      <tr class='odd'><strong><td>PAGE NAME</td><td>MODULE</td><td>ACTION</td><td>CREDENTIAL</td><td>CATCH ALL</td></strong></tr>
+    <table cellspacing="0">
+      <tr class='odd'><th><?php echo __('Nombre del item') ?></th><th><?php echo __('Módulo') ?></th><th><?php echo __('Acción') ?></th><th><?php echo __('Credencial') ?></th><th><?php echo __('Catch all') ?></th></strong></tr>
       <tr class='even'>
        <td><a href="<?php echo url_for('sfBreadNavAdmin/edithome?scope=' . $scope) ?>"><?php echo $root->getPage() ?></a></td>
        <td><?php echo $root->getModule() ?></php></td>

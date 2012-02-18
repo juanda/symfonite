@@ -1,0 +1,28 @@
+generator:
+  class: sfPropelGenerator
+  param:
+    model_class:           SftAmbito
+    theme:                 admin
+    non_verbose_templates: true
+    with_show:             false
+    singular:              SftAmbito
+    plural:                SftAmbito
+    route_prefix:          sft_ambito_asociaambitos
+    with_propel_route:     1
+    actions_base_class:    sfActions
+    css:                   none
+
+    config:
+      actions: ~
+      fields:
+        SftAmbitoTipos: { label: Tipo de Ámbito }
+        SftPeriodo:     { label: Periodo }
+      list:
+        title: Selecciona ambitos
+        display: [ Nombre, Descripcion, SftPeriodo, Estado]
+        max_per_page: 10
+      filter:
+        class: AmbitosModuloFormFilter
+      form:    ~
+      edit:    ~
+      new:     ~

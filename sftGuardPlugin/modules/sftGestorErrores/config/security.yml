@@ -1,0 +1,6 @@
+error404:
+  is_secure: false
+mantenimiento:
+  is_secure: false
+mensajeError:
+  is_secure: false

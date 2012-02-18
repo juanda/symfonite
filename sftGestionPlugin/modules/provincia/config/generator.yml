@@ -1,0 +1,27 @@
+generator:
+  class: sfPropelGenerator
+  param:
+    model_class:           GenProvincia
+    theme:                 admin
+    non_verbose_templates: true
+    with_show:             false
+    singular:              GenProvincia
+    plural:                GenProvincias
+    route_prefix:          gen_provincia
+    with_propel_route:     1
+    actions_base_class:    sfActions
+    css:                   none
+
+    config:
+      actions: ~
+      fields:  ~
+      list:
+        title: Listado de Provincias
+        max_per_page: 10
+        display: [ nombre, nombreabrev ]
+      filter:  ~
+      form:    ~
+      edit:
+        title: Edicion de la Provincia: %%NOMBRE%%
+      new:
+        title: Nueva Provincia

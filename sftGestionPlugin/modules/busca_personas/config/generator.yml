@@ -1,0 +1,28 @@
+generator:
+  class: sfPropelGenerator
+  param:
+    model_class:           SftPersonas
+    theme:                 admin
+    non_verbose_templates: true
+    with_show:             false
+    singular:              SftPersonas
+    plural:                SftPersonass
+    route_prefix:          busca_personas
+    with_propel_route:     1
+    actions_base_class:    sfActions
+
+    config:
+      actions:
+      fields:  ~
+      list:
+        title: Búsqueda de personas
+        display: [ nombre, apellido1, apellido2, docidentificacion ]
+        max_per_page: 15
+        object_actions:
+          seleccionar: ~
+        actions: {  }
+      filter:
+        display: [ nombre, apellido1, apellido2, docidentificacion ]
+      form:    ~
+      edit:    ~
+      new:     ~

@@ -1,0 +1,29 @@
+generator:
+  class: sfPropelGenerator
+  param:
+    model_class:           SftEmail
+    theme:                 admin
+    non_verbose_templates: true
+    with_show:             false
+    singular:              SftEmail
+    plural:                SftEmails
+    route_prefix:          sft_email
+    with_propel_route:     1
+    actions_base_class:    sfActions
+    css:                   false
+
+    config:
+      actions: ~
+      fields:  ~
+      list:    
+        title: Listado de emails
+        max_per_page: 10
+        display: [ direccion, predeterminado ]
+      filter:  
+        class: EmailIdUsuarioHiddenFormFilter
+      form:    
+        class: EmailIdUsuarioHiddenForm
+      edit:    
+        title: Edicion del email
+      new:     
+        title: Nuevo email

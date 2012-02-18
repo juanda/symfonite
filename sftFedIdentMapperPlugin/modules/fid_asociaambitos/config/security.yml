@@ -1,0 +1,6 @@
+all:
+  credentials: [ SFTGESTIONPLUGIN_administracion ]
+edit:
+  credentials: inhabilitado
+new:
+  credentials: inhabilitado

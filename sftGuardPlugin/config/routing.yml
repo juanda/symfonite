@@ -1,0 +1,7 @@
+mostrarperfiles:
+  url: /mostrarperfiles
+  param: { module: sftGestorSesion, action: perfiles }
+  
+registro:
+  url: /registro
+  param: { module: sftGestorSesion, action: registro }

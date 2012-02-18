@@ -1,0 +1,36 @@
+generator:
+  class: sfPropelGenerator
+  param:
+    model_class:           SftUo
+    theme:                 admin
+    non_verbose_templates: true
+    with_show:             false
+    singular:              uo
+    plural:                uos
+    route_prefix:          sft_uo
+    with_propel_route:     1
+    actions_base_class:    sfActions
+    css: false
+
+    config:
+      actions: ~
+      fields:
+        nombre: { label: Nombre }
+        codigo: { label: Código }
+        observaciones: { label: Observaciones }        
+      list:
+        title: Listado de Unidades Organizativas
+        max_per_page: 10
+        display: [ nombre, codigo, observaciones ]
+        object_actions:
+          _edit: ~
+          _delete: ~
+          asociaperfiles: { label: perfiles }
+          asociaperiodos: { label: periodos }
+      filter:
+        display: [ codigo, observaciones  ]
+      form:    ~
+      edit:
+        title: Edición de la Unidad Organizativa: %%NOMBRE%%
+      new:
+        title: Nueva Unidad Organizativa

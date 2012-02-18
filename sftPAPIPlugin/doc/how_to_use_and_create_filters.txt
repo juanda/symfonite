@@ -1,0 +1,37 @@
+How to use and create filters
+=============================
+
+Once the user attributes have been retrieved thanks to the connector, the PAPI
+framework can filter them before the PAPI assertion is builded and sent.
+
+How to use the filters
+----------------------
+You can use the available filters which are listed and described in the document
+'filters.txt'. In order to use these filters you must add them to the filters
+section of the app.yml file as follows:
+
+[yaml]
+...
+   sft_papi_plugin_filters:
+     sequence:
+       filter_reference:
+         class_name: nameOfTheClassImplementingTheFilter
+         configuration:
+            param1: value1
+            param2: value2
+
+You can add as many filters as you want to the sequence. The documentation
+of each filter must explain the correct values of its parameters.
+
+How to create new filters
+=========================
+Create a new filter is as easy as create a new class wich defines an public
+static method called 'execute($attributes, $configuration)'. Such method must
+get as the first argument the attributes array and as the second an array with
+the configuration defined in the app.yml file. The method must return an array
+with the filtered attributes.
+
+Take a look at the classes defined in the 'lib/filters' directory to see how
+simple is a filter implementation.
+
+

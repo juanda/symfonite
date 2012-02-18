@@ -70,14 +70,14 @@ class iteGenerateAppTask extends sfGenerateAppTask
         $this->briefDescription = 'Generates a new ITE application';
         $this -> addOption('titulo',   null, sfCommandOption::PARAMETER_OPTIONAL, 'El titulo de la aplicacion que se ve en la cabecera');
         $this -> addOption('clave',    null, sfCommandOption::PARAMETER_OPTIONAL, 'la clave de la aplicacion facilitada en el registro de la misma');
-        $this -> addOption('es_admin', null, sfCommandOption::PARAMETER_OPTIONAL, 'si es_admin=true, se instala el plugin edaGestionPlugin y se habilitan sus módulos para la gestión de la base de datos núcleo');
-        $this -> addOption('nombre',   null, sfCommandOption::PARAMETER_OPTIONAL, 'Si la aplicación es de administración, el nombre con el que se desea registrar (default: GestionEDAE3)');
+        $this -> addOption('es_admin', null, sfCommandOption::PARAMETER_OPTIONAL, 'si es_admin=true, se instala el plugin sftGestionPlugin y se habilitan sus módulos para la gestión de la base de datos núcleo');
+        $this -> addOption('nombre',   null, sfCommandOption::PARAMETER_OPTIONAL, 'Si la aplicación es de administración, el nombre con el que se desea registrar (default: Gestión Symfonite)');
         
         $dd = $this->detailedDescription;
 
         $this->detailedDescription = <<<EOF
 Genera una aplicación ITE con:
-    - los modulos edaGestorSesion y edaGestorErrores habilitados
+    - los modulos sftGestorSesion y sftGestorErrores habilitados
     - los parámetros error_404_module, error_404_action, secure_module, secure_action,
                      login_module y login_action adecuadamente definidos
     - la aplicación es segura
@@ -206,23 +206,23 @@ EOF;
         }
 
         $databaseManager = new sfDatabaseManager($this -> configuration);
-        $connection      = $databaseManager -> getDatabase('edae3') -> getConnection();
+        $connection      = $databaseManager -> getDatabase('sft') -> getConnection();
 
         $titulo  = isset($options['titulo']) ? $options['titulo'] : 'Título aplicación';
         $clave   = isset($options['clave']) ? $options['clave'] : '';
         $url     = isset($options['url']) ? $options['url'] : '';
-        
-        $this -> getFilesystem() -> replaceTokens($appDir.'/templates/layout.php', '##', '##', array('MENU' => 'menu_'.$arguments['app']));
-        $this -> getFilesystem() -> replaceTokens($appDir.'/templates/layout.php', '##', '##', array('TITULO' => $titulo));
 
-        $this -> getFilesystem() -> replaceTokens($appDir.'/templates/inicio.php', '##', '##', array('TITULO' => $titulo));
+        $this -> getFilesystem() -> replaceTokens($appDir.'/config/app.yml', '##', '##', array('TITULO' => $titulo));
+//
+        $this -> getFilesystem() -> replaceTokens($appDir.'/config/app.yml', '##', '##', array('TITULO' => $titulo));
         if(!isset($options['es_admin']) ||  $options['es_admin'] != 'true')
         {
-            $aplicacion = EdaAplicacionesPeer::dameAplicacionConClave($clave);
-            if($aplicacion instanceof EdaAplicaciones)
+            $aplicacion = SftAplicacionPeer::dameAplicacionConClave($clave);
+            
+            if($aplicacion instanceof SftAplicacion)
             {
-                $credencialDeAcceso = $aplicacion -> getEdaCredenciales();
-                if(! $credencialDeAcceso instanceof  EdaCredenciales)
+                $credencialDeAcceso = $aplicacion -> getSftCredencial();
+                if(! $credencialDeAcceso instanceof  SftCredencial)
                 {
                     throw new sfCommandException(sprintf('Error!, la aplicación no tiene asignada la credencial de acceso!!'));
                 }
@@ -241,40 +241,50 @@ EOF;
 
         if($options['es_admin'] == 'true')
         {
-            $nombre  = ($nombre == '') ? 'GestionEDAE3': $nombre;
+            $nombre  = ($nombre == '') ? 'Gestión Symfonite': $nombre;
             $clave   = ($clave  == '') ? 'cambiar': $clave;
 
             // Habilitamos el plugin de gestión
-            $this->enablePlugin('edaGestionPlugin');
+            $this->enablePlugin('sftGestionPlugin');
             
             $settings = sfYaml::load('./apps/'.$app.'/config/settings.yml');
-            array_push($settings['all']['.settings']['enabled_modules'], 'periodos');
-            array_push($settings['all']['.settings']['enabled_modules'], 'uos');
-            array_push($settings['all']['.settings']['enabled_modules'], 'perfiles');
-            array_push($settings['all']['.settings']['enabled_modules'], 'ambitos');
-            array_push($settings['all']['.settings']['enabled_modules'], 'aplicaciones');
-            array_push($settings['all']['.settings']['enabled_modules'], 'credenciales');
+            array_push($settings['all']['.settings']['enabled_modules'], 'periodo');
+            array_push($settings['all']['.settings']['enabled_modules'], 'uo');
+            array_push($settings['all']['.settings']['enabled_modules'], 'perfil');
+            array_push($settings['all']['.settings']['enabled_modules'], 'ambito');
+            array_push($settings['all']['.settings']['enabled_modules'], 'aplicacion');
+            array_push($settings['all']['.settings']['enabled_modules'], 'credencial');
             array_push($settings['all']['.settings']['enabled_modules'], 'asociacredenciales');
-            array_push($settings['all']['.settings']['enabled_modules'], 'culturas');
-            array_push($settings['all']['.settings']['enabled_modules'], 'personas');
+            array_push($settings['all']['.settings']['enabled_modules'], 'cultura');
+            array_push($settings['all']['.settings']['enabled_modules'], 'persona');
+            array_push($settings['all']['.settings']['enabled_modules'], 'email');
+            array_push($settings['all']['.settings']['enabled_modules'], 'telefono');
+            array_push($settings['all']['.settings']['enabled_modules'], 'direccion');
             array_push($settings['all']['.settings']['enabled_modules'], 'asociaperfiles');
-            array_push($settings['all']['.settings']['enabled_modules'], 'atributos');
+            array_push($settings['all']['.settings']['enabled_modules'], 'atributo');
             array_push($settings['all']['.settings']['enabled_modules'], 'asociaatributos');
-            array_push($settings['all']['.settings']['enabled_modules'], 'tiposdoc');
-            array_push($settings['all']['.settings']['enabled_modules'], 'organismos');
-            array_push($settings['all']['.settings']['enabled_modules'], 'tiposdir');
-            array_push($settings['all']['.settings']['enabled_modules'], 'tiposdoc');
-            array_push($settings['all']['.settings']['enabled_modules'], 'tiposorg');
-            array_push($settings['all']['.settings']['enabled_modules'], 'tipostel');
-            array_push($settings['all']['.settings']['enabled_modules'], 'paises');
-            array_push($settings['all']['.settings']['enabled_modules'], 'comunidades');
-            array_push($settings['all']['.settings']['enabled_modules'], 'provincias');
-            array_push($settings['all']['.settings']['enabled_modules'], 'ambitostipos');
+            array_push($settings['all']['.settings']['enabled_modules'], 'tipodoc');
+            array_push($settings['all']['.settings']['enabled_modules'], 'organismo');
+            array_push($settings['all']['.settings']['enabled_modules'], 'tipodir');
+            array_push($settings['all']['.settings']['enabled_modules'], 'tipodoc');
+            array_push($settings['all']['.settings']['enabled_modules'], 'tipoorg');
+            array_push($settings['all']['.settings']['enabled_modules'], 'tipotel');
+            array_push($settings['all']['.settings']['enabled_modules'], 'pais');
+            array_push($settings['all']['.settings']['enabled_modules'], 'comunidad');
+            array_push($settings['all']['.settings']['enabled_modules'], 'provincia');
+            array_push($settings['all']['.settings']['enabled_modules'], 'ambitotipo');
             array_push($settings['all']['.settings']['enabled_modules'], 'asociaambitos');
             array_push($settings['all']['.settings']['enabled_modules'], 'sfGuardUser');
             array_push($settings['all']['.settings']['enabled_modules'], 'sfGuardGroup');
             array_push($settings['all']['.settings']['enabled_modules'], 'sfGuardPermission');
             array_push($settings['all']['.settings']['enabled_modules'], 'sfBreadNavAdmin');
+            array_push($settings['all']['.settings']['enabled_modules'], 'sftPAPIAdmin');
+            array_push($settings['all']['.settings']['enabled_modules'], 'sftSAMLAdmin');
+            array_push($settings['all']['.settings']['enabled_modules'], 'attrmapperadmin');
+            array_push($settings['all']['.settings']['enabled_modules'], 'fid_asociaperfiles');
+            array_push($settings['all']['.settings']['enabled_modules'], 'fid_asociaambitos');
+            array_push($settings['all']['.settings']['enabled_modules'], 'fid_mapping');
+            
 
             $settings_yml = sfYaml::dump($settings);
 
@@ -286,7 +296,7 @@ EOF;
 
             // Creamos el menu
 
-            $this -> getFileSystem() -> copy('./plugins/edaGestionPlugin/config/menus/menu.yml','./apps/'.$app.'/config/menus/root.yml');
+            $this -> getFileSystem() -> copy('./plugins/sftGestionPlugin/config/menus/menu.yml','./apps/'.$app.'/config/menus/root.yml');
 
             // creamos las tablas de la base de dato. La base de datos debe estar creada
 
@@ -299,21 +309,21 @@ EOF;
             $textoIntro = <<< END
 <p>Esta aplicación permite administrar toda la estructura de organizativa de tu centro:</p><ul><li>Las Unidades Organizativas (departamentos, por ejemplo)</li><li>Los perfiles asociados a cada unidad (administradores, contables, profesores ...)</li><li>Los ámbitos de trabajo de cada perfil (cursos para los profesores, por ejemplo)</li><li>Los periodos de funcionamiento (ejercicios académicos, por ejemplo)</li></ul><br/><p>También sirve para registrar las aplicaciones que se acoplen al sistema, para asociarlas a los perfiles que las necesiten y para construir sus menús.</p><p>Y por último, puedes gestionar tus usuarios asignándoles los perfiles que precisen.</p><p>Puedes cambiar este mensaje de introducción a través del menú <i>Aplicaciones</i> de esta misma aplicación.</p>
 END;
-            $aplicacion = new EdaAplicaciones();
-            $aplicacion -> setCodigo($nombre);
+            $aplicacion = new SftAplicacion();
+            $aplicacion -> setCodigo($arguments['app']);
             $aplicacion -> setNombre($nombre);
             $aplicacion -> setDescripcion('Administración del Núcleo');
+            $aplicacion -> setEsSymfonite(true);
             $aplicacion -> setUrl($url);
             $aplicacion -> setClave($clave);
             $aplicacion -> setTextoIntro($textoIntro);
-            $aplicacion -> setSfApp($arguments['app']);
 
             $aplicacion -> save();
 
             //alta credencial de acceso a la aplicación
-            $credencial = new EdaCredenciales();
+            $credencial = new SftCredencial();
             $credencial -> setIdAplicacion($aplicacion -> getId());
-            $credencial -> setNombre($nombre.'_ACCESO');
+            $credencial -> setNombre($aplicacion->getCodigo().'_ACCESO');
             $credencial -> setDescripcion('Credencial de acceso a la aplicación:'. $nombre);
 
             $credencial -> save();
@@ -321,25 +331,25 @@ END;
             $aplicacion -> setIdCredencial($credencial -> getId());
             $aplicacion -> save();
 
-            // alta credencial de administración total del plugin edaGestionPlugin
-            $credencial_admon = new EdaCredenciales();
+            // alta credencial de administración total del plugin sftGestionPlugin
+            $credencial_admon = new SftCredencial();
             $credencial_admon -> setIdAplicacion($aplicacion -> getId());
-            $credencial_admon -> setNombre('EDAGESTIONPLUGIN_administracion');
+            $credencial_admon -> setNombre('SFTGESTIONPLUGIN_administracion');
             $credencial_admon -> setDescripcion('Administración completa de la aplicación:'. $nombre);
 
             $credencial_admon -> save();
 
-            // alta credencial de administración desde una UO particular del plugin edaGestionPlugin
-            $credencial_admon_uo = new EdaCredenciales();
+            // alta credencial de administración desde una UO particular del plugin sftGestionPlugin
+            $credencial_admon_uo = new SftCredencial();
             $credencial_admon_uo -> setIdAplicacion($aplicacion -> getId());
-            $credencial_admon_uo -> setNombre('EDAGESTIONPLUGIN_administracion_uo');
+            $credencial_admon_uo -> setNombre('SFTGESTIONPLUGIN_administracion_uo');
             $credencial_admon_uo -> setDescripcion('Administración parcial de la aplicación:'. $nombre);
 
             $credencial_admon_uo -> save();
 
 
             // alta UO
-            $uo = new EdaUos();
+            $uo = new SftUo();
             $uo -> setCodigo('UO0');
             $uo -> setNombre('UO Administración', 'es_ES');
             $uo -> setNombre('Administration UO', 'en_GB');
@@ -348,7 +358,7 @@ END;
 
             // alta periodo
 
-            $periodo = new EdaPeriodos();
+            $periodo = new SftPeriodo();
             $periodo -> setIdUo($uo -> getId());
             $periodo -> setFechainicio(date('Y-m-d'));
             $periodo -> setEstado('ACTIVO');
@@ -358,9 +368,8 @@ END;
 
             // alta perfil
 
-            $perfil = new EdaPerfiles();
+            $perfil = new SftPerfil();
             $perfil -> setIdUo($uo -> getId());
-            $perfil -> setMenu('root.yml');
             $perfil -> setNombre('SuperAdministrador', 'es_ES');
             $perfil -> setNombre('SuperAdministrator', 'en_GB');
             $perfil -> setAbreviatura('SuperAdmin', 'es_ES');
@@ -370,19 +379,19 @@ END;
 
             // asociacion perfil - credencial
 
-            $perfil_credencial = new EdaPerfilCredencial();
+            $perfil_credencial = new SftPerfilCredencial();
             $perfil_credencial -> setIdPerfil($perfil -> getId());
             $perfil_credencial -> setIdCredencial($credencial -> getId());
 
             $perfil_credencial -> save();
 
-            $perfil_credencial = new EdaPerfilCredencial();
+            $perfil_credencial = new SftPerfilCredencial();
             $perfil_credencial -> setIdPerfil($perfil -> getId());
             $perfil_credencial -> setIdCredencial($credencial_admon -> getId());
 
             $perfil_credencial -> save();
 
-            $perfil_credencial = new EdaPerfilCredencial();
+            $perfil_credencial = new SftPerfilCredencial();
             $perfil_credencial -> setIdPerfil($perfil -> getId());
             $perfil_credencial -> setIdCredencial($credencial_admon_uo -> getId());
 
@@ -390,17 +399,21 @@ END;
 
 
             // alta persona, cuando se da de alta la persona, también se
-            // da de alta el EdaUsuarios y el SfGuardUser
+            // da de alta el SftUsuarios y el SfGuardUser
 
-            $persona = new EdaPersonas();
+            $persona = new SftPersona();
             $persona -> setNombre('root');
 
             $persona -> save();
 
             // alta acceso
 
-            $usuarios = $persona -> getEdaUsuarioss();
-            $acceso = new EdaAccesos();
+            $usuarios = $persona -> getSftUsuarios();
+            $sfUser   = $usuarios[0]-> dameSfGuardUser();
+            $sfUser->setUsername('admin');
+            $sfUser->setPassword('admin');
+            $sfUser->save();
+            $acceso = new SftAcceso();
             $acceso -> setIdUsuario($usuarios[0] -> getId());
             $acceso -> setIdPerfil($perfil -> getId());
             $acceso -> setEsinicial(1);
@@ -408,7 +421,7 @@ END;
             $acceso -> save();
 
             // alta configuracion personal
-            $confPersonal = new EdaConfPersonales();
+            $confPersonal = new SftConfPersonal();
             $confPersonal -> setIdUsuario($usuarios[0] -> getId());
             $confPersonal -> setIdAplicacion($aplicacion -> getId());
             $confPersonal -> setIdPeriodo($periodo -> getId());
@@ -418,13 +431,13 @@ END;
 
             // alta culturas
 
-            $cultura1 = new EdaCulturas();
+            $cultura1 = new SftCultura();
             $cultura1 -> setNombre('es_ES');
             $cultura1 -> setDescripcion('Español');
 
             $cultura1 -> save();
 
-            $cultura2 = new EdaCulturas();
+            $cultura2 = new SftCultura();
             $cultura2 -> setNombre('en_GB');
             $cultura2 -> setDescripcion('English');
 

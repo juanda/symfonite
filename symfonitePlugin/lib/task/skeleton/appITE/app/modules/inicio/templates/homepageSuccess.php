@@ -26,3 +26,5 @@
     window.name = '<?php echo sfConfig::get('app_codigo') ?>';
 </script>
 <h1>Página de inicio</h1>
+
+<?php echo image_themes_tag('native/images/symfonite.jpg') ?>

@@ -1,0 +1,45 @@
+generator:
+  class: sfPropelGenerator
+  param:
+    model_class:           SftPersona
+    theme:                 admin
+    non_verbose_templates: true
+    with_show:             false
+    singular:              SftPersona
+    plural:                SftPersonas
+    route_prefix:          sft_persona
+    with_propel_route:     1
+    actions_base_class:    sfActions
+    css:                   false
+
+    config:
+      actions:
+        _new:    { credentials: [SFTGESTIONPLUGIN_administracion] }
+      fields:
+        apellido1: { label: Apellido 1º }
+        apellido2: { label: Apellido 2º }
+        docidentificacion: { label: Documento }
+        id_tipodocidentificacion: {label: Tipo Documento }
+        id_paisdocidentificacion: {label: País del Documento }
+        sfusername: { label: Username }
+        fechanacimiento: { label: Fecha de nacimiento }
+        profesion: { label: Profesión }
+      list:
+        title: Listado de Personas
+        display: [ =nombre, apellido1, apellido2, sfusername, docidentificacion]
+        max_per_page: 10
+        object_actions:
+          _edit: ~
+          _delete: ~
+         
+      filter:
+        display: [ nombre, apellido1, apellido2, docidentificacion, sexo, fechanacimiento]
+      form:
+        class: SftPersonaConIdentEmailForm
+        display:
+          'NONE':           [nombre, apellido1, apellido2, email, id_tipodocidentificacion, docidentificacion, sexo, fechanacimiento, observaciones, profesion, created_at, updated_at ]
+          'identificación': [identificacion]
+      edit:
+        title: Edición de la persona: %%NOMBRE%% %%APELLIDO1%% %%APELLIDO2%%
+      new:
+        title: Nueva Persona

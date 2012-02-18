@@ -37,5 +37,4 @@ if ($page) {
     echo link_to($pagename, $root->getModule() . '/' . $root->getAction());
   } 
 }
-
 ?>

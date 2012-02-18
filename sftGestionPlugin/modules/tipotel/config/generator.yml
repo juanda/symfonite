@@ -1,0 +1,27 @@
+generator:
+  class: sfPropelGenerator
+  param:
+    model_class:           SftTipoTelefono
+    theme:                 admin
+    non_verbose_templates: true
+    with_show:             false
+    singular:              SftTipoTelefono
+    plural:                SftTipoTelefonos
+    route_prefix:          sft_tipo_telefono
+    with_propel_route:     1
+    actions_base_class:    sfActions
+    css:                   none
+
+    config:
+      actions: ~
+      fields: ~
+      list:
+        title: Listado de Tipos de Teléfonos
+        max_per_page: 10
+        display: [ nombre ]
+      filter:  ~
+      form:    ~
+      edit:
+        title: Edición del Tipo de Teléfonos: %%NOMBRE%%
+      new:
+        title: Nuevo Tipo de Teléfono

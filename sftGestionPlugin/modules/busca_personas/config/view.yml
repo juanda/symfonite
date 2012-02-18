@@ -1,0 +1,4 @@
+default:
+  stylesheets:    [-, -, -]
+  has_layout:     true
+  layout:         <?php echo dirname(__FILE__) . "/../templates/cajaModal".PHP_EOL ?>

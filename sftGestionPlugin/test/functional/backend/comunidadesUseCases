@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head profile="http://selenium-ide.openqa.org/profiles/test-case">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<link rel="selenium.base" href="http://localhost/" />
+<title>comunidadesUseCases</title>
+</head>
+<body>
+<table cellpadding="1" cellspacing="1" border="1">
+<thead>
+<tr><td rowspan="1" colspan="3">comunidadesUseCases</td></tr>
+</thead><tbody>
+<tr>
+	<td>open</td>
+	<td>/LaMadraza/web/backend_dev.php</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>signin_username</td>
+	<td>anselmo</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>signin_password</td>
+	<td>pruebas</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>//input[@value='Continuar']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>link=gestión de comunidades</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>link=New</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>gen_comunidades_codigocomunidad</td>
+	<td>02</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>gen_comunidades_es_ES_nombre</td>
+	<td>MADRID</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>gen_comunidades_es_ES_nombreabrev</td>
+	<td>MA</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>gen_comunidades_en_GB_nombre</td>
+	<td>MADRID</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>gen_comunidades_en_GB_nombreabrev</td>
+	<td>MA</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>//input[@value='Save']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>link=Back to list</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>//div[@id='sf_admin_content']/form/div/table/tbody/tr[2]/td[4]/ul/li[1]/a</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>gen_comunidades_es_ES_nombreabrev</td>
+	<td>MD</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>gen_comunidades_en_GB_nombreabrev</td>
+	<td>MD</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>//input[@value='Save']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>link=Back to list</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//input[@name='ids[]' and @value='2']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//div[@id='sf_admin_content']/form/div/table/tbody/tr[2]/td[4]/ul/li[2]/a</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertConfirmation</td>
+	<td>Are you sure?</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>link=salir</td>
+	<td></td>
+</tr>
+
+</tbody></table>
+</body>
+</html>

@@ -1,0 +1,28 @@
+generator:
+  class: sfPropelGenerator
+  param:
+    model_class:           SftAmbito
+    theme:                 admin
+    non_verbose_templates: true
+    with_show:             false
+    singular:              SftAmbito
+    plural:                SftAmbitos
+    route_prefix:          sft_ambito_fid_asociaambitos
+    with_propel_route:     1
+    actions_base_class:    sfActions
+    css:                   false
+
+    config:
+      actions: ~
+      fields:  
+        sftperiodo: { label: periodo }
+        id_ambitotipo: { label: tipo de ámbito }
+        id_periodo: { label: periodo }
+      list:    
+        title: Ámbitos disponibles
+        display: [nombre, sftperiodo, estado]  
+      filter:  
+        display: [id_ambitotipo, id_periodo]
+      form:    ~
+      edit:    ~
+      new:     ~

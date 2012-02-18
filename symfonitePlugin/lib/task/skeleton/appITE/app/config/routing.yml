@@ -2,7 +2,7 @@
 # http://www.symfony-project.org/reference/1_4/en/10-Routing
 login:
   url: /signin
-  param: { module: edaGestorSesion, action: index }
+  param: { module: sftGestorSesion, action: index }
 # default rules
 homepage:
   url:   /

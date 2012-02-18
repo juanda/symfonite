@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head profile="http://selenium-ide.openqa.org/profiles/test-case">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<link rel="selenium.base" href="http://localhost/symfonite/web/backend_dev.php/" />
+<title>alta_1_6</title>
+</head>
+<body>
+<table cellpadding="1" cellspacing="1" border="1">
+<thead>
+<tr><td rowspan="1" colspan="3">alta_1_6</td></tr>
+</thead><tbody>
+<tr>
+	<td>open</td>
+	<td>/symfonite/web/backend_dev.php/aplicaciones/new</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>_save_and_add</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>eda_aplicaciones_url_svn</td>
+	<td>hr0g4xd597ljmv6ctt47bzt9gfj9054vgg16234mqj8ledg6wxkd9158g4737488xi28uhx0pioie68ri43jn64443qj6dice9a3028p7mi99jj2somw1y01sj81411405awq2btz398f52oyl0y24n630k5n5800g89lw6c9v5fc8r99e7lx7q2rc258664hp34k5v9o4yk7f2ueaogbu252f7n18v1kn0un37g126554l811w&nbsp;&nbsp;n3s3nks0j930u</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>_save_and_add</td>
+	<td></td>
+</tr>
+
+</tbody></table>
+</body>
+</html>

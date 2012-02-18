@@ -24,6 +24,6 @@
 ?>
 <?php
 
-class myUser extends edaGuardSecurityUser
+class myUser extends sftGuardSecurityUser
 {
 }

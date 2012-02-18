@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE xliff PUBLIC "-//XLIFF//DTD XLIFF//EN" "http://www.oasis-open.org/committees/xliff/documents/xliff.dtd">
+<xliff version="1.0">
+  <file source-language="es" target-language="en_GB" datatype="plaintext" original="messages" date="2010-04-21T13:43:53Z" product-name="messages">
+    <header/>
+    <body>
+    	<trans-unit id="1">
+    		<source>Las contraseñas deben coincidir.</source>
+    		<target>The two passwords must be the same.</target>
+    	</trans-unit>
+    	<trans-unit id="2">
+    		<source>Requerido.</source>
+    		<target>Required.</target>
+    	</trans-unit>	
+    	<trans-unit id="3">
+    		<source>Nombre de usuario demasiado largo.</source>
+    		<target>User name too long.</target>
+    	</trans-unit>
+    	<trans-unit id="4">
+    		<source>Nombre de usuario corto, 4 carácters como mínimo.</source>
+    		<target>User name too short, at least 4 characters.</target>
+    	</trans-unit>
+    	<trans-unit id="5">
+    		<source>Contraseña demasiado larga.</source>
+    		<target>Password too long.</target>
+    	</trans-unit>
+    	<trans-unit id="6">
+    		<source>Contraseña corta, 4 carácteres como mínimo.</source>
+    		<target>Password too short, al least 4 characters.</target>
+    	</trans-unit>
+    	<trans-unit id="7">
+    		<source>Nombre de usuario</source>
+    		<target>User name</target>
+    	</trans-unit>
+    	<trans-unit id="8">
+    		<source>Contraseña</source>
+    		<target>Password</target>
+    	</trans-unit>
+    	<trans-unit id="9">
+    		<source>Repita la nueva contraseña</source>
+    		<target>Repeat the new password</target>
+    	</trans-unit>
+    </body>
+  </file>
+</xliff>

@@ -1,0 +1,32 @@
+generator:
+  class: sfPropelGenerator
+  param:
+    model_class:           SftPeriodo
+    theme:                 admin
+    non_verbose_templates: true
+    with_show:             false
+    singular:              periodo
+    plural:                periodos
+    route_prefix:          sft_periodo
+    with_propel_route:     1
+    actions_base_class:    sfActions
+    css:                   none
+
+    config:
+      actions: ~
+      fields:
+        id_uo:       { label: UO }
+        SftUo:      { label: UO }
+        fechainicio: { label: Fecha inicio}
+        fechafin: { label: Fecha fin}
+
+      list:
+        title: Listado de Periodos
+        max_per_page: 10
+        display: [ SftUo, fechainicio, fechafin, descripcion, estado ]
+      filter:  ~
+      form:    ~
+      edit:
+        title: Edición del Periodo: %%FECHAINICIO%% - %%FECHAFIN%% de la UO: <i>%%SFTUO%%</i>
+      new:
+        title: Nuevo Periodo

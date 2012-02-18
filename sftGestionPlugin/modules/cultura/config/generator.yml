@@ -1,0 +1,31 @@
+generator:
+  class: sfPropelGenerator
+  param:
+    model_class:           SftCultura
+    theme:                 admin
+    non_verbose_templates: true
+    with_show:             false
+    singular:              SftCultura
+    plural:                SftCulturas
+    route_prefix:          sft_cultura
+    with_propel_route:     1
+    actions_base_class:    sfActions
+    css:                   none
+
+    config:
+      actions: ~
+      fields:
+        nombre: { label: Nombre }
+        descripcion: { label: Descripción }
+      list:
+        title: Listado de Culturas
+        display: [ nombre , descripcion]
+        max_per_page: 10
+      filter:
+        display: [ nombre , descripcion]
+      form:
+        display: [ nombre , descripcion]
+      edit:
+        title: Edición de la Cultura: %%NOMBRE%%
+      new:
+        title: Nueva Cultura

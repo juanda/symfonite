@@ -1,0 +1,4 @@
+all:
+  .settings:
+    i18n:                   on
+    standard_helpers: 		[Partial, Cache, I18N]

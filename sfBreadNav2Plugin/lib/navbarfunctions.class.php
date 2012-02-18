@@ -59,7 +59,7 @@ public static function compressNavArray (&$navarray) {
   
 
 public static function getCredentialCriteria ($credentials, $credroles) {
-    
+
   $c = new Criteria();
 
   if ( $credroles['superadmin']) {

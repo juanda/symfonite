@@ -1,0 +1,26 @@
+sft_fid_atributo:
+  class: sfPropelRouteCollection
+  options:
+    model:                SftFidAtributo
+    module:               attrmapperadmin
+    prefix_path:          /attrmapperadmin
+    column:               id
+    with_wildcard_routes: true
+
+sft_ambito_fid_asociaambitos:
+  class: sfPropelRouteCollection
+  options:
+    model:                SftAmbito
+    module:               fid_asociaambitos
+    prefix_path:          /fid_asociaambitos
+    column:               id
+    with_wildcard_routes: true
+
+sft_perfil_fid_asociaperfiles:
+  class: sfPropelRouteCollection
+  options:
+    model:                SftPerfil
+    module:               fid_asociaperfiles
+    prefix_path:          /fid_asociaperfiles
+    column:               id
+    with_wildcard_routes: true

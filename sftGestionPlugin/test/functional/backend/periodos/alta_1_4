@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head profile="http://selenium-ide.openqa.org/profiles/test-case">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<link rel="selenium.base" href="http://localhost/" />
+<title>alta_1_4</title>
+</head>
+<body>
+<table cellpadding="1" cellspacing="1" border="1">
+<thead>
+<tr><td rowspan="1" colspan="3">alta_1_4</td></tr>
+</thead><tbody>
+<tr>
+	<td>open</td>
+	<td>/symfonite/web/backend_dev.php/periodos/new</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>css=input[type=submit]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>eda_periodos_codigo</td>
+	<td>codigoprueba</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>css=input[type=submit]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>eda_periodos_codigo</td>
+	<td>916evv4xtmilolse3r91j0z36oyy46160c36vcr6tk80arr9e7zramz2o57i0xpj4u03k214b1giud9010vl040vx089b3voc1o50iw006deh88eg32vyppbrk63j36o7a4vb23r4fd3e4opgyb3fjxv2ky7h2h2uv2flb3pwlrspd7960s765i986mjz8w38o2m9d600din1q857705lv98vyp854892r2p43fn9x1467t963gpxr0dt7wl6dx</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>css=input[type=submit]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>eda_periodos_codigo</td>
+	<td>916evv4xtmilolse3r91j0z36oyay46160c36vcr6tk80arr9e7zramz2o57i0xpj4u03k214b1giud9010vl040vx089b3voc1o50iw006deh88eg32vyppbrk63j36o7a4vb23r4fd3e4opgyb3fjxv2ky7h2h2uv2flb3pwlrspd7960s765i986mjz8w38o2m9d600din1q857705lv98vyp854892r2p43fn9x1467t963gpxr0dt7wl6dx</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>css=input[type=submit]</td>
+	<td></td>
+</tr>
+
+</tbody></table>
+</body>
+</html>

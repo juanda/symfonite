@@ -1,0 +1,28 @@
+sft:
+  _attributes:
+    package: plugins.sftFedIdentMapperPlugin.lib.model
+  sft_fid_atributos:
+    _attributes: { phpName: SftFidAtributo, idMethod: native }
+    id: { phpName: Id, type: INTEGER, size: '11', primaryKey: true, autoIncrement: true, required: true }
+    id_provider: { phpName: IdProvider, type: VARCHAR, size: '255', required: true }
+    atributo: { phpName: Atributo, type: VARCHAR, size: '255', required: true }
+    valor: { phpName: Valor, type: VARCHAR, size: '255', required: true }
+    mapa: { phpName: Mapa, type: VARCHAR, size: '255', required: false }
+  
+  sft_fid_atributo_perfil:
+    _attributes: { phpName: SftFidAtributoPerfil, idMethod: native }
+    id_atributo: { type: INTEGER, required: true, primaryKey: true, foreignTable: sft_fid_atributos, foreignReference: id, onDelete: CASCADE, onUpdate: CASCADE }
+    id_perfil: { type: INTEGER, required: true, primaryKey: true }
+    _indexes: { id_atributo: [id_atributo], id_perfil: [id_perfil] }
+  
+  sft_fid_atributo_ambito:
+    _attributes: { phpName: SftFidAtributoAmbito, idMethod: native }
+    id_atributo: { type: INTEGER, required: true, primaryKey: true, foreignTable: sft_fid_atributos, foreignReference: id, onDelete: CASCADE, onUpdate: CASCADE }
+    id_ambito: { type: INTEGER, required: true, primaryKey: true }
+    _indexes: { id_atributo: [id_atributo], id_ambito: [id_ambito] }
+    
+  sft_fid_atributo_actualizable:
+    _attributes: { phpName: SftFidAtributoEntidad, idMethod: native }
+    id_atributo: { type: INTEGER, required: true, primaryKey: true, foreignTable: sft_fid_atributos, foreignReference: id, onDelete: CASCADE, onUpdate: CASCADE }
+    actualiza: { phpName: Actualiza, type: VARCHAR, size: '255', required: true }
+    _indexes: { id_atributo: [id_atributo] }

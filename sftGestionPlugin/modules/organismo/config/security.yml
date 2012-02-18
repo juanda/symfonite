@@ -1,0 +1,26 @@
+index:
+  credentials: [[ SFTGESTIONPLUGIN_administracion, SFTGESTIONPLUGIN_administracion_uo ]]
+filter:
+  credentials: [[ SFTGESTIONPLUGIN_administracion, SFTGESTIONPLUGIN_administracion_uo ]]
+asociaPerfiles:
+  credentials: [[ SFTGESTIONPLUGIN_administracion, SFTGESTIONPLUGIN_administracion_uo ]]
+new:
+  credentials: SFTGESTIONPLUGIN_administracion
+create:
+  credentials: SFTGESTIONPLUGIN_administracion
+edit:
+  credentials: SFTGESTIONPLUGIN_administracion
+update:
+  credentials: SFTGESTIONPLUGIN_administracion
+batch:
+  credentials: SFTGESTIONPLUGIN_administracion
+batchDelete:
+  credentials: SFTGESTIONPLUGIN_administracion
+delete:
+   credentials: SFTGESTIONPLUGIN_administracion
+borraEmail:
+   credentials: SFTGESTIONPLUGIN_administracion
+borraTelefono:
+   credentials: SFTGESTIONPLUGIN_administracion
+borraDireccion:
+   credentials: SFTGESTIONPLUGIN_administracion

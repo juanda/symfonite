@@ -1,0 +1,25 @@
+generator:
+  class: sfPropelGenerator
+  param:
+    model_class:           SftPerfil
+    theme:                 admin
+    non_verbose_templates: true
+    with_show:             false
+    singular:              SftPerfil
+    plural:                SftPerfils
+    route_prefix:          sft_perfil_fid_asociaperfiles
+    with_propel_route:     1
+    actions_base_class:    sfActions
+    css:                   false
+
+    config:
+      actions: ~
+      fields:  ~
+      list:    
+        title: Perfiles disponibles
+        display: [nombre, SftUo, descripcion]        
+      filter:  
+        display: [ id_uo ]
+      form:    ~
+      edit:    ~
+      new:     ~

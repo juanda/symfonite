@@ -1,0 +1,10 @@
+Pasos para instalar el plugin (deben ser automatizados mediante el plugin symfonitePlugin)
+
+1. Desplegar el código en plugins/sftSAMLPlugin
+2. Activarlo en config/ProjectConfiguration.class.php
+3. Habilitar el módulo edaSAMLSesion en el app/__APP__/config/settings.yml
+4. Crear enlace símbolico en web al directorio www del simplesamlphp:
+    ln -s ../plugins/sftSAMLPlugin/lib/vendor/simplesamlphp-1.8.0-rc1/www/ web/simplesaml
+5. Configurar adecuadamente la librería simplesamlphp
+6. Intercambiar los metadatos con el Idp
+7. Como siempre, rezar a todos los santos que conozcas.

@@ -1,0 +1,40 @@
+generator:
+  class: sfPropelGenerator
+  param:
+    model_class:           SftUsuAtributoValor
+    theme:                 admin
+    non_verbose_templates: true
+    with_show:             false
+    singular:              SftUsuAtributoValor
+    plural:                SftUsuAtributoValors
+    route_prefix:          sft_usu_atributo_valor_asociaatributos
+    with_propel_route:     1
+    actions_base_class:    sfActions
+    css:                 none
+
+    config:
+      actions: ~
+      fields:
+        id_usuario: { label: Usuario }
+        id_usu_atributo: { label: Atributo }
+        SftUsuAtributos: { label: Nombre }
+        valor: { label: Valor }
+        created_at: { label: Fecha de Creación }
+        updated_at: { label: Ultima actualización }
+        expira: { label: Expira}
+      list:
+        title: Listado de Atributos del usuario
+        max_per_page: 10
+        object_actions:
+          _edit: ~
+          _delete: ~
+        display: [ SftUsuAtributo, valor, created_at, updated_at, expira ]
+      filter:
+        class: usuarioAtributoValorFormFilter
+        display: [ id_usuario, id_usu_atributo ]
+      form:    
+        class: usuarioAtributoValorForm
+      edit:
+        title: Edición del Atributo %%SftUsuAtributo%%
+      new:
+        title: Crear un nuevo atributo

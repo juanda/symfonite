@@ -32,9 +32,9 @@
  * @author     Your name here
  * @version    SVN: $Id: actions.class.php 23810 2009-11-12 11:07:44Z Kris.Wallsmith $
  */
-require_once(sfConfig::get('sf_plugins_dir').'/edaGuardPlugin/modules/edaGestorSesion/lib/BaseedaGestorSesionActions.class.php');
+require_once(sfConfig::get('sf_plugins_dir').'/sftGuardPlugin/modules/sftGestorSesion/lib/BasesftGestorSesionActions.class.php');
 
-class inicioActions extends BaseedaGestorSesionActions
+class inicioActions extends BasesftGestorSesionActions
 {    
     public function executeHomepage(sfWebRequest $request)
     {

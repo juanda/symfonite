@@ -1,0 +1,40 @@
+generator:
+  class: sfPropelGenerator
+  param:
+    model_class:           SftAplicacion
+    theme:                 admin
+    non_verbose_templates: true
+    with_show:             false
+    singular:              SftAplicacion
+    plural:                SftAplicacions
+    route_prefix:          sft_aplicacion
+    with_propel_route:     1
+    actions_base_class:    sfActions
+    css:                   false
+
+    config:
+      actions: ~
+      fields:  
+        tipo_login: { label: tipo login }
+      list:
+        title: Listado de Aplicaciones
+        max_per_page: 10
+        display: [ logotipo, nombre, url, clave, tipo_login]
+        object_actions:
+          _edit: ~
+          _delete: ~
+          editaMenu: { label: Menú }
+          verCredenciales: { label: Ver Creds. }
+          anadeCredencial: { label: Añade Credencial }
+        batch_actions:
+          #_delete: ~
+          loginNormal: { label: login tipo Normal }
+          loginPAPI: { label: login tipo PAPI }
+          loginSAML: { label: login tipo SAML }
+      filter:
+        display: [ nombre, url, url_svn, clave]
+      form:    ~
+      edit:
+        title: Edición de la Aplicación: %%NOMBRE%%
+      new:
+        title: Nueva Aplicación

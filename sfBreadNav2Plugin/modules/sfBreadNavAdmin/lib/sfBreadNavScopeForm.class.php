@@ -1,33 +1,37 @@
-<?php 
+<?php
+
 class sfBreadNavScopeForm extends sfForm
 {
-  public function configure()
-  {
-  }
 
-  public function setup()
-  {
-
-    $scopes = sfBreadNavApplicationPeer::getScopeArray();        
-    
+    public function configure()
+    {
         
-    $this->setWidgetSchema(new sfWidgetFormSchema(array(
-      
-      'scope' => new sfWidgetFormSelect(array('choices' => $scopes), array('onchange' => 'scopeform.submit()')),
-      
-      )));
+    }
 
-    $this->setValidatorSchema(new sfValidatorSchema(array(
-      'scope' => new sfValidatorPass(),
-                  
-      )));
+    public function setup()
+    {
 
-    $this->widgetSchema->setNameFormat('%s');
-    $this->widgetSchema->setLabel('scope','Active Menu');
-    $this->errorSchema = new sfValidatorErrorSchema($this->validatorSchema);
-    
+        $scopes = sfBreadNavApplicationPeer::getScopeArray();
 
-    parent::setup();
-  }
-  
+
+//        $this->setWidgetSchema(new sfWidgetFormSchema(array(
+//                    'scope' => new sfWidgetFormSelect(array('choices' => $scopes), array('onchange' => 'scopeform.submit()')),
+//                )));
+        
+        $this->setWidgetSchema(new sfWidgetFormSchema(array(
+                    'scope' => new sfWidgetFormInputHidden(),
+                )));
+
+        $this->setValidatorSchema(new sfValidatorSchema(array(
+                    'scope' => new sfValidatorPass(),
+                )));
+
+        $this->widgetSchema->setNameFormat('%s');
+        $this->widgetSchema->setLabel('scope', 'Active Menu');
+        $this->errorSchema = new sfValidatorErrorSchema($this->validatorSchema);
+
+
+        parent::setup();
+    }
+
 }

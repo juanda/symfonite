@@ -1,36 +1,36 @@
-<?php 
+<?php
+
 class sfBreadNavEditHomeForm extends sfForm
 {
-  public function configure()
-  {
-  }
 
-  public function setup()
-  {
-        
-    $this->setWidgetSchema(new sfWidgetFormSchema(array(
-      'page'        => new sfWidgetFormInput(),
-      'module'      => new sfWidgetFormInput(),
-      'action'      => new sfWidgetFormInput(),
-      'credential'  => new sfWidgetFormInput(),
-      'catch_all'    => new sfWidgetFormInputCheckbox()
-      )));
+    public function configure()
+    {
+        $this->disableLocalCSRFProtection();
+    }
 
-    $this->setValidatorSchema(new sfValidatorSchema(array(
-      'page' => new sfValidatorString(array('max_length' => 255)),
-      'module' => new sfValidatorString(array('max_length' => 128)),
-      'action' => new sfValidatorString(array('max_length' => 128)),
-      'credential' => new sfValidatorString(array('max_length' => 128, 'required'=>false)),
-      'catch_all'   => new sfValidatorPass()      
-      )));
+    public function setup()
+    {
 
-    $this->widgetSchema->setNameFormat('sfbreadnavedithomeform[%s]');
-    $this->errorSchema = new sfValidatorErrorSchema($this->validatorSchema);
+        $this->setWidgetSchema(new sfWidgetFormSchema(array(
+                    'page' => new sfWidgetFormInput(),
+                    'module' => new sfWidgetFormInput(),
+                    'action' => new sfWidgetFormInput(),
+                    'credential' => new sfWidgetFormInput(),
+                    'catch_all' => new sfWidgetFormInputCheckbox()
+                )));
 
-    parent::setup();
-  }
-  
-  
-  
-  
+        $this->setValidatorSchema(new sfValidatorSchema(array(
+                    'page' => new sfValidatorString(array('max_length' => 255)),
+                    'module' => new sfValidatorString(array('max_length' => 128)),
+                    'action' => new sfValidatorString(array('max_length' => 128)),
+                    'credential' => new sfValidatorString(array('max_length' => 128, 'required' => false)),
+                    'catch_all' => new sfValidatorPass()
+                )));
+
+        $this->widgetSchema->setNameFormat('sfbreadnavedithomeform[%s]');
+        $this->errorSchema = new sfValidatorErrorSchema($this->validatorSchema);
+
+        parent::setup();
+    }
+
 }

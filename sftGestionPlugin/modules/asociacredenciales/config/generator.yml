@@ -1,0 +1,31 @@
+generator:
+  class: sfPropelGenerator
+  param:
+    model_class:           SftCredencial
+    theme:                 admin
+    non_verbose_templates: true
+    with_show:             false
+    singular:              SftCredencial
+    plural:                SftCredencials
+    route_prefix:          sft_credencial_asociacredenciales
+    with_propel_route:     1
+    actions_base_class:    sfActions
+    css:                   false
+
+    config:
+      actions: ~
+      fields:
+        id_aplicacion: { label: Aplicación }
+        SftAplicaciones: { label: Aplicación }
+        nombre: { label: Nombre }
+        descripcion: { label: Descripción }
+        sft_perfil_credencial_list: { label: perfiles }
+      
+      list:
+        max_per_page: 10
+        display: [ SftAplicacion, nombre, descripcion ]
+      filter:  ~
+
+      form:    ~
+      edit:    ~
+      new:     ~

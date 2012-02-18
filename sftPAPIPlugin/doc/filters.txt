@@ -1,0 +1,38 @@
+Filters
+=======
+
+- AttributePrune
+- AttributeReverse
+
+
+AttributePrune
+--------------
+This filter eliminates all the attributes which names are declared in his
+configuration.
+
+How to use it
+-------------
+Add the filter to the filter section of the app.yml file and set the attributes
+to prune:
+
+[yaml]
+...
+sft_papi_plugin_filters:
+    sequence:
+      attribute_prune:
+        class_name: AttributePrune
+        configuration:
+           attributes_to_prune: [ ePA, sn ]
+
+AttributeReverse
+----------------
+This filter has been built just for fun. It reverse all the attributes values.
+
+How to use it
+-------------
+Add the filter to the filter section of the app.yml file:
+
+sft_papi_plugin_filters:
+    sequence:
+      attribute_reverse:
+        class_name: AttributeReverse

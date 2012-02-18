@@ -1,0 +1,29 @@
+generator:
+  class: sfPropelGenerator
+  param:
+    model_class:           SftDireccion
+    theme:                 admin
+    non_verbose_templates: true
+    with_show:             false
+    singular:              SftDireccion
+    plural:                SftDireccions
+    route_prefix:          sft_direccion
+    with_propel_route:     1
+    actions_base_class:    sfActions
+    css:                   false
+
+    config:
+      actions: ~
+      fields:  ~
+      list:    
+        title: Listado de direcciones
+        max_per_page: 10 
+        display: [ domicilio, numero, escalera, piso, letra, municipio, provincia, pais ]
+      filter:  
+        class: DireccionIdUsuarioHiddenFormFilter
+      form:    
+        class: DireccionIdUsuarioHiddenForm
+      edit:    
+        title: Edicion de la direccion
+      new:     
+        title: Nueva direccion
