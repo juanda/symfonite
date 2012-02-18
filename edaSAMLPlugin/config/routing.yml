@@ -1,3 +1,0 @@
-login_saml:
-  url: /login_saml
-  param: { module: edaSAMLSesion, action: index }

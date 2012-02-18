@@ -1,1 +1,0 @@
-<?php echo '<li class="sf_admin_action_new">'.link_to('Nuevo','asociaatributos/new?id_usuario='.$id_usuario).'</li>';?>
