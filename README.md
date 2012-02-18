@@ -24,3 +24,16 @@ desarrollados por la comunidad de symfony.
 
 # Instalación y uso
 -------------------
+
+Requiere symfony-1.4
+
+* Crear un proyecto de symfony
+* Crear una base de datos
+* Definir en config/databases.yml los parámetros de conexión a la base de datos
+* Descargar el conjunto de plugins *symfonite* en plugins
+* Habilitarlos en config/ProjectConfiguration.class.php
+
+Y ya puedes comenzar a utilizar *symfonite*. Lo mejor es que sigas el tutorial
+del sitio http://ntic.educacion.es/desarrollo/symfonite. Allí se explica como
+crear la aplicación de administración y su base de datos asociada, y como añadir
+y desarrollar nuevas aplicaciones al sistema.
