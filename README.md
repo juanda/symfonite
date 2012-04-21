@@ -29,8 +29,8 @@ Requiere symfony-1.4
 
 * Crear un proyecto de symfony
 * Crear una base de datos
-* Definir en config/databases.yml los parámetros de conexión a la base de datos
-* La conexión debe llamarse ``sft`` en lugar de ``propel``.
+* Definir en config/databases.yml los parámetros de conexión a la base de datos (La conexión
+  debe llamarse ``sft`` en lugar de ``propel``).
 * Descargar el conjunto de plugins *symfonite* en plugins
 * Habilitarlos en config/ProjectConfiguration.class.php
 
