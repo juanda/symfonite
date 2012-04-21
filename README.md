@@ -37,7 +37,9 @@ Requiere symfony-1.4
 Estos son los plugins que debes habilitar:
  
 	<?php  
-	  
+        
+        ...	 
+  
 	class ProjectConfiguration extends sfProjectConfiguration
 	{
 	  public function setup()
