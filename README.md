@@ -30,8 +30,26 @@ Requiere symfony-1.4
 * Crear un proyecto de symfony
 * Crear una base de datos
 * Definir en config/databases.yml los parámetros de conexión a la base de datos
+* La conexión debe llamarse ``sft`` en lugar de ``propel``.
 * Descargar el conjunto de plugins *symfonite* en plugins
 * Habilitarlos en config/ProjectConfiguration.class.php
+  
+  ...
+  class ProjectConfiguration extends sfProjectConfiguration
+  {
+    public function setup()
+    {
+        $this->enablePlugins('sfPropelPlugin');
+        $this->enablePlugins('symfonitePlugin');
+        $this->enablePlugins('themesPlugin');
+        $this->enablePlugins('sfGuardPlugin');
+        $this->enablePlugins('sftGuardPlugin');
+        $this->enablePlugins('sfJqueryReloadedPlugin');
+        $this->enablePlugins('sfBreadNav2Plugin');
+        $this->enablePlugins('sftSAMLPlugin');
+        $this->enablePlugins('sftPAPIPlugin');
+        $this->enablePlugins('sftFedIdentMapperPlugin');
+    }
 
 Y ya puedes comenzar a utilizar *symfonite*. Lo mejor es que sigas el tutorial
 del sitio http://ntic.educacion.es/desarrollo/symfonite. Allí se explica como
