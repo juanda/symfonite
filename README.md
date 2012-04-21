@@ -35,7 +35,7 @@ Requiere symfony-1.4
 * Habilitarlos en config/ProjectConfiguration.class.php
  
   <?php  
-  ...
+  
   class ProjectConfiguration extends sfProjectConfiguration
   {
     public function setup()
