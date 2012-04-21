@@ -36,23 +36,23 @@ Requiere symfony-1.4
 
 Estos son los plugins que debes habilitar:
  
-<?php  
-  
-class ProjectConfiguration extends sfProjectConfiguration
-{
-  public function setup()
-  {
-      $this->enablePlugins('sfPropelPlugin');
-      $this->enablePlugins('symfonitePlugin');
-      $this->enablePlugins('themesPlugin');
-      $this->enablePlugins('sfGuardPlugin');
-      $this->enablePlugins('sftGuardPlugin');
-      $this->enablePlugins('sfJqueryReloadedPlugin');
-      $this->enablePlugins('sfBreadNav2Plugin');
-      $this->enablePlugins('sftSAMLPlugin');
-      $this->enablePlugins('sftPAPIPlugin');
-      $this->enablePlugins('sftFedIdentMapperPlugin');
-  }
+	<?php  
+	  
+	class ProjectConfiguration extends sfProjectConfiguration
+	{
+	  public function setup()
+	  {
+	      $this->enablePlugins('sfPropelPlugin');
+	      $this->enablePlugins('symfonitePlugin');
+	      $this->enablePlugins('themesPlugin');
+	      $this->enablePlugins('sfGuardPlugin');
+	      $this->enablePlugins('sftGuardPlugin');
+	      $this->enablePlugins('sfJqueryReloadedPlugin');
+	      $this->enablePlugins('sfBreadNav2Plugin');
+	      $this->enablePlugins('sftSAMLPlugin');
+	      $this->enablePlugins('sftPAPIPlugin');
+	      $this->enablePlugins('sftFedIdentMapperPlugin');
+	  }
 
 Y ya puedes comenzar a utilizar *symfonite*. Lo mejor es que sigas el tutorial
 del sitio http://ntic.educacion.es/desarrollo/symfonite. Allí se explica como
