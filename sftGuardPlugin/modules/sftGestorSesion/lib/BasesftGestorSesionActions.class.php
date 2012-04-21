@@ -427,19 +427,20 @@ class BasesftGestorSesionActions extends BasesfGuardAuthActions
             //Agregarle el perfil de la aplicación (eda_accesos) y crear el usuario de la aplicación (nfg_usuarios)
             $acceso = new SftAcceso();
             $acceso->setIdUsuario($edaUsuario->getId());
-            $acceso->setIdPerfil(2);
+            $acceso->setIdPerfil(3);
+            $acceso->setEsinicial(1);
             $acceso->save();
             
-            $acceso = new SftAcceso();
-            $acceso->setIdUsuario($edaUsuario->getId());
-            $acceso->setIdPerfil(1);
-            $acceso->save();
+//            $acceso = new SftAcceso();
+//            $acceso->setIdUsuario($edaUsuario->getId());
+//            $acceso->setIdPerfil(1);
+//            $acceso->save();
 
             $confpersonal = new SftConfPersonal();
             $confpersonal->setIdUsuario($edaUsuario->getId());
             $confpersonal->setIdAplicacion(2);
             //$confpersonal->setIdPerfil(2);
-            $confpersonal->setIdPerfil(1);
+            $confpersonal->setIdPerfil(3);
             $confpersonal->setIdPeriodo(1);
             $confpersonal->save();
 
@@ -704,14 +705,12 @@ END;
         ///////////////////////////////////
         // Y, por fin, enviamos el e-mail//
         ///////////////////////////////////
-
+        $from = sfConfig::get('app_registro_mail_from', 'symfonite@ite.educacion.es');
         $body .= PHP_EOL . PHP_EOL . $enlaceToken;
 
         $mailer = sfContext::getInstance()->getMailer();
 
-        $mailer->composeAndSend(
-                'symfonite@ite.educacion.es', $emailTo, $subject, $body
-        );
+        $mailer->composeAndSend($from, $emailTo, $subject, $body);
 
         $this->getUser()->setFlash('mensaje', 'Se ha envíado a tu dirección de correo electrónico un mensaje de confirmación. Sigue las instruciones para completar el registro', false);
     }

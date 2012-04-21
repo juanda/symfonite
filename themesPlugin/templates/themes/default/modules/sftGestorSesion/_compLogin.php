@@ -31,7 +31,7 @@
 
 <?php if($muestraFormLogin): ?>
 
-    <?php if($conTablas): ?>
+
 <form name="reinicioPasswordForm" action="<?php echo url_for('@login') ?> " method="post" >
     <table>
                 <?php echo $form->renderGlobalErrors() ?>
@@ -65,61 +65,4 @@
         <?php echo __('¿Has olvidado tu password? Pulsa en el botón "Recuperar Password" y sigue las instrucciones') ?>
 
 
-    <?php else : ?>
-
-
-<div id="formulario_login" class="formulario_login">
-
-    <div class="sf_admin_form">
-        <form name="formLogin" id="formLogin" action="<?php echo url_for('@login') ?> " method="post" >
-
-            <div id="errores_globales" class="error" >
-                        <?php echo $form->renderGlobalErrors() ?>
-            </div>
-
-            <fieldset id="login">
-                <div  class="sf_admin_form_row sf_admin_text sf_admin_form_field_username">
-                            <?php echo $form['username']->renderError() ?>
-                    <div>
-                        <label for="usuario"><?php echo __("Usuario:") ?></label>
-                        <div class="content"><?php echo $form['username'] ?></div>
-                    </div>
-                </div>
-
-                <div  class="sf_admin_form_row sf_admin_text sf_admin_form_field_password">
-                            <?php echo $form['password']->renderError() ?>
-                    <div>
-                        <label for="password">Clave:</label>
-                        <div class="content"><?php echo $form['password'] ?></div>
-                    </div>
-                </div>
-
-                <div  class="sf_admin_form_row sf_admin_text sf_admin_form_field_remember">
-                            <?php echo $form['remember']->renderError() ?>
-                    <div>
-                        <label for="remember">Recuerdame:</label>
-                        <div class="content"><?php echo $form['remember'] ?></div>
-                    </div>
-
-                </div>
-            </fieldset>
-
-                    <?php echo $form->renderHiddenFields() ?>
-            <ul class="sf_admin_actions">
-                <li class="sf_admin_action_list">
-                    <input type="submit" value="Continuar" />
-                </li>
-                <li class="sf_admin_action_list">
-                    <input type="button" onclick="document.formLogin.action='<?php echo url_for('sftGestorSesion/reinicioPassword')?>';document.reinicioPasswordForm.submit()" value="Recuperar Password" />
-                </li>
-            </ul>
-        </form>
-    </div>
-
-            <?php echo __('¿Has olvidado tu password? Pulsa en el botón "Recuperar Password" y sigue las instrucciones') ?>
-
-
-</div>
-
-    <?php endif ; ?>
 <?php endif; ?>

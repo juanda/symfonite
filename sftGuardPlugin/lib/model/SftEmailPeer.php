@@ -17,5 +17,14 @@
  * @package    plugins.sftGuardPlugin.lib.model
  */
 class SftEmailPeer extends BaseSftEmailPeer {
+    
+    static public function dameEmailConDireccion($direccion)
+    {
+        $c = new Criteria();
+        $c->add(SftEmailPeer::DIRECCION, $direccion);
 
+        $email = SftEmailPeer::doSelectOne($c);
+
+        return $email;
+    }
 } // SftEmailPeer

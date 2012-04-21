@@ -34,7 +34,7 @@ CREATE TABLE `sft_acceso_ambito` (
   KEY `id_ambito` (`id_ambito`),
   CONSTRAINT `sft_acceso_ambito_FK_1` FOREIGN KEY (`id_acceso`) REFERENCES `sft_accesos` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
   CONSTRAINT `sft_acceso_ambito_FK_2` FOREIGN KEY (`id_ambito`) REFERENCES `sft_ambitos` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -68,7 +68,7 @@ CREATE TABLE `sft_accesos` (
   CONSTRAINT `sft_accesos_FK_1` FOREIGN KEY (`id_usuario`) REFERENCES `sft_usuarios` (`id`) ON UPDATE CASCADE,
   CONSTRAINT `sft_accesos_FK_2` FOREIGN KEY (`id_perfil`) REFERENCES `sft_perfiles` (`id`) ON UPDATE CASCADE,
   CONSTRAINT `sft_accesos_FK_3` FOREIGN KEY (`id_delega`) REFERENCES `sft_accesos` (`id`) ON UPDATE CASCADE
-) ENGINE=InnoDB AUTO_INCREMENT=14 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=14 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -99,7 +99,7 @@ CREATE TABLE `sft_ambitos` (
   KEY `id_periodo` (`id_periodo`),
   CONSTRAINT `sft_ambitos_FK_1` FOREIGN KEY (`id_ambitotipo`) REFERENCES `sft_ambitostipos` (`id`) ON UPDATE CASCADE,
   CONSTRAINT `sft_ambitos_FK_2` FOREIGN KEY (`id_periodo`) REFERENCES `sft_periodos` (`id`) ON UPDATE CASCADE
-) ENGINE=InnoDB AUTO_INCREMENT=13 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=13 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -127,7 +127,7 @@ CREATE TABLE `sft_ambitos_i18n` (
   PRIMARY KEY (`id`,`id_cultura`),
   KEY `id_cultura` (`id_cultura`),
   CONSTRAINT `sft_ambitos_i18n_FK_1` FOREIGN KEY (`id`) REFERENCES `sft_ambitos` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -152,7 +152,7 @@ CREATE TABLE `sft_ambitostipos` (
   `nombre` varchar(255) DEFAULT NULL,
   `descripcion` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -183,7 +183,7 @@ CREATE TABLE `sft_aplicacion_sesiones` (
   KEY `id_aplicacion` (`id_aplicacion`),
   CONSTRAINT `sft_aplicacion_sesiones_FK_1` FOREIGN KEY (`id_aplicacion`) REFERENCES `sft_aplicaciones` (`id`) ON UPDATE CASCADE,
   CONSTRAINT `sft_aplicacion_sesiones_FK_2` FOREIGN KEY (`id_usuario`) REFERENCES `sft_usuarios` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -221,7 +221,7 @@ CREATE TABLE `sft_aplicaciones` (
   UNIQUE KEY `nombre` (`nombre`),
   KEY `id_credencial` (`id_credencial`),
   CONSTRAINT `sft_aplicaciones_FK_1` FOREIGN KEY (`id_credencial`) REFERENCES `sft_credenciales` (`id`) ON UPDATE CASCADE
-) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -258,7 +258,7 @@ CREATE TABLE `sft_confpersonales` (
   CONSTRAINT `sft_confpersonales_FK_2` FOREIGN KEY (`id_aplicacion`) REFERENCES `sft_aplicaciones` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
   CONSTRAINT `sft_confpersonales_FK_3` FOREIGN KEY (`id_periodo`) REFERENCES `sft_periodos` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
   CONSTRAINT `sft_confpersonales_FK_4` FOREIGN KEY (`id_perfil`) REFERENCES `sft_perfiles` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -289,7 +289,7 @@ CREATE TABLE `sft_control_accesos` (
   `updated_at` datetime DEFAULT NULL,
   PRIMARY KEY (`id`),
   CONSTRAINT `sft_control_accesos_FK_1` FOREIGN KEY (`id`) REFERENCES `sft_usuarios` (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -317,7 +317,7 @@ CREATE TABLE `sft_credenciales` (
   PRIMARY KEY (`id`),
   KEY `id_aplicacion` (`id_aplicacion`),
   CONSTRAINT `sft_credenciales_FK_1` FOREIGN KEY (`id_aplicacion`) REFERENCES `sft_aplicaciones` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
-) ENGINE=InnoDB AUTO_INCREMENT=12 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=12 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -342,7 +342,7 @@ CREATE TABLE `sft_culturas` (
   `nombre` char(5) NOT NULL,
   `descripcion` varchar(255) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -384,7 +384,7 @@ CREATE TABLE `sft_direcciones` (
   CONSTRAINT `sft_direcciones_FK_1` FOREIGN KEY (`id_tipodireccion`) REFERENCES `sft_tiposdireccion` (`id`) ON UPDATE CASCADE,
   CONSTRAINT `sft_direcciones_FK_2` FOREIGN KEY (`id_persona`) REFERENCES `sft_personas` (`id`) ON UPDATE CASCADE,
   CONSTRAINT `sft_direcciones_FK_3` FOREIGN KEY (`id_organismo`) REFERENCES `sft_organismos` (`id`) ON UPDATE CASCADE
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -414,7 +414,7 @@ CREATE TABLE `sft_emails` (
   KEY `id_organismo` (`id_organismo`),
   CONSTRAINT `sft_emails_FK_1` FOREIGN KEY (`id_persona`) REFERENCES `sft_personas` (`id`) ON UPDATE CASCADE,
   CONSTRAINT `sft_emails_FK_2` FOREIGN KEY (`id_organismo`) REFERENCES `sft_organismos` (`id`) ON UPDATE CASCADE
-) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -448,7 +448,7 @@ CREATE TABLE `sft_estadisticas_aplicacion` (
   KEY `id_usuario` (`id_usuario`),
   CONSTRAINT `sft_estadisticas_aplicacion_FK_1` FOREIGN KEY (`id_aplicacion`) REFERENCES `sft_aplicaciones` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
   CONSTRAINT `sft_estadisticas_aplicacion_FK_2` FOREIGN KEY (`id_usuario`) REFERENCES `sft_usuarios` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -491,8 +491,8 @@ CREATE TABLE `sft_organismos` (
   CONSTRAINT `sft_organismos_FK_1` FOREIGN KEY (`id_tipoorganismo`) REFERENCES `sft_tiposorganismo` (`id`) ON DELETE SET NULL ON UPDATE CASCADE,
   CONSTRAINT `sft_organismos_FK_2` FOREIGN KEY (`id_contacto`) REFERENCES `sft_personas` (`id`) ON DELETE SET NULL ON UPDATE CASCADE,
   CONSTRAINT `sft_organismos_FK_3` FOREIGN KEY (`id_depende`) REFERENCES `sft_organismos` (`id`) ON DELETE SET NULL ON UPDATE CASCADE,
-  CONSTRAINT `sft_organismos_FK_4` FOREIGN KEY (`id_pais`) REFERENCES `gen_paises` (`id`) ON DELETE SET NULL ON UPDATE CASCADE
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+  CONSTRAINT `sft_organismos_FK_4` FOREIGN KEY (`id_pais`) REFERENCES `gen_pais` (`id`) ON DELETE SET NULL ON UPDATE CASCADE
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -519,7 +519,7 @@ CREATE TABLE `sft_perfil_credencial` (
   KEY `id_perfil` (`id_perfil`),
   CONSTRAINT `sft_perfil_credencial_FK_1` FOREIGN KEY (`id_perfil`) REFERENCES `sft_perfiles` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
   CONSTRAINT `sft_perfil_credencial_FK_2` FOREIGN KEY (`id_credencial`) REFERENCES `sft_credenciales` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -552,7 +552,7 @@ CREATE TABLE `sft_perfiles` (
   KEY `id_ambitotipo` (`id_ambitotipo`),
   CONSTRAINT `sft_perfiles_FK_1` FOREIGN KEY (`id_uo`) REFERENCES `sft_uos` (`id`) ON UPDATE CASCADE,
   CONSTRAINT `sft_perfiles_FK_2` FOREIGN KEY (`id_ambitotipo`) REFERENCES `sft_ambitostipos` (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -581,7 +581,7 @@ CREATE TABLE `sft_perfiles_i18n` (
   PRIMARY KEY (`id`,`id_cultura`),
   KEY `id_cultura` (`id_cultura`),
   CONSTRAINT `sft_perfiles_i18n_FK_1` FOREIGN KEY (`id`) REFERENCES `sft_perfiles` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -612,7 +612,7 @@ CREATE TABLE `sft_periodos` (
   PRIMARY KEY (`id`),
   KEY `id_uo` (`id_uo`),
   CONSTRAINT `sft_periodos_FK_1` FOREIGN KEY (`id_uo`) REFERENCES `sft_uos` (`id`) ON UPDATE CASCADE
-) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -651,8 +651,8 @@ CREATE TABLE `sft_personas` (
   KEY `id_tipodocidentificacion` (`id_tipodocidentificacion`),
   KEY `id_paisdocidentificacion` (`id_paisdocidentificacion`),
   CONSTRAINT `sft_personas_FK_1` FOREIGN KEY (`id_tipodocidentificacion`) REFERENCES `sft_tiposdocidentificacion` (`id`) ON UPDATE CASCADE,
-  CONSTRAINT `sft_personas_FK_2` FOREIGN KEY (`id_paisdocidentificacion`) REFERENCES `gen_paises` (`id`) ON UPDATE CASCADE
-) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=latin1;
+  CONSTRAINT `sft_personas_FK_2` FOREIGN KEY (`id_paisdocidentificacion`) REFERENCES `gen_pais` (`id`) ON UPDATE CASCADE
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -687,7 +687,7 @@ CREATE TABLE `sft_telefonos` (
   CONSTRAINT `sft_telefonos_FK_1` FOREIGN KEY (`id_tipotelefono`) REFERENCES `sft_tipostelefono` (`id`) ON UPDATE CASCADE,
   CONSTRAINT `sft_telefonos_FK_2` FOREIGN KEY (`id_persona`) REFERENCES `sft_personas` (`id`) ON UPDATE CASCADE,
   CONSTRAINT `sft_telefonos_FK_3` FOREIGN KEY (`id_organismo`) REFERENCES `sft_organismos` (`id`) ON UPDATE CASCADE
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -711,7 +711,7 @@ CREATE TABLE `sft_tiposdireccion` (
   `created_at` datetime DEFAULT NULL,
   `updated_at` datetime DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -737,7 +737,7 @@ CREATE TABLE `sft_tiposdireccion_i18n` (
   PRIMARY KEY (`id`,`id_idioma`),
   KEY `id_idioma` (`id_idioma`),
   CONSTRAINT `sft_tiposdireccion_i18n_FK_1` FOREIGN KEY (`id`) REFERENCES `sft_tiposdireccion` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -760,7 +760,7 @@ CREATE TABLE `sft_tiposdocidentificacion` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `funciondecontrol` char(24) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -786,7 +786,7 @@ CREATE TABLE `sft_tiposdocidentificacion_i18n` (
   PRIMARY KEY (`id`,`id_idioma`),
   KEY `id_idioma` (`id_idioma`),
   CONSTRAINT `sft_tiposdocidentificacion_i18n_FK_1` FOREIGN KEY (`id`) REFERENCES `sft_tiposdocidentificacion` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -811,7 +811,7 @@ CREATE TABLE `sft_tiposorganismo` (
   `descripcion` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `codigo` (`codigo`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -838,7 +838,7 @@ CREATE TABLE `sft_tiposorganismo_i18n` (
   PRIMARY KEY (`id`,`id_idioma`),
   KEY `id_idioma` (`id_idioma`),
   CONSTRAINT `sft_tiposorganismo_i18n_FK_1` FOREIGN KEY (`id`) REFERENCES `sft_tiposorganismo` (`id`) ON UPDATE CASCADE
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -860,7 +860,7 @@ DROP TABLE IF EXISTS `sft_tipostelefono`;
 CREATE TABLE `sft_tipostelefono` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -886,7 +886,7 @@ CREATE TABLE `sft_tipostelefono_i18n` (
   PRIMARY KEY (`id`,`id_idioma`),
   KEY `id_idioma` (`id_idioma`),
   CONSTRAINT `sft_tipostelefono_i18n_FK_1` FOREIGN KEY (`id`) REFERENCES `sft_tipostelefono` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -917,7 +917,7 @@ CREATE TABLE `sft_uos` (
   PRIMARY KEY (`id`),
   UNIQUE KEY `codigo` (`codigo`),
   KEY `id_css` (`id_css`)
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -947,7 +947,7 @@ CREATE TABLE `sft_uos_i18n` (
   PRIMARY KEY (`id`,`id_cultura`),
   KEY `id_cultura` (`id_cultura`),
   CONSTRAINT `sft_uos_i18n_FK_1` FOREIGN KEY (`id`) REFERENCES `sft_uos` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -982,7 +982,7 @@ CREATE TABLE `sft_usu_atributos` (
   `ejemplo` varchar(255) DEFAULT NULL,
   `notas` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -1014,7 +1014,7 @@ CREATE TABLE `sft_usu_atributos_valores` (
   KEY `id_usu_atributo` (`id_usu_atributo`),
   CONSTRAINT `sft_usu_atributos_valores_FK_1` FOREIGN KEY (`id_usuario`) REFERENCES `sft_usuarios` (`id`) ON UPDATE CASCADE,
   CONSTRAINT `sft_usu_atributos_valores_FK_2` FOREIGN KEY (`id_usu_atributo`) REFERENCES `sft_usu_atributos` (`id`) ON UPDATE CASCADE
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -1054,7 +1054,7 @@ CREATE TABLE `sft_usuarios` (
   KEY `id_sfuser` (`id_sfuser`),
   CONSTRAINT `sft_usuarios_FK_1` FOREIGN KEY (`id_persona`) REFERENCES `sft_personas` (`id`) ON UPDATE CASCADE,
   CONSTRAINT `sft_usuarios_FK_2` FOREIGN KEY (`id_organismo`) REFERENCES `sft_organismos` (`id`) ON UPDATE CASCADE
-) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -1078,7 +1078,7 @@ CREATE TABLE `gen_comunidades` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `codigocomunidad` varchar(5) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -1105,7 +1105,7 @@ CREATE TABLE `gen_comunidades_i18n` (
   PRIMARY KEY (`id`,`id_cultura`),
   KEY `id_cultura` (`id_cultura`),
   CONSTRAINT `gen_comunidades_i18n_FK_1` FOREIGN KEY (`id`) REFERENCES `gen_comunidades` (`id`) ON UPDATE CASCADE
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -1118,66 +1118,66 @@ LOCK TABLES `gen_comunidades_i18n` WRITE;
 UNLOCK TABLES;
 
 --
--- Table structure for table `gen_localidades`
+-- Table structure for table `gen_Localidad`
 --
 
-DROP TABLE IF EXISTS `gen_localidades`;
+DROP TABLE IF EXISTS `gen_Localidad`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `gen_localidades` (
+CREATE TABLE `gen_localidad` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `codigolocal` char(2) DEFAULT NULL,
   `id_provincia` int(11) DEFAULT NULL,
   PRIMARY KEY (`id`),
   KEY `id_provincia` (`id_provincia`),
-  CONSTRAINT `gen_localidades_FK_1` FOREIGN KEY (`id_provincia`) REFERENCES `gen_provincias` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+  CONSTRAINT `gen_localidad_FK_1` FOREIGN KEY (`id_provincia`) REFERENCES `gen_provincias` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `gen_localidades`
+-- Dumping data for table `gen_Localidad`
 --
 
-LOCK TABLES `gen_localidades` WRITE;
-/*!40000 ALTER TABLE `gen_localidades` DISABLE KEYS */;
-/*!40000 ALTER TABLE `gen_localidades` ENABLE KEYS */;
+LOCK TABLES `gen_localidad` WRITE;
+/*!40000 ALTER TABLE `gen_localidad` DISABLE KEYS */;
+/*!40000 ALTER TABLE `gen_localidad` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --
--- Table structure for table `gen_localidades_i18n`
+-- Table structure for table `gen_Localidad_i18n`
 --
 
-DROP TABLE IF EXISTS `gen_localidades_i18n`;
+DROP TABLE IF EXISTS `gen_localidad_i18n`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `gen_localidades_i18n` (
+CREATE TABLE `gen_localidad_i18n` (
   `id` int(11) NOT NULL,
   `id_cultura` char(5) NOT NULL,
   `nombre` varchar(40) DEFAULT NULL,
   `nombreabrev` varchar(20) DEFAULT NULL,
   PRIMARY KEY (`id`,`id_cultura`),
   KEY `id_cultura` (`id_cultura`),
-  CONSTRAINT `gen_localidades_i18n_FK_1` FOREIGN KEY (`id`) REFERENCES `gen_localidades` (`id`) ON UPDATE CASCADE
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+  CONSTRAINT `gen_localidad_i18n_FK_1` FOREIGN KEY (`id`) REFERENCES `gen_localidad` (`id`) ON UPDATE CASCADE
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `gen_localidades_i18n`
+-- Dumping data for table `gen_Localidad_i18n`
 --
 
-LOCK TABLES `gen_localidades_i18n` WRITE;
-/*!40000 ALTER TABLE `gen_localidades_i18n` DISABLE KEYS */;
-/*!40000 ALTER TABLE `gen_localidades_i18n` ENABLE KEYS */;
+LOCK TABLES `gen_localidad_i18n` WRITE;
+/*!40000 ALTER TABLE `gen_localidad_i18n` DISABLE KEYS */;
+/*!40000 ALTER TABLE `gen_localidad_i18n` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --
--- Table structure for table `gen_paises`
+-- Table structure for table `gen_Pais`
 --
 
-DROP TABLE IF EXISTS `gen_paises`;
+DROP TABLE IF EXISTS `gen_pais`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `gen_paises` (
+CREATE TABLE `gen_pais` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `codigo_iso3166_alfa2` char(2) DEFAULT NULL,
   `codigo_iso3166_alfa3` varchar(3) DEFAULT NULL,
@@ -1187,26 +1187,26 @@ CREATE TABLE `gen_paises` (
   UNIQUE KEY `codigo_iso3166_alfa2` (`codigo_iso3166_alfa2`),
   UNIQUE KEY `codigo_iso3166_alfa3` (`codigo_iso3166_alfa3`),
   UNIQUE KEY `codigo_iso3166_num` (`codigo_iso3166_num`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `gen_paises`
+-- Dumping data for table `gen_Pais`
 --
 
-LOCK TABLES `gen_paises` WRITE;
-/*!40000 ALTER TABLE `gen_paises` DISABLE KEYS */;
-/*!40000 ALTER TABLE `gen_paises` ENABLE KEYS */;
+LOCK TABLES `gen_pais` WRITE;
+/*!40000 ALTER TABLE `gen_pais` DISABLE KEYS */;
+/*!40000 ALTER TABLE `gen_pais` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --
--- Table structure for table `gen_paises_i18n`
+-- Table structure for table `gen_pais_i18n`
 --
 
-DROP TABLE IF EXISTS `gen_paises_i18n`;
+DROP TABLE IF EXISTS `gen_pais_i18n`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `gen_paises_i18n` (
+CREATE TABLE `gen_pais_i18n` (
   `id` int(11) NOT NULL,
   `id_cultura` char(5) NOT NULL,
   `nombre` varchar(40) DEFAULT NULL,
@@ -1214,17 +1214,17 @@ CREATE TABLE `gen_paises_i18n` (
   `nacionalidad` varchar(40) DEFAULT NULL,
   PRIMARY KEY (`id`,`id_cultura`),
   KEY `id_cultura` (`id_cultura`),
-  CONSTRAINT `gen_paises_i18n_FK_1` FOREIGN KEY (`id`) REFERENCES `gen_paises` (`id`) ON UPDATE CASCADE
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+  CONSTRAINT `gen_pais_i18n_FK_1` FOREIGN KEY (`id`) REFERENCES `gen_pais` (`id`) ON UPDATE CASCADE
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `gen_paises_i18n`
+-- Dumping data for table `gen_Pais_i18n`
 --
 
-LOCK TABLES `gen_paises_i18n` WRITE;
-/*!40000 ALTER TABLE `gen_paises_i18n` DISABLE KEYS */;
-/*!40000 ALTER TABLE `gen_paises_i18n` ENABLE KEYS */;
+LOCK TABLES `gen_pais_i18n` WRITE;
+/*!40000 ALTER TABLE `gen_pais_i18n` DISABLE KEYS */;
+/*!40000 ALTER TABLE `gen_pais_i18n` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --
@@ -1241,7 +1241,7 @@ CREATE TABLE `gen_provincias` (
   PRIMARY KEY (`id`),
   KEY `id_comunidad` (`id_comunidad`),
   CONSTRAINT `gen_provincias_FK_1` FOREIGN KEY (`id_comunidad`) REFERENCES `gen_comunidades` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -1268,7 +1268,7 @@ CREATE TABLE `gen_provincias_i18n` (
   PRIMARY KEY (`id`,`id_cultura`),
   KEY `id_cultura` (`id_cultura`),
   CONSTRAINT `gen_provincias_i18n_FK_1` FOREIGN KEY (`id`) REFERENCES `gen_provincias` (`id`) ON UPDATE CASCADE
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -1302,7 +1302,7 @@ CREATE TABLE `sf_BreadNav` (
   PRIMARY KEY (`id`),
   KEY `sf_BreadNav_FI_1` (`scope`),
   CONSTRAINT `sf_BreadNav_FK_1` FOREIGN KEY (`scope`) REFERENCES `sf_BreadNav_Application` (`id`) ON DELETE CASCADE
-) ENGINE=InnoDB AUTO_INCREMENT=41 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=41 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -1311,7 +1311,7 @@ CREATE TABLE `sf_BreadNav` (
 
 LOCK TABLES `sf_BreadNav` WRITE;
 /*!40000 ALTER TABLE `sf_BreadNav` DISABLE KEYS */;
-INSERT INTO `sf_BreadNav` VALUES (1,'Inicio','','inicio','index','SFTGESTIONPLUGIN_administracion',NULL,1,60,0,1),(2,'UOS','','uos','index','SFTGESTIONPLUGIN_administracion',NULL,2,11,0,1),(3,'gestión de uos','','uos','index','SFTGESTIONPLUGIN_administracion',NULL,3,4,0,1),(4,'gestión de periodos','','periodos','index','SFTGESTIONPLUGIN_administracion',NULL,5,6,0,1),(5,'gestión de perfiles','','perfiles','index','SFTGESTIONPLUGIN_administracion',NULL,7,8,0,1),(6,'gestión de ámbitos','','ambitostipos','index','SFTGESTIONPLUGIN_administracion',NULL,9,10,0,1),(7,'Aplicaciones','','aplicaciones','index','SFTGESTIONPLUGIN_administracion',NULL,12,19,0,1),(8,'gestión de aplicaciones','','aplicaciones','index','SFTGESTIONPLUGIN_administracion',NULL,13,14,0,1),(9,'gestión de credenciales','','credenciales','index','SFTGESTIONPLUGIN_administracion',NULL,15,16,0,1),(10,'gestión de culturas','','culturas','index','SFTGESTIONPLUGIN_administracion',NULL,17,18,0,1),(11,'Usuarios','','personas','index','SFTGESTIONPLUGIN_administracion',NULL,20,25,0,1),(12,'gestión de personas','','personas','index','SFTGESTIONPLUGIN_administracion_uo',NULL,21,22,0,1),(13,'gestión de organismos','','organismos','index','SFTGESTIONPLUGIN_administracion_uo',NULL,23,24,0,1),(14,'Localizaciones','','paises','index','SFTGESTIONPLUGIN_administracion',NULL,26,33,0,1),(15,'gestión países','','paises','index','SFTGESTIONPLUGIN_administracion',NULL,27,28,0,1),(16,'gestión de comunidades','','comunidades','index','SFTGESTIONPLUGIN_administracion',NULL,29,30,0,1),(17,'gestión de provincias','','provincias','index','SFTGESTIONPLUGIN_administracion',NULL,31,32,0,1),(18,'Datos Auxiliares','','tiposdoc','index','SFTGESTIONPLUGIN_administracion',NULL,34,43,0,1),(19,'gestión de tipos de documentos','','tiposdoc','index','SFTGESTIONPLUGIN_administracion',NULL,35,36,0,1),(20,'gestión de tipos de direcciones','','tiposdir','tiposdir/index','SFTGESTIONPLUGIN_administracion',NULL,37,38,0,1),(21,'gestión de tipos de organismos','','tiposorg','index','SFTGESTIONPLUGIN_administracion',NULL,39,40,0,1),(22,'gestión de tipos de telefonos','','tipostel','index','SFTGESTIONPLUGIN_administracion',NULL,41,42,0,1),(23,'Identificaciones','','sfGuardUser','index','SFTGESTIONPLUGIN_administracion',NULL,44,53,0,1),(24,'gestión de identificaciones','','sfGuardUser','index','SFTGESTIONPLUGIN_administracion',NULL,45,46,0,1),(25,'gestión de grupos','','sfGuardGroup','index','SFTGESTIONPLUGIN_administracion',NULL,47,48,0,1),(26,'gestión de permisos','','sfGuardPermission','index','SFTGESTIONPLUGIN_administracion',NULL,49,50,0,1),(27,'gestión de atributos','','atributos','index','SFTGESTIONPLUGIN_administracion_uo',NULL,51,52,0,1),(28,'Menus','','sfBreadNavAdmin','index','SFTGESTIONPLUGIN_administracion',NULL,54,59,0,1),(29,'gestión de menús','','sfBreadNavAdmin','index','SFTGESTIONPLUGIN_administracion',NULL,55,56,0,1),(30,'listado de menús','','sfBreadNavAdmin','list','SFTGESTIONPLUGIN_administracion',NULL,57,58,0,1),(31,'Inicio','','inicio','index','PlatEdu_Docente',NULL,1,14,0,2),(35,'Seguimiento','','seguimiento','index','PlatEdu_Docente',NULL,2,7,0,2),(36,'Calificaciones','','calificaciones','index','PlatEdu_Docente',NULL,3,4,0,2),(37,'Notas del profesor','','notas','index','PlatEdu_Docente',NULL,5,6,0,2),(38,'Curso','','actividades','index','PlatEdu_Docente',NULL,8,13,0,2),(39,'Actividades','','actividades','index','PlatEdu_Docente',NULL,9,10,0,2),(40,'Recursos','','recursos','index','PlatEdu_Docente',NULL,11,12,0,2);
+INSERT INTO `sf_BreadNav` VALUES (1,'Inicio','','inicio','index','SFTGESTIONPLUGIN_administracion',NULL,1,60,0,1),(2,'UOS','','uos','index','SFTGESTIONPLUGIN_administracion',NULL,2,11,0,1),(3,'gestión de uos','','uos','index','SFTGESTIONPLUGIN_administracion',NULL,3,4,0,1),(4,'gestión de periodos','','periodos','index','SFTGESTIONPLUGIN_administracion',NULL,5,6,0,1),(5,'gestión de perfiles','','perfiles','index','SFTGESTIONPLUGIN_administracion',NULL,7,8,0,1),(6,'gestión de ámbitos','','ambitostipos','index','SFTGESTIONPLUGIN_administracion',NULL,9,10,0,1),(7,'Aplicaciones','','aplicaciones','index','SFTGESTIONPLUGIN_administracion',NULL,12,19,0,1),(8,'gestión de aplicaciones','','aplicaciones','index','SFTGESTIONPLUGIN_administracion',NULL,13,14,0,1),(9,'gestión de credenciales','','credenciales','index','SFTGESTIONPLUGIN_administracion',NULL,15,16,0,1),(10,'gestión de culturas','','culturas','index','SFTGESTIONPLUGIN_administracion',NULL,17,18,0,1),(11,'Usuarios','','personas','index','SFTGESTIONPLUGIN_administracion',NULL,20,25,0,1),(12,'gestión de personas','','personas','index','SFTGESTIONPLUGIN_administracion_uo',NULL,21,22,0,1),(13,'gestión de organismos','','organismos','index','SFTGESTIONPLUGIN_administracion_uo',NULL,23,24,0,1),(14,'Localizaciones','','Pais','index','SFTGESTIONPLUGIN_administracion',NULL,26,33,0,1),(15,'gestión países','','paises','index','SFTGESTIONPLUGIN_administracion',NULL,27,28,0,1),(16,'gestión de comunidades','','comunidades','index','SFTGESTIONPLUGIN_administracion',NULL,29,30,0,1),(17,'gestión de provincias','','provincias','index','SFTGESTIONPLUGIN_administracion',NULL,31,32,0,1),(18,'Datos Auxiliares','','tiposdoc','index','SFTGESTIONPLUGIN_administracion',NULL,34,43,0,1),(19,'gestión de tipos de documentos','','tiposdoc','index','SFTGESTIONPLUGIN_administracion',NULL,35,36,0,1),(20,'gestión de tipos de direcciones','','tiposdir','tiposdir/index','SFTGESTIONPLUGIN_administracion',NULL,37,38,0,1),(21,'gestión de tipos de organismos','','tiposorg','index','SFTGESTIONPLUGIN_administracion',NULL,39,40,0,1),(22,'gestión de tipos de telefonos','','tipostel','index','SFTGESTIONPLUGIN_administracion',NULL,41,42,0,1),(23,'Identificaciones','','sfGuardUser','index','SFTGESTIONPLUGIN_administracion',NULL,44,53,0,1),(24,'gestión de identificaciones','','sfGuardUser','index','SFTGESTIONPLUGIN_administracion',NULL,45,46,0,1),(25,'gestión de grupos','','sfGuardGroup','index','SFTGESTIONPLUGIN_administracion',NULL,47,48,0,1),(26,'gestión de permisos','','sfGuardPermission','index','SFTGESTIONPLUGIN_administracion',NULL,49,50,0,1),(27,'gestión de atributos','','atributos','index','SFTGESTIONPLUGIN_administracion_uo',NULL,51,52,0,1),(28,'Menus','','sfBreadNavAdmin','index','SFTGESTIONPLUGIN_administracion',NULL,54,59,0,1),(29,'gestión de menús','','sfBreadNavAdmin','index','SFTGESTIONPLUGIN_administracion',NULL,55,56,0,1),(30,'listado de menús','','sfBreadNavAdmin','list','SFTGESTIONPLUGIN_administracion',NULL,57,58,0,1),(31,'Inicio','','inicio','index','PlatEdu_Docente',NULL,1,14,0,2),(35,'Seguimiento','','seguimiento','index','PlatEdu_Docente',NULL,2,7,0,2),(36,'Calificaciones','','calificaciones','index','PlatEdu_Docente',NULL,3,4,0,2),(37,'Notas del profesor','','notas','index','PlatEdu_Docente',NULL,5,6,0,2),(38,'Curso','','actividades','index','PlatEdu_Docente',NULL,8,13,0,2),(39,'Actividades','','actividades','index','PlatEdu_Docente',NULL,9,10,0,2),(40,'Recursos','','recursos','index','PlatEdu_Docente',NULL,11,12,0,2);
 /*!40000 ALTER TABLE `sf_BreadNav` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -1329,7 +1329,7 @@ CREATE TABLE `sf_BreadNav_Application` (
   `application` varchar(255) NOT NULL,
   `css` varchar(2000) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -1355,7 +1355,7 @@ CREATE TABLE `sf_guard_group` (
   `description` text,
   PRIMARY KEY (`id`),
   UNIQUE KEY `sf_guard_group_U_1` (`name`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -1381,7 +1381,7 @@ CREATE TABLE `sf_guard_group_permission` (
   KEY `sf_guard_group_permission_FI_2` (`permission_id`),
   CONSTRAINT `sf_guard_group_permission_FK_1` FOREIGN KEY (`group_id`) REFERENCES `sf_guard_group` (`id`) ON DELETE CASCADE,
   CONSTRAINT `sf_guard_group_permission_FK_2` FOREIGN KEY (`permission_id`) REFERENCES `sf_guard_permission` (`id`) ON DELETE CASCADE
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -1406,7 +1406,7 @@ CREATE TABLE `sf_guard_permission` (
   `description` text,
   PRIMARY KEY (`id`),
   UNIQUE KEY `sf_guard_permission_U_1` (`name`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -1432,7 +1432,7 @@ CREATE TABLE `sf_guard_remember_key` (
   `created_at` datetime DEFAULT NULL,
   PRIMARY KEY (`user_id`,`ip_address`),
   CONSTRAINT `sf_guard_remember_key_FK_1` FOREIGN KEY (`user_id`) REFERENCES `sf_guard_user` (`id`) ON DELETE CASCADE
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -1465,7 +1465,7 @@ CREATE TABLE `sf_guard_user` (
   `token_reset_password` varchar(128) DEFAULT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `sf_guard_user_U_1` (`username`)
-) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -1492,7 +1492,7 @@ CREATE TABLE `sf_guard_user_group` (
   KEY `sf_guard_user_group_FI_2` (`group_id`),
   CONSTRAINT `sf_guard_user_group_FK_1` FOREIGN KEY (`user_id`) REFERENCES `sf_guard_user` (`id`) ON DELETE CASCADE,
   CONSTRAINT `sf_guard_user_group_FK_2` FOREIGN KEY (`group_id`) REFERENCES `sf_guard_group` (`id`) ON DELETE CASCADE
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -1518,7 +1518,7 @@ CREATE TABLE `sf_guard_user_permission` (
   KEY `sf_guard_user_permission_FI_2` (`permission_id`),
   CONSTRAINT `sf_guard_user_permission_FK_1` FOREIGN KEY (`user_id`) REFERENCES `sf_guard_user` (`id`) ON DELETE CASCADE,
   CONSTRAINT `sf_guard_user_permission_FK_2` FOREIGN KEY (`permission_id`) REFERENCES `sf_guard_permission` (`id`) ON DELETE CASCADE
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --

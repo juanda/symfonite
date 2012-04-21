@@ -40,7 +40,7 @@ class sftGuardSecurityUser extends sfGuardSecurityUser
          * en un AttributeHolder llamado 'sfGuardSecurityUser'.
          * Mantendremos a este otro para que otros plugins que
          * hagan uso del sfGuardPlugin puedan utilizarse. Ahora
-         * añadiremos las  variables de sesión propias de EDAE3
+         * añadiremos las  variables de sesión propias de symfonite
          */
 
         // Antes de nada, comprobamos que la aplicación está registrada
@@ -97,10 +97,6 @@ class sftGuardSecurityUser extends sfGuardSecurityUser
                 $this->setCulture($sftUsuario->getIdCulturapref());
 
                 $oConfPersonal = new sftConfiguracionPersonal($idUsuario);
-//                echo '<pre>';
-//                print_r($oConfPersonal);
-//                echo '</pre>';
-//                exit;
                 $credencial_acceso = $oAplicacion->getSftCredencial();
                 if ($oConfPersonal->esValida())
                 {
@@ -164,13 +160,6 @@ class sftGuardSecurityUser extends sfGuardSecurityUser
 
         $credencial_de_acceso = $aplicacion->getSftCredencial();
 
-//        echo '<pre>';
-//        print_r($credenciales);
-//        print_r($credencial_de_acceso);
-//        echo '</pre>';
-//        exit;
-
-
         $tiene_credencial_de_acceso = false;
         if (!is_null($credenciales_usuario))
         {
@@ -193,8 +182,8 @@ class sftGuardSecurityUser extends sfGuardSecurityUser
     }
 
     /**
-     * Esta función construye la sesión de usuario de EDAE3 que utilizarán la
-     * aplicaciones que usen el plugin EDAE3 para el registro de sus usuarios
+     * Esta función construye la sesión de usuario de symfonite que utilizarán la
+     * aplicaciones que usen el plugin sft para el registro de sus usuarios
      *
      * @param ConfPersonal $oConfPersonal
      */

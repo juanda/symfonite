@@ -3,33 +3,33 @@ sfGuard plugin
 
 El plugin de symfony 'sftGuardPlugin' proporciona autentificación y autorización 
 a través del 'sfGuardPlugin', por lo que depende de este último. Además inicia 
-una sesión de EDAE3 si existe una relación entre el usuario de la tabla sf_guard_user
-y la tabla eda_usuarios. En caso contrario es transparente y únicamente 'trabaja'
+una sesión de symfonite si existe una relación entre el usuario de la tabla sf_guard_user
+y la tabla sft_usuarios. En caso contrario es transparente y únicamente 'trabaja'
 el 'sfGuardPlugin'.
 
 Esta estrategia permite que podamos desarrollar herramientas que utilizcen la sesión 
-de EDAE3, pero tambiém podemos instalar plugins estandars de symfony que utilicen
+de symfonite, pero tambiém podemos instalar plugins estandars de symfony que utilicen
 el 'sfGuardPlugin'.
 
-Así, el 'sftGuardPlugin' añade el modelo de EDAE3 al del 'sfGuardPlugin'.
+Así, el 'sftGuardPlugin' añade el modelo de symfonite al del 'sfGuardPlugin'.
 
 Descripción
 ===========
 
-La clase 'edaGuardSecurityUser' deriva de 'sfGuardSecurityUser' y añade los
-métodos necesarios para crear una sesión de EDAE3. El método 'signin'
-sobreescribe el métod 'signin' del 'sfGuardSecurityUser', y le añade la
+La clase 'sftGuardSecurityUser' deriva de 'sfGuardSecurityUser' y añade los
+métodos necesarios para crear una sesión de symfonite. El método 'signin'
+sobreescribe el método 'signin' del 'sfGuardSecurityUser', y le añade la
 siguiente lógica:
 
 Si el usuario que se ha autentificado (la autentificación se realiza sobre
-la tabla sf_guard_user) tiene asociado un usuario de la tabla eda_usuarios,
+la tabla sf_guard_user) tiene asociado un usuario de la tabla sft_usuarios,
 entonces se busca la configuración inicial del usuario para la aplicación
 que utiliza el plugin, si la configuración inicial falla, se muestra una
 pantalla con todos los perfiles disponibles para que el usario seleccione
 el que desee.
 
 Si el usuario que se ha autentificado no tiene asociado un usuario de la tabla
-eda_usuarios, el proceso sigue como si no existiese el plugin sftGuardPlugin
+sft_usuarios, el proceso sigue como si no existiese el plugin sftGuardPlugin
 
 
 Installation
@@ -42,7 +42,7 @@ Installation
 
 (Si se instala a través de subversion darlo de alta en el config/ProjectConfiguration.class.php)
 
-  * Asegúrate que la conexión del schema.yml del plugin sgGuardPlugin es 'sft',
+  * Asegúrate que la conexión del schema.yml del plugin sfGuardPlugin es 'sft',
     que es la que tienen por defecto ambos plugins en nuestro repositorio SVN
 
   * Reconstruir el modelo
@@ -56,7 +56,7 @@ Installation
 
   * Habilitar los siguiente modulos en `settings.yml`:
     * Para la aplicación backend :  sfGuardUser, sfGuardGroup, sfGuardPermission
-    * Para la aplicación frontend :  sfGuarfAuth y edaGestorSesion, edaGestorErrores
+    * Para la aplicación frontend :  sfGuarfAuth y sftGestorSesion, sftGestorErrores
 
             [php]
             all:
@@ -67,9 +67,9 @@ Installation
 
         $ symfony cc
 
-  * Opcionalmente crear usuarios y datos de la estructura de EDAE3:
+  * Opcionalmente crear usuarios y datos de la estructura de symfonite:
 
-  * Registrar la aplicación en la base de datos de EDAE3, y colocar el código en
+  * Registrar la aplicación en la base de datos de symfonite, y colocar el código en
     el fichero app.yml de la aplicacion
 
 

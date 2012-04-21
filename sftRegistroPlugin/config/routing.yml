@@ -1,0 +1,16 @@
+  
+registro:
+  url: /registro
+  param: { module: registro, action: index }
+  
+registro_enviarTokenRegistro:
+  url:   /registro/enviarTokenRegistro
+  param: { module: registro, action: enviarTokenRegistro }
+  
+registro_confirmaRegistro:
+  url:   /registro/confirmaRegistro
+  param: { module: registro, action: confirmaRegistro }
+  
+registro_mensajeEnviado:
+  url:   /registro/mensajeEnviado
+  param: { module: registro, action: mensajeEnviado }

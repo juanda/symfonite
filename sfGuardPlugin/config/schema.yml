@@ -1,4 +1,4 @@
-edae3:
+sft:
   _attributes:      { package: plugins.sfGuardPlugin.lib.model }
   
   sf_guard_group:

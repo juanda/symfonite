@@ -30,7 +30,6 @@ class sftGestorSesionComponents extends sfComponents
 
     public function executeCompLogin()
     {
-        $this->conTablas = true;
         // antes de ofrecer  la pantalla de login, comprobamos que la
         // aplicación esté debidamente registrada
         $clave = sfConfig::get('app_clave');
@@ -141,6 +140,29 @@ class sftGestorSesionComponents extends sfComponents
         $this->linkDesconectar = (sfConfig::get('app_menu_general_desconectar')) ? $linkLogout : null;
     }
 
+    public function executeCompMenu()
+    {
+        if(!$this -> getUser() -> hasAttribute('idPerfil', 'SftUser'))
+        {
+            return sfView::NONE;
+        }
+        $in = array('id' => $this -> getUser() -> getAttribute('idPerfil', null, 'SftUser'));
+        $serv = Servicio::crearServicioEstructuraOrganizativa(sfConfig::get('app_servicio'));
+        $out  = $serv -> perfil($in);
+        if($out['status'] != Servicio::OK)
+        {
+            sfContext::getInstance() -> getController() -> getAction() -> redirect('edaGestorErrores/mensajeError?mensaje=Error '.$out['status'].' - '.Servicio::mensajeError($out['status']));
+        }
+        $nombreMenu = $out['perfil']['menu'];
+
+
+        if(file_exists(sfConfig::get('sf_app_config_dir').'/menus/'.$nombreMenu))
+        {
+            $this -> menus = sfYaml::load(sfConfig::get('sf_app_config_dir').'/menus/'.$nombreMenu);
+        }
+
+    }
+    
     public function executeCompPerfiles()
     {
         sfContext::getInstance()->getConfiguration()->loadHelpers('I18N');
@@ -196,11 +218,6 @@ class sftGestorSesionComponents extends sfComponents
         }
 
         $this->confPersonal = $usuario->dameConfPersonal($clave);
-        //$this -> w = new sfWidgetFormChoice(array('choices' => $choices, 'expanded' => false, 'multiple' => true));
-//        echo '<pre>';
-//        print_r($this -> confActual);
-//        echo '</pre>';
-//        exit;
     }
 
     public function executeMenu()
