@@ -33,7 +33,8 @@ Requiere symfony-1.4
 * La conexión debe llamarse ``sft`` en lugar de ``propel``.
 * Descargar el conjunto de plugins *symfonite* en plugins
 * Habilitarlos en config/ProjectConfiguration.class.php
-  
+ 
+  <?php  
   ...
   class ProjectConfiguration extends sfProjectConfiguration
   {
