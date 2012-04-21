@@ -160,6 +160,7 @@ sft:
     created_at: ~
     updated_at: ~
     id_ambitotipo: { type: INTEGER, foreignTable: sft_ambitostipos, foreignReference: id, onDelete: RESTRICT, onUpdate: RESTRICT }
+    menu: { type: VARCHAR, size: '255', required: false }
     _indexes: { id_uo: [id_uo], id_ambitotipo: [id_ambitotipo] }
   sft_perfiles_i18n:
     _attributes: { phpName: SftPerfilI18n }

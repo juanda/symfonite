@@ -11,7 +11,7 @@ $config = array (
      * Setup the following parameters to match the directory of your installation.
      * See the user manual for more details.
      */
-    'baseurlpath' => 'sft/web/simplesaml/',
+    'baseurlpath' => '%%BASEURLPATH%%',
     'certdir' => 'cert/',
     'loggingdir' => 'log/',
     'datadir' => 'data/',

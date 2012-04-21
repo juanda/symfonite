@@ -49,8 +49,8 @@ class RegistroForm extends sfForm {
         //$this->validatorSchema['username'] = new sfValidatorString();
         $this->validatorSchema['direccion'] = new sfValidatorEmail();
         $this->validatorSchema['nombre'] = new sfValidatorString();
-        $this->validatorSchema['apellido1'] = new sfValidatorString();
-        $this->validatorSchema['apellido2'] = new sfValidatorString();
+        $this->validatorSchema['apellido1'] = new sfValidatorString(array('required' => false));
+        $this->validatorSchema['apellido2'] = new sfValidatorString(array('required' => false));
         $this->validatorSchema['password'] = new sfValidatorString();
         $this->validatorSchema['repassword'] = new sfValidatorString();
 

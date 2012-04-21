@@ -123,7 +123,7 @@ if($onLoad !== '') {
     
         <div id="wrapper">
 
-            <h3>gestion de proyectos</h3>
+            <h3>Portal de identificación del sistema symfonITE</h3>
                       
             <?php
 

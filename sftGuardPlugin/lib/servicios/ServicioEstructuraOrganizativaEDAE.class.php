@@ -54,21 +54,21 @@ class ServicioEstructuraOrganizativaEDAE extends ServicioEstructuraOrganizativa
         $perfil['menu']                 = $edaPerfil -> getMenu();
         $perfil['uo']['id']             = $edaPerfil -> getIdUo();
         $perfil['uo']['nombre']         = $edaPerfil -> getSftUo() -> getNombre();
-        $perfil['uo']['marca']          = $edaPerfil -> getSftUo() -> getMarca();
-        if($edaPerfil -> getSftAmbitotipos() instanceof SftAmbitotipos)
-        {
-            $perfil['ambitotipo']['id']     = $edaPerfil -> getSftAmbitoTipos() -> getId();
-            $perfil['ambitotipo']['nombre'] = $edaPerfil -> getSftAmbitoTipos() -> getNombre();
-        }
+       // $perfil['uo']['marca']          = $edaPerfil -> getSftUo() -> getMarca();
+//        if($edaPerfil -> getSftAmbitotipos() instanceof SftAmbitotipos)
+//        {
+//            $perfil['ambitotipo']['id']     = $edaPerfil -> getSftAmbitoTipos() -> getId();
+//            $perfil['ambitotipo']['nombre'] = $edaPerfil -> getSftAmbitoTipos() -> getNombre();
+//        }
 
         // Credenciales
-        $perfil_credenciales = $edaPerfil -> getEdaPerfilCredencials();
+        $perfil_credenciales = $edaPerfil -> getSftPerfilCredencials();
         $i = 0;
         foreach ($perfil_credenciales as $pc)
         {
-            $perfil['credenciales'][$i]['credencial']['nombre']       = $pc -> getEdaCredenciales() -> getNombre();
-            $perfil['credenciales'][$i]['credencial']['descripcion']  = $pc -> getEdaCredenciales() -> getDescripcion();
-            $perfil['credenciales'][$i++]['credencial']['aplicacion'] = $pc -> getEdaCredenciales() -> getSftAplicacion() -> getCodigo();
+            $perfil['credenciales'][$i]['credencial']['nombre']       = $pc -> getSftCredencial() -> getNombre();
+            $perfil['credenciales'][$i]['credencial']['descripcion']  = $pc -> getSftCredencial() -> getDescripcion();
+            $perfil['credenciales'][$i++]['credencial']['aplicacion'] = $pc -> getSftCredencial() -> getSftAplicacion() -> getCodigo();
         }
 
         $out['status'] = Servicio::OK;
