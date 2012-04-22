@@ -27,6 +27,12 @@ desarrollados por la comunidad de symfony.
 
 Requiere symfony-1.4
 
+Si comienzas desde el principio sigue las instrucciones de
+
+https://github.com/juanda/symfonite-project
+
+Si ya tienes un proyecto listo, o prefieres crear tu el proyecto:
+
 * Crear un proyecto de symfony
 * Crear una base de datos
 * Definir en config/databases.yml los parámetros de conexión a la base de datos (La conexión
@@ -56,7 +62,9 @@ Estos son los plugins que debes habilitar:
 	      $this->enablePlugins('sftFedIdentMapperPlugin');
 	  }
 
-Y ya puedes comenzar a utilizar *symfonite*. Lo mejor es que sigas el tutorial
+Y ya puedes comenzar a utilizar *symfonite*. 
+
+Para saber lo que puedes hacer con symfonite, lo mejor es que sigas el tutorial
 del sitio http://ntic.educacion.es/desarrollo/symfonite. Allí se explica como
 crear la aplicación de administración y su base de datos asociada, y como añadir
 y desarrollar nuevas aplicaciones al sistema.
