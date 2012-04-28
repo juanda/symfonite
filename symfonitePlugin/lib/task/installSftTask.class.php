@@ -32,10 +32,41 @@ EOF;
         // initialize the database connection
 //    $databaseManager = new sfDatabaseManager($this->configuration);
 //    $connection = $databaseManager->getDatabase($options['connection'])->getConnection();
+        $fs = new sfFilesystem();
+        
+        if(!file_exist(dirname(__FILE__).'/../../../../cache'))
+        {
+            $fs->makedirs(dirname(__FILE__).'/../../../../cache');
+        }
+        
+        if(!file_exist(dirname(__FILE__).'/../../../../log'))
+        {
+            $fs->makedirs(dirname(__FILE__).'/../../../../log');
+        }
+        
+        if(!file_exist(dirname(__FILE__).'/../../../../web/uploads'))
+        {
+            $fs->makedirs(dirname(__FILE__).'/../../../../uploads');
+        }
+        
+        if(!file_exist(dirname(__FILE__).'/../../../../uploads/assets'))
+        {
+            $fs->makedirs(dirname(__FILE__).'/../../../../uploads/assets');
+        }
+        
+        if(!file_exist(dirname(__FILE__).'/../../../../web/images'))
+        {
+            $fs->makedirs(dirname(__FILE__).'/../../../../images');
+        }
+        
+        if(!file_exist(dirname(__FILE__).'/../../../../web/js'))
+        {
+            $fs->makedirs(dirname(__FILE__).'/../../../../js');
+        }
+        
+        
         $this->runTask('project:permission');
         $this->runTask('plugin:publish-assets');
-
-        $fs = new sfFilesystem();
 
         $files = array(
             dirname(__FILE__) . '/../../../sftSAMLPlugin/lib/vendor/simplesamlphp-1.8.0-rc1/config/config.php',
