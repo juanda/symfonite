@@ -34,7 +34,7 @@ class SftAplicacionForm extends BaseSftAplicacionForm
                         array('max_size' => '100000', 'mime_types' => 'web_images', 'required' => false),
                         array('max_size' => 'Ha superado el tamaño de la imagen permitida (%max_size%)', 'mime_types' => 'tipo de fichero no permitido'));
 
-        $this->validatorSchema['url'] = new sfValidatorUrl();
+//        $this->validatorSchema['url'] = new sfValidatorUrl();
     }
 
 }
