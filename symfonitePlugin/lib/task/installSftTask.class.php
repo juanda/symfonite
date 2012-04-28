@@ -34,34 +34,34 @@ EOF;
 //    $connection = $databaseManager->getDatabase($options['connection'])->getConnection();
         $fs = new sfFilesystem();
         
-        if(!file_exist(dirname(__FILE__).'/../../../../cache'))
+        if(!file_exists(dirname(__FILE__).'/../../../../cache'))
         {
-            $fs->makedirs(dirname(__FILE__).'/../../../../cache');
+            $fs->mkdirs(dirname(__FILE__).'/../../../../cache');
         }
         
-        if(!file_exist(dirname(__FILE__).'/../../../../log'))
+        if(!file_exists(dirname(__FILE__).'/../../../../log'))
         {
-            $fs->makedirs(dirname(__FILE__).'/../../../../log');
+            $fs->mkdirs(dirname(__FILE__).'/../../../../log');
         }
         
-        if(!file_exist(dirname(__FILE__).'/../../../../web/uploads'))
+        if(!file_exists(dirname(__FILE__).'/../../../../web/uploads'))
         {
-            $fs->makedirs(dirname(__FILE__).'/../../../../uploads');
+            $fs->mkdirs(dirname(__FILE__).'/../../../../web/uploads');
         }
         
-        if(!file_exist(dirname(__FILE__).'/../../../../uploads/assets'))
+        if(!file_exists(dirname(__FILE__).'/../../../../uploads/assets'))
         {
-            $fs->makedirs(dirname(__FILE__).'/../../../../uploads/assets');
+            $fs->mkdirs(dirname(__FILE__).'/../../../../web/uploads/assets');
         }
         
-        if(!file_exist(dirname(__FILE__).'/../../../../web/images'))
+        if(!file_exists(dirname(__FILE__).'/../../../../web/images'))
         {
-            $fs->makedirs(dirname(__FILE__).'/../../../../images');
+            $fs->mkdirs(dirname(__FILE__).'/../../../../web/images');
         }
         
-        if(!file_exist(dirname(__FILE__).'/../../../../web/js'))
+        if(!file_exists(dirname(__FILE__).'/../../../../web/js'))
         {
-            $fs->makedirs(dirname(__FILE__).'/../../../../js');
+            $fs->mkdirs(dirname(__FILE__).'/../../../../web/js');
         }
         
         
