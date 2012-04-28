@@ -1,0 +1,14 @@
+buscarPaginasModulo:
+  is_secure:   true      # Sólo para usuarios autenticados
+  #credentials: AYUDA-admin
+editarAyuda:
+  is_secure:   true      # Sólo para usuarios autenticados
+  #credentials: AYUDA-admin
+grabarAyuda:
+  is_secure:   true      # Sólo para usuarios autenticados
+  #credentials: AYUDA-admin
+seleccionarModuloAyuda:
+  is_secure:   true      # Sólo para usuarios autenticados
+  #credentials: AYUDA-admin
+ver:
+  is_secure:   true      # Sólo para usuarios autenticados

@@ -65,6 +65,7 @@ class aplicacionActions extends autoAplicacionActions
     public function executeDelete(sfWebRequest $request)
     {
         $aplicacion = SftAplicacionPeer::retrieveByPK($request->getParameter('id'));
+
         //borramos el menu asociado
         $c = new Criteria();
         $c->add(sfBreadNavApplicationPeer::APPLICATION, $aplicacion->getCodigo());
@@ -76,10 +77,13 @@ class aplicacionActions extends autoAplicacionActions
             $c = new Criteria();
             $c->add(sfBreadNavPeer::SCOPE, $scope);
             $menu_items = sfBreadNavPeer::doDelete($c);
-
             $menu->delete();
         }
-
+        $ruta = $aplicacion->getLogotipo();
+        if (!empty($ruta)){
+            shell_exec("rm " . sfConfig::get('sf_upload_dir') . DIRECTORY_SEPARATOR . $ruta);
+         }
+        
         parent::executeDelete($request);
     }
 

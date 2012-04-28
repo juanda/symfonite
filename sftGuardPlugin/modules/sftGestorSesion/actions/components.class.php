@@ -146,15 +146,9 @@ class sftGestorSesionComponents extends sfComponents
         {
             return sfView::NONE;
         }
-        $in = array('id' => $this -> getUser() -> getAttribute('idPerfil', null, 'SftUser'));
-        $serv = Servicio::crearServicioEstructuraOrganizativa(sfConfig::get('app_servicio'));
-        $out  = $serv -> perfil($in);
-        if($out['status'] != Servicio::OK)
-        {
-            sfContext::getInstance() -> getController() -> getAction() -> redirect('edaGestorErrores/mensajeError?mensaje=Error '.$out['status'].' - '.Servicio::mensajeError($out['status']));
-        }
-        $nombreMenu = $out['perfil']['menu'];
-
+                
+        $perfil = SftPerfilPeer::retrieveByPK($this -> getUser() -> getAttribute('idPerfil',null,'SftUser'));
+        $nombreMenu = $perfil->getMenu();
 
         if(file_exists(sfConfig::get('sf_app_config_dir').'/menus/'.$nombreMenu))
         {

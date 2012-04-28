@@ -27,6 +27,9 @@ class SftAmbitoForm extends BaseSftAmbitoForm
                     'model' => 'SftPeriodo',
                     'criteria' => $c,
                     'add_empty' => false));
+        
+        $this->widgetSchema['estado'] = new sfWidgetFormChoice(array('choices' => array('ACTIVO'=>'Activo', 'INACTIVO' => 'Inactivo')));
+        
 
         $this->validatorSchema['id_periodo'] = new sfValidatorPropelChoice(array(
                     'required' => false,
@@ -34,6 +37,8 @@ class SftAmbitoForm extends BaseSftAmbitoForm
                     'criteria' => $c,
                     'column' => 'id'));
 
+        $this->validatorSchema['estado'] = new sfValidatorChoice(array('choices' => array('ACTIVO', 'INACTIVO')));
+        
         EmbedI18n::aniadeTraducciones($this);
     }
 

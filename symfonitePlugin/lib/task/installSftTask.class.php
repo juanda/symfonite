@@ -32,19 +32,10 @@ EOF;
         // initialize the database connection
 //    $databaseManager = new sfDatabaseManager($this->configuration);
 //    $connection = $databaseManager->getDatabase($options['connection'])->getConnection();
-
-        $fs = new sfFilesystem();
-
-        if (!file_exists(dirname(__FILE__) . '/../../../../cache')) {
-            $fs->mkdirs(dirname(__FILE__) . '/../../../../cache');
-        }
-
-        if (!file_exists(dirname(__FILE__) . '/../../../../log')) {
-            $fs->mkdirs(dirname(__FILE__) . '/../../../../log');
-        }
-
         $this->runTask('project:permission');
         $this->runTask('plugin:publish-assets');
+
+        $fs = new sfFilesystem();
 
         $files = array(
             dirname(__FILE__) . '/../../../sftSAMLPlugin/lib/vendor/simplesamlphp-1.8.0-rc1/config/config.php',

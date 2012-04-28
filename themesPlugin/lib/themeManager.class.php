@@ -16,7 +16,7 @@ class themeManager
 //        echo '</pre>';
 //        exit;
 //        // CSS
-        if (is_array($assets['stylesheets']))
+        if (isset($assets['stylesheets']) && is_array($assets['stylesheets']))
         {
             foreach ($assets['stylesheets'] as $key => $css)
             {
@@ -33,7 +33,7 @@ class themeManager
             $this->_addStylesheets($assets['stylesheets']);
         }
 
-        if (is_array($assets['javascripts']))
+        if (isset($assets['javascripts']) && is_array($assets['javascripts']))
         {
             foreach ($assets['javascripts'] as $key => $js)
             {

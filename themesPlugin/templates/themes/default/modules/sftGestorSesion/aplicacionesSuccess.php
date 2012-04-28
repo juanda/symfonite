@@ -41,29 +41,61 @@
 
 <div id="sf_admin_container">
     <div class="hint">Pulsa en el icono para lanzar la aplicación</div>
-
-    <div id="contenedor_aplicaciones">
-
-        <?php foreach ($aplicaciones as $ap): ?>
+    <br/>
+    <div id="sft_aplicaciones_container">
+        <?php
+        $aplicacion_css = "sft_aplicacion_container_left";
+        $atributo_css = "sft_aplicacion_atributos_left";
+        $atributo2_css = "sft_aplicacion_atributos_right";
+        ?>
+        <?php foreach ($aplicaciones as $ap): ?> 
             <?php $descripcion = ($ap->getRaw('descripcion') == '') ? 'No hay descripción disponible' : $ap->getRaw('descripcion'); ?>
             <?php $rutaImagen = ($ap->getRaw('logotipo') == '') ? image_themes_tag('native/images/aplicacion.png', array('title' => $descripcion, 'width' => '50', 'heigth' => '50')) : image_tag('/uploads/' . $ap->getRaw('logotipo'), array('title' => $descripcion, 'width' => '50', 'heigth' => '50')) ?>
-
-
-            <div class="picture left" style="width:52px; ">
+            <center>
                 <?php if ($ap->getRaw('clave') != sfConfig::get('app_clave')): ?>
-
                     <a href="<?php echo url_for('inicio/abreAplicacion?id_aplicacion=' . $ap['id']) ?>">
-                        <?php echo $rutaImagen ?></a>
+                        <div class="<?php echo $aplicacion_css; ?>" >
 
-                    <br /><?php echo $ap->getRaw('nombre') ?>
+                            <div class="<?php echo $atributo_css; ?>" style="height:50px;margin-top:2px">
+                                <?php echo $rutaImagen ?>
+                            </div>
+                            <div class="<?php echo $atributo2_css; ?>">
+                                <?php
+                                echo $ap->getRaw('nombre') . "<br/>";
+                                echo $ap->getRaw('descripcion') . "<br/>";
+                                echo $ap->getRaw('url');
+                                ?>
+                            </div>
+                        </div>                    
+                    </a>
                 <?php else: ?>
-                    <?php echo $rutaImagen ?>
-                    <br /><?php echo '<b>' . $ap->getRaw('nombre') . '</b>' ?>
+                    <div class="<?php echo $aplicacion_css; ?>" style=" background-color:#464646;">
+                        <div class="<?php echo $atributo_css; ?>" style="height:50px;margin-top:2px">
+                            <?php echo $rutaImagen ?>
+                        </div>
+                        <div class="<?php echo $atributo2_css; ?>">
+                            <?php
+                            echo "<b>" . $ap->getRaw('nombre') . "<br/>";
+                            echo $ap->getRaw('descripcion') . "<br/>";
+                            echo $ap->getRaw('url') . "</b>";
+                            ?>
+                        </div>
+                    </div>
                 <?php endif ?>
-            </div>
+            </center>
 
+
+            <?php
+            if ($aplicacion_css == "sft_aplicacion_container_left") {
+                $aplicacion_css = "sft_aplicacion_container_right";
+                $atributo_css = "sft_aplicacion_atributos_right";
+                $atributo2_css = "sft_aplicacion_atributos_left";
+            } else {
+                $aplicacion_css = "sft_aplicacion_container_left";
+                $atributo_css = "sft_aplicacion_atributos_left";
+                $atributo2_css = "sft_aplicacion_atributos_right";
+            }
+            ?>
         <?php endforeach; ?>
-
     </div>
-
 </div>
