@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <meta content="text/html; charset=UTF-8" http-equiv="content-type" />
+  <title>Test Suite</title>
+</head>
+<body>
+<table id="suiteTable" cellpadding="1" cellspacing="1" border="1" class="selenium"><tbody>
+<tr><td><b>Test Suite</b></td></tr>
+<tr><td><a href="loginTest.xml">loginTest</a></td></tr>
+<tr><td><a href="periodoAnadir.xml">periodoAnadir</a></td></tr>
+<tr><td><a href="periodoEditar.xml">periodoEditar</a></td></tr>
+<tr><td><a href="uoAnadir.xml">uoAnadir</a></td></tr>
+<tr><td><a href="uoEditar.xml">uoEditar</a></td></tr>
+<tr><td><a href="tipoambitoAnadir.xml">tipoambitoAnadir</a></td></tr>
+<tr><td><a href="tipoambitoEditar.xml">tipoambitoEditar</a></td></tr>
+<tr><td><a href="ambitoAnadir">ambitoAnadir</a></td></tr>
+<tr><td><a href="ambitoEditar">ambitoEditar</a></td></tr>
+<tr><td><a href="perfilAnadir.xml">perfilAnadir</a></td></tr>
+<tr><td><a href="perfilEditar.xml">perfilEditar</a></td></tr>
+<tr><td><a href="personaAnadir">personaAnadir</a></td></tr>
+<tr><td><a href="direccionAnadir">direccionAnadir</a></td></tr>
+<tr><td><a href="direccionEditar">direccionEditar</a></td></tr>
+<tr><td><a href="personaEditar.xml">personaEditar</a></td></tr>
+<tr><td><a href="organismoAnadir.xml">organismoAnadir</a></td></tr>
+<tr><td><a href="organismoEditar.xml">organismoEditar</a></td></tr>
+<tr><td><a href="aplicacionAnadir.xml">aplicacionAnadir</a></td></tr>
+<tr><td><a href="aplicacionEditar.xml">aplicacionEditar</a></td></tr>
+<tr><td><a href="culturaAnadir.xml">culturaAnadir</a></td></tr>
+<tr><td><a href="culturaEditar.xml">culturaEditar</a></td></tr>
+<tr><td><a href="comunidadAnadir">comunidadAnadir</a></td></tr>
+<tr><td><a href="comunidadEditar">comunidadEditar</a></td></tr>
+<tr><td><a href="periodoEliminar">periodoEliminar</a></td></tr>
+<tr><td><a href="uoEliminar">uoEliminar</a></td></tr>
+<tr><td><a href="perfilEliminar">perfilEliminar</a></td></tr>
+<tr><td><a href="direccionEliminar">direccionEliminar</a></td></tr>
+<tr><td><a href="personaEliminar">personaEliminar</a></td></tr>
+<tr><td><a href="ambitoEliminar">ambitoEliminar</a></td></tr>
+<tr><td><a href="tipoambitoEliminar">tipoambitoEliminar</a></td></tr>
+<tr><td><a href="culturaEliminar">culturaEliminar</a></td></tr>
+<tr><td><a href="organismoEliminar">organismoEliminar</a></td></tr>
+<tr><td><a href="aplicacionEliminar">aplicacionEliminar</a></td></tr>
+<tr><td><a href="cambiarperfilTest">cambiarperfilTest</a></td></tr>
+<tr><td><a href="cambiarcontrasenaTest">cambiarcontrasenaTest</a></td></tr>
+<tr><td><a href="cambiaraplicacionTest">cambiaraplicacionTest</a></td></tr>
+<tr><td><a href="logoutText.xml">logoutText</a></td></tr>
+</tbody></table>
+</body>
+</html>
