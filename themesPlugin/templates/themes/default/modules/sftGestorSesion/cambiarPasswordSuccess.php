@@ -38,7 +38,7 @@
     <?php if($showForm): ?>
 
     <h2>Hola <i><?php echo $nombre ?></i>. Rellene este formulario y envíelo para cambiar su password.</h2>
-    <form id="formCambioPassword" name="formCambioPassword" method="post" action="<?php echo url_for('sftGestorSesion/cambiarPassword?'.$queryString) ?>" >
+    <form id="formCambioPassword" name="formCambioPassword" method="post" action="<?php echo url_for('@sftGuardPlugin_cambiarPasswordToken?'.$queryString) ?>" >
         <?php echo $formPassword -> renderGlobalErrors() ?>
         <?php echo $formPassword -> renderHiddenFields() ?>
         <table>

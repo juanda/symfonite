@@ -45,13 +45,13 @@
             <?php echo $helper->linkToDelete($SftFidAtributo, array('params' => array(), 'confirm' => 'Are you sure?', 'class_suffix' => 'delete', 'label' => 'Delete',)) ?>
         <?php endif; ?>
         <li class="sf_admin_action_asociaperfiles">            
-            <?php echo link_to(__('Perfiles', array(), 'messages'), 'attrmapperadmin/ListAsociaPerfiles?id=' . $SftFidAtributo->getId(), array('class' => 'perfiles')) ?>                        
+            <?php echo link_to(__('Perfiles', array(), 'messages'), '@sft_fid_atributo_object?action=ListAsociaPerfiles&id=' . $SftFidAtributo->getId(), array('class' => 'perfiles')) ?>                        
         </li>
         <li class="sf_admin_action_asociaambitos">            
-            <?php echo link_to(__('Ambitos', array(), 'messages'), 'attrmapperadmin/ListAsociaAmbitos?id=' . $SftFidAtributo->getId(), array('class' => 'ambitos')) ?>                        
+            <?php echo link_to(__('Ambitos', array(), 'messages'), '@sft_fid_atributo_object?action=ListAsociaAmbitos&id=' . $SftFidAtributo->getId(), array('class' => 'ambitos')) ?>                        
         </li>
         <li class="sf_admin_action_mapping">            
-            <?php echo link_to(__('Mapping', array(), 'messages'), 'attrmapperadmin/ListMapping?id=' . $SftFidAtributo->getId(), array('class' => 'mapping')) ?>                        
+            <?php echo link_to(__('Mapping', array(), 'messages'), '@sft_fid_atributo_object?action=ListAsociaMapping&id=' . $SftFidAtributo->getId(), array('class' => 'mapping')) ?>                        
         </li>
     
     </ul>

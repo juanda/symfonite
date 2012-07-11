@@ -16,12 +16,12 @@ class attrmapperadminActions extends autoAttrmapperadminActions
     
     function executeListAsociaPerfiles(sfWebRequest $request)
     {
-        $this->redirect('fid_asociaperfiles/index?id_atributo=' . $request->getParameter('id'));
+        $this->redirect('@sft_ambito_fid_asociaambitos?id_atributo=' . $request->getParameter('id'));
     }
     
     function executeListAsociaAmbitos(sfWebRequest $request)
     {
-        $this->redirect('fid_asociaambitos/index?id_atributo=' . $request->getParameter('id'));
+        $this->redirect('@sft_ambito_fid_asociaambitos?id_atributo=' . $request->getParameter('id'));
     }
         
 }

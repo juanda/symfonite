@@ -15,15 +15,16 @@ generator:
     config:
       actions: ~
       fields:  
-        GenProvincia: { label: provincia }
+        id_provincia: { label: Provincia }
+        codigolocal: { label: Código de la localidad}
       list:
         title: Listado de Localidades
         max_per_page: 10
-        display: [ nombre, GenProvincia ]
+        display: [ nombre, id_provincia ]
       filter:  ~
       form:    ~
       edit:
-        title: Edicion de la Localidad: %%NOMBRE%%
+        title: 'Edicion de la Localidad: %%NOMBRE%%'
       new:
         title: Nueva Localidad
 

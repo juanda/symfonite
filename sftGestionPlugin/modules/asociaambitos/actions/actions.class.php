@@ -83,32 +83,32 @@ class asociaambitosActions extends autoAsociaambitosActions
     public function executeListPoner(sfWebRequest $request)
     {
         $this  -> forward404Unless($this -> getUser() -> hasAttribute('id_acceso', 'mod_asociaambitos'));
-        $this  -> forward404Unless($request -> hasParameter('id_ambito'));
+        $this  -> forward404Unless($request -> hasParameter('id'));
 
         $acceso = SftAccesoPeer::retrieveByPK($this -> getUser() -> getAttribute('id_acceso', null, 'mod_asociaambitos'));
         $this -> forward404Unless($acceso instanceof SftAcceso);
 
-        $ambito = SftAmbitoPeer::retrieveByPK($request -> getParameter('id_ambito'));
+        $ambito = SftAmbitoPeer::retrieveByPK($request -> getParameter('id'));
 
         $acceso -> ponAmbito($ambito);
 
-        $this -> redirect('asociaambitos/index');
+        $this -> redirect('@sft_ambito_asociaambitos');
 
     }
 
     public function executeListQuitar(sfWebRequest $request)
     {
         $this  -> forward404Unless($this -> getUser() -> hasAttribute('id_acceso', 'mod_asociaambitos'));
-        $this  -> forward404Unless($request -> hasParameter('id_ambito'));
+        $this  -> forward404Unless($request -> hasParameter('id'));
 
         $acceso = SftAccesoPeer::retrieveByPK($this -> getUser() -> getAttribute('id_acceso', null, 'mod_asociaambitos'));
         $this -> forward404Unless($acceso instanceof SftAcceso);
 
-        $ambito = SftAmbitoPeer::retrieveByPK($request -> getParameter('id_ambito'));
+        $ambito = SftAmbitoPeer::retrieveByPK($request -> getParameter('id'));
 
         $acceso -> quitaAmbito($ambito);
 
-        $this -> redirect('asociaambitos/index');
+        $this -> redirect('@sft_ambito_asociaambitos');
     }
 
     protected function buildCriteria()

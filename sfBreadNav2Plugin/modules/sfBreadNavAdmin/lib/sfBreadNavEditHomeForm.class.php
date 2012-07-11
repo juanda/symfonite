@@ -13,16 +13,14 @@ class sfBreadNavEditHomeForm extends sfForm
 
         $this->setWidgetSchema(new sfWidgetFormSchema(array(
                     'page' => new sfWidgetFormInput(),
-                    'module' => new sfWidgetFormInput(),
-                    'action' => new sfWidgetFormInput(),
+                    'route' => new sfWidgetFormInput(),
                     'credential' => new sfWidgetFormInput(),
                     'catch_all' => new sfWidgetFormInputCheckbox()
                 )));
 
         $this->setValidatorSchema(new sfValidatorSchema(array(
                     'page' => new sfValidatorString(array('max_length' => 255)),
-                    'module' => new sfValidatorString(array('max_length' => 128)),
-                    'action' => new sfValidatorString(array('max_length' => 128)),
+                    'route' => new sfValidatorString(array('max_length' => 128)),
                     'credential' => new sfValidatorString(array('max_length' => 128, 'required' => false)),
                     'catch_all' => new sfValidatorPass()
                 )));

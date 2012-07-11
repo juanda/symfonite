@@ -1,4 +1,14 @@
-  
+rgtsugerencia:
+  class: sfPropelRouteCollection
+  options:
+    model:                rgtsugerencia
+    module:               sugerencias_admin
+    prefix_path:          /sugerencias_admin
+    column:               id
+    with_wildcard_routes: true
+
+
+
 registro:
   url: /registro
   param: { module: registro, action: index }
@@ -14,3 +24,7 @@ registro_confirmaRegistro:
 registro_mensajeEnviado:
   url:   /registro/mensajeEnviado
   param: { module: registro, action: mensajeEnviado }
+  
+sugerencias:
+  url: /sugerencias
+  param: { module: sugerencias, action: index }

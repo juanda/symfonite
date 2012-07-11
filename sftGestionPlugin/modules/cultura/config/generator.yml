@@ -26,6 +26,10 @@ generator:
       form:
         display: [ nombre , descripcion]
       edit:
-        title: Edición de la Cultura: %%NOMBRE%%
+        title: 'Edición de la Cultura: %%NOMBRE%%'
+        fields:
+          nombre: { label: Nombre*, help: 'Nombre corto o código de la cultura' }
       new:
         title: Nueva Cultura
+        fields:
+          nombre: { label: Nombre*, help: 'Nombre corto o código de la cultura' }

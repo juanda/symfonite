@@ -1,0 +1,22 @@
+generator:
+  class: sfPropelGenerator
+  param:
+    model_class:           rgtsugerencia
+    theme:                 admin
+    non_verbose_templates: true
+    with_show:             false
+    singular:              rgtsugerencia
+    plural:                rgtsugerencias
+    route_prefix:          rgtsugerencia
+    with_propel_route:     1
+    actions_base_class:    sfActions
+    css:                   false
+
+    config:
+      actions: ~
+      fields:  ~
+      list:    ~
+      filter:  ~
+      form:    ~
+      edit:    ~
+      new:     ~

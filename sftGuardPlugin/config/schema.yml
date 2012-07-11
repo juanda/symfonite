@@ -21,16 +21,18 @@ sft:
   sft_ambitostipos:
     _attributes: { phpName: SftAmbitoTipo, idMethod: native }
     id: { phpName: Id, type: INTEGER, size: '11', primaryKey: true, autoIncrement: true, required: true }
-    nombre: { type: VARCHAR, size: '255' }
+    nombre: { type: VARCHAR, size: '255', required: true }
     descripcion: { type: VARCHAR, size: '255' }
+    _uniques: { nombre: [nombre] } 
   sft_ambitos:
     _attributes: { phpName: SftAmbito, idMethod: native, isI18N: true, i18nTable: sft_ambitos_i18n  }
     id: { phpName: Id, type: INTEGER, size: '11', primaryKey: true, autoIncrement: true, required: true }
-    id_ambitotipo: { type: INTEGER, size: '11',foreignTable: sft_ambitostipos, foreignReference: id, onDelete: RESTRICT, onUpdate: CASCADE }
-    id_periodo: { type: INTEGER, required: true, foreignTable: sft_periodos, foreignReference: id, onDelete: RESTRICT, onUpdate: CASCADE }
+    id_ambitotipo: { type: INTEGER, size: '11',foreignTable: sft_ambitostipos, foreignReference: id, onDelete: CASCADE, onUpdate: CASCADE }
+    id_periodo: { type: INTEGER, required: true, foreignTable: sft_periodos, foreignReference: id, onDelete: CASCADE, onUpdate: CASCADE }
     codigo: { type: VARCHAR, size: '255', required: true }
     estado: { type: VARCHAR, size: '255', required: true, default: 'ACTIVO' }
     _indexes: { id_ambitotipo: [id_ambitotipo], id_periodo: [id_periodo] }
+    _uniques: { codigo: [codigo] } 
   sft_ambitos_i18n:
     _attributes: { phpName:SftAmbitoI18n }
     id: { type: INTEGER, required: true, primaryKey: true,  foreignTable: sft_ambitos, foreignReference: id, onDelete: CASCADE, onUpdate: CASCADE }
@@ -55,7 +57,7 @@ sft:
     created_at: ~
     updated_at: ~
     _indexes: { id_credencial: [id_credencial] }
-    _uniques: { clave: [clave], nombre: [nombre] }  
+    _uniques: { clave: [clave], nombre: [nombre], codigo: [codigo] }  
   sft_confpersonales:
     _attributes: { phpName: SftConfPersonal, idMethod: native }
     id: { phpName: Id, type: INTEGER, size: '11', primaryKey: true, autoIncrement: true, required: true }
@@ -87,6 +89,7 @@ sft:
     id: { phpName: Id, type: INTEGER, size: '11', primaryKey: true, autoIncrement: true, required: true }
     nombre: { type: CHAR, size: '5', required: true }
     descripcion: { type: VARCHAR, size: '255', required: true }
+    _uniques: { nombre: [nombre] }
   sft_direcciones:
     _attributes: { phpName: SftDireccion, idMethod: native }
     id: { phpName: Id, type: INTEGER, size: '11', primaryKey: true, autoIncrement: true, required: true }
@@ -97,9 +100,9 @@ sft:
     escalera: { type: VARCHAR, size: '15' }
     piso: { type: VARCHAR, size: '15' }
     letra: { type: CHAR, size: '2' }
-    municipio: { type: VARCHAR, size: '50' }
-    provincia: { type: VARCHAR, size: '50' }
     pais: { type: VARCHAR, size: '50' }
+    provincia: { type: VARCHAR, size: '50' }
+    municipio: { type: VARCHAR, size: '50' }
     cp: { type: VARCHAR, size: '20' }
     id_usuario: { type: INTEGER, foreignTable: sft_usuarios, foreignReference: id, onDelete: RESTRICT, onUpdate: CASCADE }
     _indexes: { id_tipodireccion: [id_tipodireccion], id_usuario: [id_usuario] }
@@ -134,13 +137,12 @@ sft:
   sft_organismos:
     _attributes: { phpName: SftOrganismo, idMethod: native }
     id: { phpName: Id, type: INTEGER, size: '11', primaryKey: true, autoIncrement: true, required: true }
-    nombre: { type: VARCHAR, size: '128' }
+    nombre: { type: VARCHAR, size: '128', required: true }
     abreviatura: { type: VARCHAR, size: '20' }
     id_tipoorganismo: { type: INTEGER, foreignTable: sft_tiposorganismo, foreignReference: id, onDelete: 'SET NULL', onUpdate: CASCADE }
     codigo: { type: VARCHAR, size: '15' }
     descripcion: { type: VARCHAR, size: '255' }
     sitioweb: { type: VARCHAR, size: '80' }
-    correo: { type: VARCHAR, size: '60' }
     created_at: ~
     updated_at: ~
     id_contacto: { type: INTEGER, foreignTable: sft_personas, foreignReference: id, onDelete: 'SET NULL', onUpdate: CASCADE }
@@ -148,6 +150,7 @@ sft:
     id_depende: { type: INTEGER, foreignTable: sft_organismos, foreignReference: id, onDelete: 'SET NULL', onUpdate: CASCADE }
     id_pais: { type: INTEGER, foreignTable: gen_paises, foreignReference: id, onDelete: 'SET NULL', onUpdate: CASCADE }
     _indexes: { id_contacto: [id_contacto], id_depende: [id_depende], id_tipoorganismo: [id_tipoorganismo], id_pais: [id_pais] }
+    _uniques: { nombre: [nombre] }
   sft_perfil_credencial:
     id_perfil: { type: INTEGER, required: true, primaryKey: true, foreignTable: sft_perfiles, foreignReference: id, onDelete: CASCADE, onUpdate: CASCADE }
     id_credencial: { type: INTEGER, required: true, primaryKey: true, foreignTable: sft_credenciales, foreignReference: id, onDelete: CASCADE, onUpdate: CASCADE }
@@ -155,13 +158,14 @@ sft:
   sft_perfiles:
     _attributes: { phpName: SftPerfil, idMethod: native, isI18N: true, i18nTable: sft_perfiles_i18n }
     id: ~
-    id_uo: { type: INTEGER, foreignTable: sft_uos, foreignReference: id, onDelete: RESTRICT, onUpdate: CASCADE }
-    tema: { type: VARCHAR, size: '255' }
+    id_uo: { type: INTEGER, foreignTable: sft_uos, foreignReference: id, onDelete: CASCADE, onUpdate: CASCADE }
+    codigo: { type: VARCHAR, size: '255', required: true }
     created_at: ~
     updated_at: ~
     id_ambitotipo: { type: INTEGER, foreignTable: sft_ambitostipos, foreignReference: id, onDelete: RESTRICT, onUpdate: RESTRICT }
     menu: { type: VARCHAR, size: '255', required: false }
     _indexes: { id_uo: [id_uo], id_ambitotipo: [id_ambitotipo] }
+    _uniques: { codigo: [codigo]}
   sft_perfiles_i18n:
     _attributes: { phpName: SftPerfilI18n }
     id: { type: INTEGER, required: true, primaryKey: true,  foreignTable: sft_perfiles, foreignReference: id, onDelete: CASCADE, onUpdate: CASCADE }
@@ -170,6 +174,7 @@ sft:
     abreviatura: { type: VARCHAR, size: '255' }
     id_cultura: { isCulture: true, type: CHAR, size: '5', required: true, primaryKey: true }
     _indexes: { id_cultura: [id_cultura] }
+    _uniques: { nombre: [nombre, id_cultura] } 
   sft_personas:
     _attributes: { phpName: SftPersona, idMethod: native }
     id: { phpName: Id, type: INTEGER, size: '11', primaryKey: true, autoIncrement: true, required: true }
@@ -177,7 +182,7 @@ sft:
     apellido1: { type: VARCHAR, size: '40' }
     apellido2: { type: VARCHAR, size: '40' }
     id_tipodocidentificacion: { type: INTEGER, foreignTable: sft_tiposdocidentificacion, foreignReference: id, onDelete: RESTRICT, onUpdate: CASCADE }
-    docidentificacion: { type: VARCHAR, size: '32' }
+    docidentificacion: { type: VARCHAR, size: '32', default: NULL }
     id_paisdocidentificacion: { type: INTEGER,  foreignTable: gen_paises, foreignReference: id, onDelete: RESTRICT, onUpdate: CASCADE }
     sexo: { type: VARCHAR, size: '1' }
     fechanacimiento: { type: DATE }
@@ -186,6 +191,7 @@ sft:
     updated_at: ~
     profesion: { type: VARCHAR, size: '255' }
     _indexes: { docidentificacion: [docidentificacion, id_paisdocidentificacion], id_tipodocidentificacion: [id_tipodocidentificacion], id_paisdocidentificacion: [id_paisdocidentificacion] }
+    _uniques: { nombre: [nombre], docid [docidentificacion] }
   sft_telefonos:
     _attributes: { phpName: SftTelefono, idMethod: native }
     id: { phpName: Id, type: INTEGER, size: '11', primaryKey: true, autoIncrement: true, required: true }
@@ -207,8 +213,6 @@ sft:
   sft_tiposdireccion:
     _attributes: { phpName: SftTipoDireccion, idMethod: native, isI18N: true, i18nTable: sft_tiposdireccion_i18n}
     id: ~
-    created_at: ~
-    updated_at: ~
   sft_tiposdireccion_i18n:
     _attributes: { phpName: SftTipoDireccionI18n }
     id: { type: INTEGER, required: true, primaryKey: true, foreignTable: sft_tiposdireccion, foreignReference: id, onDelete: CASCADE, onUpdate: CASCADE }
@@ -233,7 +237,7 @@ sft:
     _uniques: { codigo: [codigo] }
   sft_tiposorganismo_i18n:
     _attributes: { phpName:SftTipoOrganismoI18n }
-    id: { type: INTEGER, required: true, primaryKey: true, default: '00000000000', foreignTable: sft_tiposorganismo, foreignReference: id, onDelete: RESTRICT, onUpdate: CASCADE }
+    id: { type: INTEGER, required: true, primaryKey: true, default: '00000000000', foreignTable: sft_tiposorganismo, foreignReference: id, onDelete: CASCADE, onUpdate: CASCADE }
     nombre: { type: VARCHAR, size: '255' }
     abreviatura: { type: VARCHAR, size: '255' }
     id_idioma: { isCulture: true, type: CHAR, size: '5', required: true, primaryKey: true }
@@ -241,7 +245,7 @@ sft:
   sft_uos:
     _attributes: { phpName: SftUo, idMethod: native, isI18N: true, i18nTable: sft_uos_i18n }
     id: ~
-    codigo: { type: VARCHAR, size: '20' }
+    codigo: { type: VARCHAR, size: '20', required: true }
     observaciones: { type: VARCHAR, size: '128' }    
     created_at: ~
     updated_at: ~
@@ -259,7 +263,7 @@ sft:
     id: { phpName: Id, type: INTEGER, size: '11', primaryKey: true, autoIncrement: true, required: true }
     id_sfuser: { type: INTEGER}
     alias: { type: VARCHAR, size: '20', index: unique }
-    activo: { type: TINYINT, required: true, default: '1' }
+    activo: { type: boolean, required: true, default: '1' }
     fecha_alta: { type: DATE }
     fecha_baja: { type: DATE }
     created_at: ~
@@ -304,7 +308,7 @@ sft:
     _uniques: { codigo_iso3166_alfa2: [codigo_iso3166_alfa2], codigo_iso3166_alfa3: [codigo_iso3166_alfa3], codigo_iso3166_num: [codigo_iso3166_num] }
   gen_paises_i18n:
     _attributes: { phpName: GenPaisI18n }
-    id: { type: INTEGER, required: true, primaryKey: true, foreignTable: gen_paises, foreignReference: id, onDelete: RESTRICT, onUpdate: CASCADE }
+    id: { type: INTEGER, required: true, primaryKey: true, foreignTable: gen_paises, foreignReference: id, onDelete: CASCADE, onUpdate: CASCADE }
     id_cultura: { isCulture: true, type: CHAR, size: '5', required: true, primaryKey: true }
     nombre: { type: VARCHAR, size: '40' }
     nombreabrev: { type: VARCHAR, size: '20' }
@@ -316,7 +320,7 @@ sft:
     codigocomunidad: { type: VARCHAR, size: '5' }
   gen_comunidades_i18n:
     _attributes: { phpName: GenComunidadI18n }
-    id: { type: INTEGER, required: true, primaryKey: true, foreignTable: gen_comunidades, foreignReference: id, onDelete: RESTRICT, onUpdate: CASCADE }
+    id: { type: INTEGER, required: true, primaryKey: true, foreignTable: gen_comunidades, foreignReference: id, onDelete: CASCADE, onUpdate: CASCADE }
     id_cultura: { isCulture: true, type: CHAR, size: '5', required: true, primaryKey: true }
     nombre: { type: VARCHAR, size: '40' }
     nombreabrev: { type: VARCHAR, size: '20' }
@@ -329,7 +333,7 @@ sft:
     _indexes: { id_comunidad: [id_comunidad] }
   gen_provincias_i18n:
     _attributes: { phpName: GenProvinciaI18n }
-    id: { type: INTEGER, required: true, primaryKey: true, foreignTable: gen_provincias, foreignReference: id, onDelete: RESTRICT, onUpdate: CASCADE }
+    id: { type: INTEGER, required: true, primaryKey: true, foreignTable: gen_provincias, foreignReference: id, onDelete: CASCADE, onUpdate: CASCADE }
     id_cultura: { isCulture: true, type: CHAR, size: '5', required: true, primaryKey: true }
     nombre: { type: VARCHAR, size: '40' }
     nombreabrev: { type: VARCHAR, size: '20' }
@@ -342,7 +346,7 @@ sft:
     _indexes: { id_provincia: [id_provincia] }
   gen_localidades_i18n:
     _attributes: { phpName: GenLocalidadI18n }
-    id: { type: INTEGER, required: true, primaryKey: true, foreignTable: gen_localidades, foreignReference: id, onDelete: RESTRICT, onUpdate: CASCADE }
+    id: { type: INTEGER, required: true, primaryKey: true, foreignTable: gen_localidades, foreignReference: id, onDelete: CASCADE, onUpdate: CASCADE }
     id_cultura: { isCulture: true, type: CHAR, size: '5', required: true, primaryKey: true }
     nombre: { type: VARCHAR, size: '40' }
     nombreabrev: { type: VARCHAR, size: '20' }

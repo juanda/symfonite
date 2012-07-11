@@ -29,10 +29,10 @@ class busca_personasActions extends autobusca_PersonasActions
     }
     public function executeListSeleccionar(sfWebRequest $request)
     {
-        $persona = SftPersonasPeer::retrieveByPK($request->getParameter('id'));
+        $persona = SftPersonaPeer::retrieveByPK($request->getParameter('id'));
 
        
-        $this -> idUsuario = $persona->dameSftUsuarios()->getId();
+        $this -> idUsuario = $persona->dameSftUsuario()->getId();
 
         $this -> nombre = $persona ->getNombreCompleto();
        

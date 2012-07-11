@@ -34,7 +34,7 @@
         <li class="<?php echo $aClaseComponente ?>" id="eltomenu00<?php echo $i ?>">
           <?php if($menu['tipo']=='edae'): ?><a style="cursor:text;" title="" name="menu00<?php echo $i ?>" id="menu00<?php echo $i ?>" href="#"><?php else: ?>
           <a onmouseover="javascript:{window.status='<?php echo __($menu['nombre'],null,"menus") ?>';return true;}" class="<?php echo $aClaseComponente ?>" title="<?php echo __($menu['title'],null,"menus") ?>" name="menu00<?php echo $i ?>" id="menu00<?php echo $i ?>" href="<?php echo $aEnlace ?>">
-          <?endif;?>
+          <?php endif;?>
             <span class="<?php echo $aClaseComponente ?>" id="menu00<?php echo $i ?>_txt"><?php echo __($menu['nombre'],null,"menus") ?></span>
           </a>
         </li>

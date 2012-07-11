@@ -27,7 +27,7 @@
     <div class="notice"><?php echo __($sf_user->getFlash('message')) ?></div>
 <?php endif; ?>
 
-    <form name="f" action="<?php echo url_for('sftPAPIAS/signin') ?> " method="post" >
+    <form name="f" action="<?php echo url_for('@papi_signin') ?> " method="post" >
     <?php echo $form ?>
     <?php    include_partial('sftPAPIAS/papi_params') ?>
     <input type="submit" value="Continuar" />

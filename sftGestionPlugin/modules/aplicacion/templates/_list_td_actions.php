@@ -39,10 +39,10 @@
         <?php echo $helper->linkToEdit($SftAplicacion, array('params' => array(), 'class_suffix' => 'edit', 'label' => 'Edit',)) ?>
         <?php echo $helper->linkToDelete($SftAplicacion, array('params' => array(), 'confirm' => 'Are you sure?', 'class_suffix' => 'delete', 'label' => 'Delete',)) ?>
         <li class="sf_admin_action_asociacredenciales">
-            <?php echo link_to(__('Credenciales', array(), 'messages'), 'aplicacion/ListCredenciales?id=' . $SftAplicacion->getId(), array('class' => 'credenciales')) ?>
+            <?php echo link_to(__('Credenciales', array(), 'messages'), '@sft_aplicacion_object?action=ListCredenciales&id='.$SftAplicacion->getId(), array('class' => 'credenciales')) ?>
         </li>
         <li class="sf_admin_action_editamenu">
-            <?php echo link_to(__('Menus', array(), 'messages'), 'aplicacion/ListEditaMenu?id=' . $SftAplicacion->getId(), array('class' => 'editamenu')) ?>
+            <?php echo link_to(__('Menus', array(), 'messages'), '@sft_aplicacion_object?action=ListEditaMenu&id='.$SftAplicacion->getId(), array('class' => 'editamenu')) ?>
         </li>
     </ul>
 </td>

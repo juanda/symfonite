@@ -24,25 +24,32 @@
 ?>
 <?php
 
-class SftOrganismoConIdentEmailForm extends BaseSftOrganismoForm
+class SftOrganismoConIdentEmailForm extends SftOrganismoForm
 {
     public function configure()
     {
         $this -> widgetSchema['descripcion']   = new sfWidgetFormTextArea();       
         unset ($this -> widgetSchema['correo']);
+        $this->widgetSchema['updated_at'] = new sfWidgetFormInputHidden();
+        $this->widgetSchema['created_at'] = new sfWidgetFormInputHidden();
         if($this -> isNew())
         {
             $this -> widgetSchema['email']    = new sfWidgetFormInput();
 
             $this -> validatorSchema['email'] = new sfValidatorEmail();
         }
-        
+
 
         if (!$this->isNew())
         {
             $sfUser = $this -> getObject() -> getSfUser();
             $sfUserForm = new SftUserNameForm($sfUser);
-            $this -> embedForm('identificacion', $sfUserForm);
+            $this -> embedForm('Identificación', $sfUserForm);
+
+            $sftUser = $this->getObject()->dameSftUsuario();
+            $sftUserForm = new SftUsuariosConActivoAliasCulturaForm($sftUser);
+            $this->embedForm('usuario', $sftUserForm);
+
         }
         
     }

@@ -20,7 +20,7 @@ generator:
         SftUsuAtributos: { label: Nombre }
         valor: { label: Valor }
         created_at: { label: Fecha de Creación }
-        updated_at: { label: Ultima actualización }
+        updated_at: { label: Última actualización }
         expira: { label: Expira}
       list:
         title: Listado de Atributos del usuario
@@ -36,5 +36,9 @@ generator:
         class: usuarioAtributoValorForm
       edit:
         title: Edición del Atributo %%SftUsuAtributo%%
+        fields:
+          valor: { label: Valor*, help: Valor del atributo}
       new:
         title: Crear un nuevo atributo
+        fields:
+          valor: { label: Valor*, help: Valor del atributo}

@@ -17,6 +17,8 @@ generator:
       fields:
         SftUos: { label: UO }
         id_uo:  { label: UO }
+        descripcion: {label: Descripción}
+        id_ambitotipo: {label: Tipo de ámbito}
       list:       
         max_per_page: 10
         display: [ SftUos, nombre, descripcion ]

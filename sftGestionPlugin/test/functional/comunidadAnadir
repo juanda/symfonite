@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head profile="http://selenium-ide.openqa.org/profiles/test-case">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<link rel="selenium.base" href="http://localhost/sftprueba/web/index.php/" />
+<title>comunidadAnadir</title>
+</head>
+<body>
+<table cellpadding="1" cellspacing="1" border="1">
+<thead>
+<tr><td rowspan="1" colspan="3">comunidadAnadir</td></tr>
+</thead><tbody>
+<tr>
+	<td>open</td>
+	<td>/sft/web/index.php/</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>link=Gestión de comunidades</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>link=Nuevo</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=gen_comunidad_codigocomunidad</td>
+	<td>mad</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=gen_comunidad_es_ES_nombre</td>
+	<td>Madrid</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=gen_comunidad_en_GB_nombre</td>
+	<td>Madrid</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>css=input[type=&quot;submit&quot;]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>link=Back to list</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>link=Inicio</td>
+	<td></td>
+</tr>
+</tbody></table>
+</body>
+</html>

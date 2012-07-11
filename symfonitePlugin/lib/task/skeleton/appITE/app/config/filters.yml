@@ -4,8 +4,8 @@
 rendering: ~
 security:  ~
 
-mantenimiento:
-  class: FiltroMantenimiento
+remember_me:
+  class: sfGuardRememberMeFilter
 
 cache:     ~
 execution: ~

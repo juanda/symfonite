@@ -32,22 +32,15 @@ class sfBreadNavPeer extends BasesfBreadNavNestedSetPeer
     
     $root = self::getRoot($scope);
     if ($root) {
-      
-      $root->setPage($values['page']);
-      $root->setModule($values['module']);
-      $root->setAction($values['action']);
-      $root->setCredential($values['credential']);
-      $root->setCatchall( ( isset($values['catch_all'])) ? 1 : null)  ;
+      $root->setPage('Raiz');
+      $root->setRoute('Raiz');
       $root->save();
       return true;
     }else{
       $root = new sfBreadNav();
       $root->makeRoot();
-      $root->setPage($values['page']);
-      $root->setModule($values['module']);
-      $root->setAction($values['action']);
-      $root->setCredential($values['credential']);
-      $root->setCatchall( ( isset($values['catch_all'])) ? 1 : null)  ;
+      $root->setPage('Raiz');
+      $root->setRoute('Raiz');
       $root->setScope($scope);
       $root->save();
       return true;
@@ -69,8 +62,7 @@ class sfBreadNavPeer extends BasesfBreadNavNestedSetPeer
     $newpage = new sfBreadNav();
        
     $newpage->setPage($values['page']);
-    $newpage->setModule($values['module']);
-    $newpage->setAction($values['action']);
+    $newpage->setRoute($values['route']);
     $newpage->setCredential($values['credential']);
     $newpage->setCatchall($catchall);
     $newpage->setScope($scope);
@@ -104,8 +96,7 @@ class sfBreadNavPeer extends BasesfBreadNavNestedSetPeer
     $newpage = sfBreadNavPeer::retrieveByPK($values['id']); 
             
     $newpage->setPage($values['page']);
-    $newpage->setModule($values['module']);
-    $newpage->setAction($values['action']);
+    $newpage->setRoute($values['route']);
     $newpage->setCredential($values['credential']);
     if (!isset($values['catch_all'])) {$values['catch_all'] = null;}
     $newpage->setCatchall($values['catch_all']);

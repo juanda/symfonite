@@ -1,136 +1,116 @@
-page: Inicio
-module: inicio
-action: index
-credential: SFTGESTIONPLUGIN_administracion
+page: Raiz
+route: Raiz
+credential: ~
 menu:
   -
-     page: UOS
-     module: uo
-     action: index
-     credential: SFTGESTIONPLUGIN_administracion
-     menu:
-       -
-         page: gestión de uos
-         module: uo
-         action: index
-         credential: SFTGESTIONPLUGIN_administracion
-       -
-         page: gestión de periodos
-         module: periodo
-         action: index
-         credential: SFTGESTIONPLUGIN_administracion
-       -
-         page: gestión de perfiles
-         module: perfil
-         action: index
-         credential: SFTGESTIONPLUGIN_administracion
-       -
-         page: gestión de ámbitos
-         module: ambitotipo
-         action: index
-         credential: SFTGESTIONPLUGIN_administracion
+    page: Inicio
+    route: '@homepage'
+    credential: SFTGESTIONPLUGIN_administracion
+    menu:
+      ~
   -
-     page: Usuarios
-     module: persona
-     action: index
-     credential: SFTGESTIONPLUGIN_administracion
-     menu:
-       -
-         page: gestión de personas
-         module: persona
-         action: index
-         credential: SFTGESTIONPLUGIN_administracion_uo
-       -
-         page: gestión de organismos
-         module: organismo
-         action: index
-         credential: SFTGESTIONPLUGIN_administracion_uo       
+    page: UOS
+    route: '@sft_uo'
+    credential: SFTGESTIONPLUGIN_administracion
+    menu:
+      -
+        page: Gestión de uos
+        route: '@sft_uo'
+        credential: SFTGESTIONPLUGIN_administracion
+      -
+        page: Gestión de periodos
+        route: '@sft_periodo'
+        credential: SFTGESTIONPLUGIN_administracion
+      -
+        page: Gestión de perfiles
+        route: '@sft_perfil'
+        credential: SFTGESTIONPLUGIN_administracion
+      -
+        page: Gestión de ámbitos
+        route: '@sft_ambito_tipo'
+        credential: SFTGESTIONPLUGIN_administracion
   -
-     page: Aplicaciones
-     module: aplicacion
-     action: index
-     credential: SFTGESTIONPLUGIN_administracion
-     menu:
-       -
-         page: gestión de aplicaciones
-         module: aplicacion
-         action: index
-         credential: SFTGESTIONPLUGIN_administracion
-       -
-         page: gestión de culturas
-         module: cultura
-         action: index
-         credential: SFTGESTIONPLUGIN_administracion
+    page: Usuarios
+    route: '@sft_persona'
+    credential: SFTGESTIONPLUGIN_administracion
+    menu:
+      -
+        page: Gestión de personas
+        route: '@sft_persona'
+        credential: SFTGESTIONPLUGIN_administracion_uo
+      -
+        page: Gestión de organismos
+        route: '@sft_organismo'
+        credential: SFTGESTIONPLUGIN_administracion_uo  
   -
-     page: Localizaciones
-     module: pais
-     action: index
-     credential: SFTGESTIONPLUGIN_administracion
-     menu:
-       -
-         page: gestión países
-         module: pais
-         action: index
-         credential: SFTGESTIONPLUGIN_administracion
-       -
-         page: gestión de comunidades
-         module: comunidad
-         action: index
-         credential: SFTGESTIONPLUGIN_administracion
-       -
-         page: gestión de provincias
-         module: provincia
-         action: index
-         credential: SFTGESTIONPLUGIN_administracion
+    page: Aplicaciones
+    route: '@sft_aplicacion'
+    credential: SFTGESTIONPLUGIN_administracion
+    menu:
+      -
+        page: Gestión de aplicaciones
+        route: '@sft_aplicacion'
+        credential: SFTGESTIONPLUGIN_administracion
+      -
+        page: Gestión de culturas
+        route: '@sft_cultura'
+        credential: SFTGESTIONPLUGIN_administracion
   -
-     page: Datos Auxiliares
-     module: tipodoc
-     action: index
-     credential: SFTGESTIONPLUGIN_administracion
-     menu:
-       -
-         page: gestión de tipos de documentos
-         module: tipodoc
-         action: index
-         credential: SFTGESTIONPLUGIN_administracion
-       -
-         page: gestión de tipos de direcciones
-         module: tipodir
-         action: index
-         credential: SFTGESTIONPLUGIN_administracion
-       -
-         page: gestión de tipos de organismos
-         module: tipoorg
-         action: index
-         credential: SFTGESTIONPLUGIN_administracion
-       -
-         page: gestión de tipos de telefonos
-         module: tipotel
-         action: index
-         credential: SFTGESTIONPLUGIN_administracion
-       -
-         page: gestión de atributos
-         module: atributo
-         action: index
-         credential: SFTGESTIONPLUGIN_administracion_uo
+    page: Localizaciones
+    route: '@gen_pais'
+    credential: SFTGESTIONPLUGIN_administracion
+    menu:
+      -
+        page: Gestión países
+        route: '@gen_pais'
+        credential: SFTGESTIONPLUGIN_administracion
+      -
+        page: Gestión de comunidades
+        route: '@gen_comunidad'
+        credential: SFTGESTIONPLUGIN_administracion
+      -
+        page: Gestión de provincias
+        route: '@gen_provincia'
+        credential: SFTGESTIONPLUGIN_administracion
   -
-     page: Identidad Federada
-     module: sftPAPIAdmin
-     action: poaParams
-     credential: SFTGESTIONPLUGIN_administracion
-     menu:
-       -
-         page: gestión del PoA PAPI
-         module: sftPAPIAdmin
-         action: poaParams
-         credential: SFTGESTIONPLUGIN_administracion
-       -
-         page: gestión de simpleSAMLphp
-         module: sftSAMLAdmin
-         action: runSAMLAdmin
-         credential: SFTGESTIONPLUGIN_administracion
-       -
-         page: mapeo de atributos
-         module: attrmapperadmin
-         action: index
-         credential: SFTGESTIONPLUGIN_administracion
+    page: Datos Auxiliares
+    route: '@sft_tipo_docidentificacion'
+    credential: SFTGESTIONPLUGIN_administracion
+    menu:
+      -
+        page: Gestión de tipos de documentos
+        route: '@sft_tipo_docidentificacion'
+        credential: SFTGESTIONPLUGIN_administracion
+      -
+        page: Gestión de tipos de direcciones
+        route: '@sft_tipo_direccion'
+        credential: SFTGESTIONPLUGIN_administracion
+      -
+        page: Gestión de tipos de organismos
+        route: '@sft_tipo_organismo'
+        credential: SFTGESTIONPLUGIN_administracion
+      -
+        page: Gestión de tipos de telefonos
+        route: '@sft_tipo_telefono'
+        credential: SFTGESTIONPLUGIN_administracion
+      -
+        page: Gestión de atributos
+        route: '@sft_usu_atributo'
+        credential: SFTGESTIONPLUGIN_administracion_uo
+  -
+    page: Identidad Federada
+    route: '@sftPAPIPlugin_poaParams'
+    credential: SFTGESTIONPLUGIN_administracion
+    menu:
+      -
+        page: Gestión del PoA PAPI
+        route: '@sftPAPIPlugin_poaParams'
+        credential: SFTGESTIONPLUGIN_administracion
+      -
+        page: Gestión de simpleSAMLphp
+        route: '@sftSAMLPlugin_runSAMLAdmin'
+        credential: SFTGESTIONPLUGIN_administracion
+      -
+        page: Mapeo de atributos
+        route: '@sft_fid_atributo'
+        credential: SFTGESTIONPLUGIN_administracion

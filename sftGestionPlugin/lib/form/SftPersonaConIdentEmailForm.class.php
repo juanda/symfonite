@@ -24,10 +24,12 @@
 ?>
 <?php
 
-class SftPersonaConIdentEmailForm extends BaseSftPersonaForm
+class SftPersonaConIdentEmailForm extends SftPersonaForm
 {
     public function configure()
     {
+        parent::configure();
+        
         $this -> widgetSchema['observaciones']   = new sfWidgetFormTextArea();
 
         $years = range(1900, date('Y'));
@@ -49,9 +51,18 @@ class SftPersonaConIdentEmailForm extends BaseSftPersonaForm
 
         if (!$this->isNew())
         {
+            
+      
+            
             $sfUser = $this -> getObject() -> getSfUser();
             $sfUserForm = new SftUserNameForm($sfUser);
             $this -> embedForm('identificacion', $sfUserForm);
+            
+            $sftUser = $this->getObject()->dameSftUsuario();
+            $sftUserForm = new SftUsuariosConActivoAliasCulturaForm($sftUser);           
+            $this->embedForm('usuario', $sftUserForm);
+                        
+
         }
         
     }

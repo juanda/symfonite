@@ -73,11 +73,11 @@
 
                                 <?php if($tienePerfil): ?>
                         <li class="sf_admin_action_delete">
-                                        <?php echo link_to(__('Quitar', array(), 'messages'), 'asociaperfiles/ListQuitar?id='.$SftPerfiles->getId(), array()) ?>
+                                        <?php echo link_to(__('Quitar', array(), 'messages'), 'sft_perfil_asociaperfiles_object', array('action'=> 'ListQuitar', 'id'=> $SftPerfiles->getId())) ?>
                         </li>
                                 <?php else: ?>
                         <li class="sf_admin_action_new">
-                                        <?php echo link_to(__('Poner', array(), 'messages'), 'asociaperfiles/ListPoner?id='.$SftPerfiles->getId(), array()) ?>
+                                        <?php echo link_to(__('Poner', array(), 'messages'), 'sft_perfil_asociaperfiles_object', array('action'=> 'ListPoner', 'id'=> $SftPerfiles->getId())) ?>
                         </li>
                                 <?php endif; ?>
 

@@ -38,7 +38,7 @@
 
 
 
-                    <form action="<?php echo url_for("sftGestorSesion/configuracionPersonal?form=pass") ?>" method="post">
+                    <form action="<?php echo url_for("@sftGuardPlugin_configuracionPersonalForm?form=pass") ?>" method="post">
                         <fieldset id="sf_fieldset_password" >
                             <h2><?php echo __("Cambiar la contraseña", null, "configper") ?></h2>
                             <div class="sf_admin_form_row">
@@ -53,7 +53,7 @@
                 </fieldset>               
             </form>
 
-            <form action="<?php echo url_for("sftGestorSesion/configuracionPersonal?form=lang") ?>" method="post">
+            <form action="<?php echo url_for("@sftGuardPlugin_configuracionPersonalForm?form=lang") ?>" method="post">
                 <fieldset id="sf_fieldset_cultura" >
                     <h2><?php echo __("Cambiar el Idioma", null, "configper") ?></h2>
                     <div class="sf_admin_form_row">

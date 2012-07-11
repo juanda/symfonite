@@ -1,21 +1,21 @@
 <br/>
 <br/>
 
-<strong><?php  echo link_to('Manage menu pages','sfBreadNavAdmin/index') ?></strong>
+<strong><?php  echo link_to('Manage menu pages','@sfBreadNav2Plugin_index') ?></strong>
 
 <br/>
 <br/>
 <?php $sf_bread_nav_application = $form->getObject() ?>
 <h2><?php echo $sf_bread_nav_application->isNew() ? 'New' : 'Edit' ?> Menu</h2>
 
-<form action="<?php echo url_for('sfBreadNavAdmin/update'.(!$sf_bread_nav_application->isNew() ? '?id='.$sf_bread_nav_application->getId() : '')) ?>" method="post" <?php $form->isMultipart() and print 'enctype="multipart/form-data" ' ?>>
+<form action="<?php echo url_for('@sfBreadNav2Plugin_Update'.(!$sf_bread_nav_application->isNew() ? '?id='.$sf_bread_nav_application->getId() : '')) ?>" method="post" <?php $form->isMultipart() and print 'enctype="multipart/form-data" ' ?>>
   <table>
     <tfoot>
       <tr>
         <td colspan="2">
-          &nbsp;<a href="<?php echo url_for('sfBreadNavAdmin/list') ?>">Cancel</a>
+          &nbsp;<a href="<?php echo url_for('@sfBreadNav2Plugin_list') ?>">Cancel</a>
           <?php if (!$sf_bread_nav_application->isNew()): ?>
-            &nbsp;<?php echo link_to('Delete', 'sfBreadNavAdmin/delete?id='.$sf_bread_nav_application->getId(), array('post' => true, 'confirm' => 'Are you sure?')) ?>
+            &nbsp;<?php echo link_to('Delete', '@sfBreadNav2Plugin_Delete?id='.$sf_bread_nav_application->getId(), array('post' => true, 'confirm' => 'Are you sure?')) ?>
           <?php endif; ?>
           <input type="submit" value="Save" />
         </td>

@@ -15,7 +15,7 @@ generator:
     config:
       actions: ~
       fields:
-        funciondecontrol: [ label: funciondecontrol ]
+        funciondecontrol: { label: Función de control }
       list:
         title: Listado de tipos de documentos de identificación
         display: [ nombre, funciondecontrol ]
@@ -23,6 +23,11 @@ generator:
       filter:  ~
       form:    ~
       edit:
-        title: Edición del tipo de documento de identificación: %%NOMBRE%%
+        title: 'Edición del tipo de documento de identificación: %%NOMBRE%%'
+        fields:
+          funciondecontrol: { label: Función de control, help: 'Define la función de control del documento de identificación (DNI, pasaporte, ficha...)'}
       new:
         title: Nuevo tipo de documento de indentificación
+        fields:
+          funciondecontrol: { label: Función de control, help: 'Define la función de control del documento de identificación (DNI, pasaporte, ficha...)'}
+

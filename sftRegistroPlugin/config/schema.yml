@@ -1,0 +1,10 @@
+sft:
+  _attributes:
+    package: plugins.sftRegistroPlugin.lib.model
+  rgt_sugerencias:
+    _attributes: { phpName: RgtSugerencia, idMethod: native }
+    id: { phpName: Id, type: INTEGER, size: '11', primaryKey: true, autoIncrement: true, required: true }
+    id_usuario: { type: INTEGER }
+    sugerencia: { type: LONGVARCHAR }
+    fecha: { type: TIMESTAMP }
+    _indexes: { id_usuario: [id_usuario] }

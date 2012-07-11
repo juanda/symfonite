@@ -297,7 +297,7 @@ class SftUsuario extends BaseSftUsuario
 
         if (!is_null($this->getIdPersona()))
         {
-            $c->add(SftEmailPeer::ID_PERSONA, $this->getIdPersona());
+            $c->add(SftEmailPeer::ID_USUARIO, $this->getIdPersona());
         } elseif (!is_null($this->getIdOrganismo()))
         {
             $c->add(SftEmailPeer::ID_ORGANISMO, $this->getIdOrganismo());
@@ -406,15 +406,7 @@ class SftUsuario extends BaseSftUsuario
         }
     }
 
-    public function getAliasOriginal()
-    {
-        return parent::getAlias();
-    }
 
-    public function getAlias()
-    {
-        return strtolower($this->getNombre() . ' ' . $this->getApellido1() . ' ' . $this->getApellido2());
-    }
 
     public function save(PropelPDO $con = null)
     {

@@ -51,11 +51,11 @@ class edaGestorAyudasActions extends sfActions
                 }
             } else
             {
-                $this->redirect('sftGestorErrores/mensajeError?mensaje=La ruta definida para el fichero de ayuda no es válida.');
+                $this->redirect('@sftGuardPlugin_mensajeError?mensaje=La ruta definida para el fichero de ayuda no es válida.');
             }
         } else // Redirigimos a la pagina de gestión de errores
         {
-            //$this->redirect('sftGestorErrores/mensajeError?mensaje=Hay que introducir el módulo y la página.&modulo=edaGestorAyudas&accion=seleccionarModuloAyuda');
+            //$this->redirect('@sftGuardPlugin_mensajeError?mensaje=Hay que introducir el módulo y la página.&modulo=edaGestorAyudas&accion=seleccionarModuloAyuda');
             $this->setTemplate('formSeleccionAyudaError');
         }
     }
@@ -72,7 +72,7 @@ class edaGestorAyudasActions extends sfActions
             fclose($fp);
         } else
         {
-            $this->redirect('sftGestorErrores/mensajeError?mensaje=No existe la ruta!!!');
+            $this->redirect('@sftGuardPlugin_mensajeError?mensaje=No existe la ruta!!!');
         }
     }
 

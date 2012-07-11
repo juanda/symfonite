@@ -24,10 +24,12 @@
 ?>
 <?php
 
-class SftPersonaConTelEmailDirForm extends BaseSftPersonaForm
+class SftPersonaConTelEmailDirForm extends SftPersonaForm
 {
     public function configure()
     {
+        parent::configure();
+
         $this -> widgetSchema['observaciones']   = new sfWidgetFormTextArea();
 
         $years = range(1900, date('Y'));

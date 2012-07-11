@@ -1,5 +1,6 @@
 generator:
   class: sfPropelGenerator
+  
   param:
     model_class:           SftAmbitoTipo
     theme:                 admin
@@ -14,7 +15,8 @@ generator:
 
     config:
       actions: ~
-      fields:  ~
+      fields:
+        descripcion: {label: Descripción}
       list:
         title: Listado de Tipos de Ámbitos
         display: [ nombre, descripcion ]
@@ -22,9 +24,15 @@ generator:
           _edit: ~
           _delete: ~
           gestionarAmbitos: { label: Ámbitos }
+          
       filter:  ~
       form:    ~
       edit:
-        title: Edición del Tipo de Ámbito: %%NOMBRE%%
+        title: 'Edición del Tipo de Ámbito: %%NOMBRE%%'
+        fields:
+          nombre: {label: Nombre*, help: 'Nombre que queramos dar a nuestro tipo de ambito'}
+          
       new:
         title: Nuevo Tipo de Ámbito
+        fields:
+          nombre: {label: Nombre*, help: 'Nombre que queramos dar a nuestro tipo de ambito'}

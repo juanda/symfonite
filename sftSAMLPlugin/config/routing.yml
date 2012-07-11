@@ -1,3 +1,11 @@
 login_saml:
   url: /login_saml
   param: { module: sftSAMLSesion, action: index }
+
+sftSAMLPlugin_runSAMLAdmin:
+  url: /runSAMLAdmin
+  params: { module: sftSAMLAdmin, action: runSAMLAdmin }
+  
+sftSAMLPlugin_SAMLLogout:
+  url: /SAMLLogout
+  params: { module: sftSAMLSesion, action: Logout }

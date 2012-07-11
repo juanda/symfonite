@@ -24,17 +24,9 @@
 
                 <div class="sf_admin_form_row">
                     <div>
-                        <label for="textedit2"><?php echo __('módulo') ?></label>
-                        <?php echo $form['module']->renderError() ?>
-                        <?php echo $form['module'] ?>
-                    </div>
-                </div>
-
-                <div class="sf_admin_form_row">
-                    <div>
-                        <label for="textedit2"><?php echo __('acción') ?></label>
-                        <?php echo $form['action']->renderError() ?>
-                        <?php echo $form['action'] ?>
+                        <label for="textedit2"><?php echo __('ruta') ?></label>
+                        <?php echo $form['route']->renderError() ?>
+                        <?php echo $form['route'] ?>
                     </div>
                 </div>
 

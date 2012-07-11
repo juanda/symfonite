@@ -39,8 +39,8 @@
         <?php echo $helper->linkToEdit($SftPerfil, array(  'params' =>   array(  ),  'class_suffix' => 'edit',  'label' => 'Edit',)) ?>
         <?php echo $helper->linkToDelete($SftPerfil, array(  'params' =>   array(  ),  'confirm' => 'Are you sure?',  'class_suffix' => 'delete',  'label' => 'Delete',)) ?>
         <li class="sf_admin_action_asociacredenciales">
-            <?php echo link_to(__('Asoc. Creds.', array(), 'messages'), 'perfil/ListAsociaCredenciales?id='.$SftPerfil->getId(), array('class' => 'asociacredenciales')) ?>
-            <?php echo link_to(__('Ver Creds.', array(), 'messages'), 'perfil/ListVerCredenciales?id='.$SftPerfil->getId(), array('class' => 'vercredenciales')) ?>
+            <?php echo link_to(__('Asoc. Creds.', array(), 'messages'), '@sftGestionPlugin_ListAsociaCredenciales?id='.$SftPerfil->getId(), array('class' => 'asociacredenciales')) ?>
+            <?php echo link_to(__('Ver Creds.', array(), 'messages'), '@sftGestionPlugin_ListVerCredenciales?id='.$SftPerfil->getId(), array('class' => 'vercredenciales')) ?>
         </li>
     </ul>
 </td>

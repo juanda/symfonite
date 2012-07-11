@@ -16,7 +16,7 @@ generator:
         title: Listado de grupos
 
       edit:
-        title: Edición del Grupo: "%%name%%"
+        title: 'Edición del Grupo: "%%name%%"'
 
       new:
         title: Nuevo Grupo

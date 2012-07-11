@@ -17,8 +17,8 @@ generator:
       fields:
         id_uo:           { label: UO }
         id_ambitotipo:   { label: Tipo Ámbito }
-        SftUos:          { label: UO }
-        SftAmbitosTipos: { label: Tipo Ámbito }
+        SftUo:          { label: UO }
+        SftAmbitoTipo: { label: Tipo Ámbito }
         created_at:      { label: Creado }
         updated_at:      { label: Actualizado }
         
@@ -35,6 +35,14 @@ generator:
         display: [ id_uo, id_ambitotipo ]
       form:    ~
       edit:
-        title: Edición del Perfil: %%NOMBRE%%
+        title: 'Edición del Perfil: %%NOMBRE%%'
+        fields:
+          codigo: {label: Código*, help: 'Nombre corto del periodo, va en minúsculas y sin espacios ni símbolos extraños y se suele utilizar para identificarlo'}
+          menu: { label: Menú, help: 'Dejar en blanco si se utiliza el constructor de menú de symfonite' }
+
       new:
         title: Nuevo Perfil
+        fields:
+          codigo: {label: Código*, help: 'Nombre corto del periodo, va en minúsculas y sin espacios ni símbolos extraños y se suele utilizar para identificarlo'}
+          menu: { label: Menú, help: 'Dejar en blanco si se utiliza el constructor de menú de symfonite' }
+

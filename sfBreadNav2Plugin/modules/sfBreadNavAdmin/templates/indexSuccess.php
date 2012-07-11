@@ -4,8 +4,6 @@
     #breadnavtreetable td {padding-left: 1em; padding-right: 1em;}
 </style> 
 <?php use_helper('I18N') ?>
-
-
 <div id="sf_admin_container">
     <h1>Menú de la aplicación: <?php echo $aplicacion->getNombre() ?></h1>
 
@@ -16,9 +14,8 @@
                 <?php echo __('Utiliza el formulario de al lado para añadir nuevos items de menú.
                Para editar los existentes pulsa sobre el item en cuestión y actualízalo con dicho formulario.') ?> 
             <?php else: ?>
-            <?php echo __('El menú tiene estructura de árbol (como un directorio).
-                Comienza creando un item de menú para la página de inicio. Todos los demás items serán hijos de
-                este.') ?>          
+            <?php echo __('El menú tiene estructura de árbol (como un directorio,) todos los items dependen de un nodo que se crea automáticamente con la aplicación.
+                Haz click en el enlace siguiente para añadir el primer item del menú de tu aplicación.') ?>          
             <?php endif; ?>
         </div>
     </div>
@@ -27,7 +24,7 @@
     <div id="sf_admin_bar">
         <?php if (!isset($freshinstall)): ?>
             <div class="sf_admin_form">
-                <form action="<?php echo url_for('sfBreadNavAdmin/index?scope=' . $scope) ?>" method='POST'>
+                <form action="<?php echo url_for('@sfBreadNav2Plugin_indexScope?scope=' . $scope) ?>" method='POST'>
 
                     <?php echo $form->renderGlobalErrors() ?>
                     <?php echo $form->renderHiddenFields() ?>
@@ -54,17 +51,9 @@
 
                         <div class="sf_admin_form_row">
                             <div>
-                                <label for="textedit2"><?php echo __('módulo') ?></label>
-                                <?php echo $form['module']->renderError() ?>
-                                <?php echo $form['module'] ?>
-                            </div>
-                        </div>
-
-                        <div class="sf_admin_form_row">
-                            <div>
-                                <label for="textedit2"><?php echo __('acción') ?></label>
-                                <?php echo $form['action']->renderError() ?>
-                                <?php echo $form['action'] ?>
+                                <label for="textedit2"><?php echo __('ruta') ?></label>
+                                <?php echo $form['route']->renderError() ?>
+                                <?php echo $form['route'] ?>
                             </div>
                         </div>
 
@@ -127,11 +116,11 @@
 
             <?php if (isset($edit)): ?>
                 <div class="sf_admin_form">
-                    <form method="post" action='<?php echo url_for('sfBreadNavAdmin/deletepage?pageid=' . $form->getDefault('id') . "&scope=" . $scope); ?>'>
+                    <form method="post" action='<?php echo url_for('@sfBreadNav2Plugin_DeletePage?pageid=' . $form->getDefault('id') . "&scope=" . $scope); ?>'>
 
                         <ul class="sf_admin_actions">
                             <li>
-                                <a href='<?php echo url_for('sfBreadNavAdmin/index?scope=' . $scope) ?>'><?php echo __('Nuevo Item') ?></a>
+                                <a href='<?php echo url_for('@sfBreadNav2Plugin_indexScope?scope=' . $scope) ?>'><?php echo __('Nuevo Item') ?></a>
                             </li>
                             <li>
                                 <input type='submit' value="<?php echo __('borrar') ?>" onclick="if (!confirm('Are you sure?')){return false;}">  
@@ -152,7 +141,7 @@
                 <?php
                 if (isset($freshinstall))
                 {
-                    echo '<div class="sf_admin_container"><ul class="sf_admin_actions"><li>'.link_to(__('Crear item de menú de inicio'), 'sfBreadNavAdmin/edithome?scope=' . $scope).'</li></ul></div>';
+                    echo '<div class="sf_admin_container"><ul class="sf_admin_actions"><li>'.link_to(__('Crear item de menú de inicio'), '@sfBreadNav2Plugin_editaMenu?scope=' . $scope).'</li></ul></div>';
                     return;
                 } else
                 {

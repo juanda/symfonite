@@ -14,14 +14,18 @@ generator:
 
     config:
       actions: ~
-      fields:  
-        tipo_login: { label: tipo login }
+      fields:
+        codigo: {label: Código}
+        descripcion: {label: Descripción}
+        texto_intro: {label: Texto introductorio}
+        tipo_login: { label: Tipo de login }
+        url_svn: {label: Url de SVN}
       list:
         title: Listado de Aplicaciones
         max_per_page: 10
         display: [ logotipo, nombre, url, clave, tipo_login]
         object_actions:
-          _edit: ~
+          _edit: ~   
           _delete: ~
           editaMenu: { label: Menú }
           verCredenciales: { label: Ver Creds. }
@@ -35,6 +39,18 @@ generator:
         display: [ nombre, url, url_svn, clave]
       form:    ~
       edit:
-        title: Edición de la Aplicación: %%NOMBRE%%
+        title: 'Edición de la Aplicación: %%NOMBRE%%'
+        fields:
+              codigo: {label: Código*, help: 'Nombre corto de la aplicación, va en minúsculas y sin espacios ni simbolos extraños, se utiliza para identificarla y como nombre de la aplicación symfony (nombre del controlador frontal asociado) '}
+              nombre: {label: Nombre*, help: 'Nombre que queramos dar a nuestra aplicación'}
+              url: {label: Url*, help: 'Dirección web de nuestra aplicación'}
+              clave: {label: Clave*, help: 'Es el identificador unívoco de la aplicación, es recomendable generarla automáticamente'}
+        display: [ codigo, nombre, descripcion, texto_intro, es_symfonite, tipo_login, logotipo, url, url_svn, clave]
       new:
         title: Nueva Aplicación
+        fields:
+              codigo: {label: Código*, help: 'Nombre corto de la aplicación, va en minúsculas y sin espacios ni simbolos extraños, se utiliza para identificarla y como nombre de la aplicación symfony (nombre del controlador frontal asociado) '}
+              nombre: {label: Nombre*, help: 'Nombre que queramos dar a nuestra aplicación'}
+              url: {label: Url*, help: 'Dirección web de nuestra aplicación'}
+              clave: {label: Clave*, help: 'Es el identificador unívoco de la aplicación, es recomendable generarla automáticamente'}
+        display: [ codigo, nombre, descripcion, texto_intro, es_symfonite, tipo_login, logotipo, url, url_svn, clave]

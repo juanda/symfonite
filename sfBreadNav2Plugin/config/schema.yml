@@ -6,8 +6,7 @@ sft:
     id:             ~
     page:           { type: varchar, size: 255, required: true }
     title:          { type: varchar, size: 255, required: true }
-    module:         { type: varchar, size: 128, required: true }
-    action:         { type: varchar, size: 128, required: true }
+    route:          { type: varchar, size: 128, required: true }
     credential:     { type: varchar, size: 128 }
     catchall:       { type: boolean }
     tree_left:      { type: integer, required: true, nestedSetLeftKey: true}

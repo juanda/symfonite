@@ -14,12 +14,17 @@ class SftPersonaForm extends BaseSftPersonaForm
     {
         $this->widgetSchema['observaciones'] = new sfWidgetFormTextArea();
         $years = range(1900, date('Y'));
-
+       
+        
         $this->widgetSchema['fechanacimiento'] = new sfWidgetFormDate(
                         array('years' => array_combine($years, $years))
         );
-
-        $this->widgetSchema['sexo'] = new sfWidgetFormChoice(array('choices' => array('V' => 'Varón', 'M' => 'Mujer')));
+        $this->widgetSchema['updated_at'] = new sfWidgetFormInputHidden();
+        $this->widgetSchema['created_at'] = new sfWidgetFormInputHidden();
+        
+        $elecciones = array('V' => 'V', 'M' => 'M');
+        $this->widgetSchema['sexo'] = new sfWidgetFormChoice(array('choices' => $elecciones));
+        $this->validatorSchema['sexo'] = new sfValidatorChoice(array('choices' => $elecciones));
     }
 
 }

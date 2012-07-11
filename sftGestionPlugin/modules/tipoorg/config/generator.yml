@@ -14,7 +14,9 @@ generator:
 
     config:
       actions: ~
-      fields:  ~
+      fields:
+        codigo: {label: Código}
+        descripcion: {label: Descripción}
       list:
         title: Listado de Tipos de Organismos
         max_per_page: 10
@@ -22,6 +24,6 @@ generator:
       filter:  ~
       form:    ~
       edit:
-        title: Edición del Tipo de Organismo: %%NOMBRE%%
+        title: 'Edición del Tipo de Organismo: %%NOMBRE%%'
       new:
         title: Nuevo Tipo de Organismo

@@ -6,21 +6,22 @@
 
     <?php include_partial('aplicacion/flashes') ?>
 
-    <?php if (!file_exists(dirname(__FILE__).'/../../../../sftSAMLPlugin/lib/vendor/simplesamlphp-1.8.0-rc1/metadata/.saml_enabled' )) : ?>
+
+    <?php if (!file_exists(dirname(__FILE__) . '/../../../../sftSAMLPlugin/lib/vendor/simplesamlphp-1.8.0-rc1/metadata/.saml_enabled')) : ?>
         <div class="error">
             <div class="error">
                 <?php echo __('El sistema de identificación federada SAML no se ha podido habilitar.
                     Para habilitarlo debes asegurarte que los siguientes archivos tengan permisos de escritura para el servidor web, y volver a iniciar de nuevo la sesión.') ?>
                 <ul>
-                <li>
-                    <?php echo 'chmod -R 777 '.realpath(dirname(__FILE__) . '/../../../../sftSAMLPlugin/lib/vendor/simplesamlphp-1.8.0-rc1/metadata')?>
-                </li>
-                <li>
-                    <?php echo 'chmod -R 777 '.realpath(dirname(__FILE__) . '/../../../../sftSAMLPlugin/lib/vendor/simplesamlphp-1.8.0-rc1/config/config.php') ?>
-                </li>               
-            </ul>
+                    <li>
+                        <?php echo 'chmod -R 777 ' . realpath(dirname(__FILE__) . '/../../../../sftSAMLPlugin/lib/vendor/simplesamlphp-1.8.0-rc1/metadata') ?>
+                    </li>
+                    <li>
+                        <?php echo 'chmod -R 777 ' . realpath(dirname(__FILE__) . '/../../../../sftSAMLPlugin/lib/vendor/simplesamlphp-1.8.0-rc1/config/config.php') ?>
+                    </li>               
+                </ul>
             </div>
-            
+
 
         </div>
     <?php endif; ?>

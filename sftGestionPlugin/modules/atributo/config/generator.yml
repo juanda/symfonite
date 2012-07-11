@@ -27,5 +27,9 @@ generator:
         
       edit:
         title: Edición del Atributo %%NOMBRE%%
+        fields:
+          nombre: { label: Nombre*}
       new:
         title: Nuevo Atributo
+        fields:
+          nombre: { label: Nombre*}

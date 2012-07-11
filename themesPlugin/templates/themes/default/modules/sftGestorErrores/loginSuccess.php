@@ -48,7 +48,7 @@
   <dt>Siguiente</dt>
   <dd>
     <ul class="sfTIconList">
-      <li class="sfTLinkMessage"><?php echo link_to('Ir a la p&aacute;gina de acceso', sfConfig::get('sf_login_module').'/'.sfConfig::get('sf_login_action')) ?></li>
+      <li class="sfTLinkMessage"><?php echo link_to('Ir a la p&aacute;gina de acceso', '@login') ?></li>
       <li class="sfTLinkMessage"><a href="javascript:history.go(-1)">Volver a la p&aacute;gina anterior</a></li>
     </ul>
   </dd>

@@ -7,8 +7,7 @@ class sfBreadNav extends BasesfBreadNavNestedSet
     
     $data = array();
     $data['page'] = $this->getPage();
-    $data['module'] = $this->getModule();
-    $data['action'] = $this->getAction();
+    $data['route'] = $this->getRoute();
     $data['credential'] = $this->getCredential();
     $data['catch_all'] = $this->getCatchall();
     return $data;

@@ -1,7 +1,59 @@
-mostrarperfiles:
+sftGuardPlugin_mostrarperfiles:
   url: /mostrarperfiles
   param: { module: sftGestorSesion, action: perfiles }
   
-registro:
-  url: /registro
-  param: { module: sftGestorSesion, action: registro }
+sftGuardPlugin_cambiarPassword:
+  url: /cambiarPassword
+  param: { module: sftGestorSesion, action: cambiarPassword }
+  
+sftGuardPlugin_cambiarPasswordToken:
+  url: /cambiarPassword/:token
+  param: { module: sftGestorSesion, action: cambiarPassword }
+  
+sftGuardPlugin_mensajeError:
+  url: /mensajeError/:mensaje
+  param: { module: sftGestorErrores, action: mensajeError }
+  
+sftGuardPlugin_configuracionPersonal:
+  url: /configuracionPersonal
+  param: { module: sftGestorSesion, action: configuracionPersonal }
+  
+sftGuardPlugin_aplicaciones:
+  url: /aplicaciones
+  param: { module: sftGestorSesion, action: aplicaciones }
+  
+sftGuardPlugin_signout:
+  url: /signout
+  param: { module: sftGestorSesion, action: signout }
+  
+sftGuardPlugin_cambioDePerfil:
+  url: /cambioDePerfil/:eIdPerfil/:eIdEa
+  param: { module: sftGestorSesion, action: cambioDePerfil }
+  
+sftGuardPlugin_cambioConfPersonal:
+  url: /cambioConfPersonal/:eIdPerfil/:eIdEa
+  param: { module: sftGestorSesion, action: cambioConfPersonal }
+  
+sftGuardPlugin_abreAplicacion:
+  url: /abreAplicacion/:id_aplicacion
+  param: { module: inicio, action: abreAplicacion }
+  
+sftGuardPlugin_reinicioPassword:
+  url: /reinicioPassword
+  param: { module: sftGestorSesion, action: reinicioPassword }
+  
+sftGuardPlugin_confirmaRegistroToken:
+  url: /confirmaRegistro/:token
+  param: { module: sftGestorSesion, action: confirmaRegistro }
+  
+sftGuardPlugin_configuracionPersonalForm:
+  url: /configuracionPersonal/:form
+  param: { module: sftGestorSesion, action: configuracionPersonal }
+
+sftGuardPlugin_enviarTokenRegistro:
+  url: /enviarTokenRegistro
+  param: { module: sftGestorSesion, action: enviarTokenRegistro }
+  
+sftGuardPlugin_enviarTokenReinicioPassword:
+  url: /enviarTokenRegistro
+  param: { module: sftGestorSesion, action: enviarTokenReinicioPassword }

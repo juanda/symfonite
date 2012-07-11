@@ -56,7 +56,7 @@ class sftGuardSecurityUser extends sfGuardSecurityUser
         if (!$oAplicacion instanceof SftAplicacion/* $out['status'] != Servicio::ACCEPTED */) //la aplicación no está autorizada
         {
             $mensaje = __('Aplicación no autorizada');
-            sfContext::getInstance()->getController()->redirect('sftGestorErrores/mensajeError?mensaje=' . $mensaje);
+            sfContext::getInstance()->getController()->redirect('@sftGuardPlugin_mensajeError?mensaje=' . $mensaje);
         } else
         {
             // comprobamos si es un usario de symfonite;
@@ -72,7 +72,7 @@ class sftGuardSecurityUser extends sfGuardSecurityUser
                     $mensaje = __('Usuario inactivo');
                     sfContext::getInstance()
                             ->getController()
-                            ->redirect('sftGestorErrores/mensajeError?mensaje=' . $mensaje);
+                            ->redirect('@sftGuardPlugin_mensajeError?mensaje=' . $mensaje);
                 }
 
                 // El usuario está activo
@@ -87,7 +87,7 @@ class sftGuardSecurityUser extends sfGuardSecurityUser
                         $this->setAttribute('id_sfuser', $sftUsuario->getSfGuardUser()->getId(), 'cambioPassword');
                         sfContext::getInstance()
                                 ->getController()
-                                ->redirect('sftGestorSesion/cambiarPassword');
+                                ->redirect('@sftGuardPlugin_cambiarPassword');
                     }
                 }
 
@@ -106,7 +106,7 @@ class sftGuardSecurityUser extends sfGuardSecurityUser
                 } elseif ($credencial_acceso)
                 {
                     $this->addCredential($credencial_acceso);
-                    sfConfig::set('app_sf_guard_plugin_success_signin_url', '@mostrarperfiles');
+                    sfConfig::set('app_sf_guard_plugin_success_signin_url', '@sftGuardPlugin_mostrarperfiles');
                 } else
                 {
                     $this->signOut();
@@ -124,8 +124,13 @@ class sftGuardSecurityUser extends sfGuardSecurityUser
 
     public function signOut()
     {
-        $this->getAttributeHolder()->removeNamespace('sfGuardSecurityUser');
-        $this->getAttributeHolder()->removeNamespace('SftUser');
+        $app_yml = sfYaml::load(sfConfig::get('sf_plugins_dir') . DIRECTORY_SEPARATOR .
+                        'sftGuardPlugin' . DIRECTORY_SEPARATOR . 'config/app.yml');
+
+        $variables_sesion = $app_yml['all']['variables_sesion'];
+        foreach($variables_sesion as $variable_sesion){
+            $this->getAttributeHolder()->removeNamespace("$variable_sesion");
+        }
         $this->user = null;
         $this->clearCredentials();
         $this->setAuthenticated(false);

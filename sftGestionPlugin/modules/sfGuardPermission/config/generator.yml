@@ -16,7 +16,7 @@ generator:
         title: Listado de Permisos
 
       edit:
-        title: Edición del Permiso: "%%name%%"
+        title: 'Edición del Permiso: "%%name%%"'
 
       new:
         title: Nuevo Permiso

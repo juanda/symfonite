@@ -26,7 +26,7 @@
 <?php include_partial('ambito/assets') ?>
 
 <div id="sf_admin_container">
-  <h1><?php echo __('Nuevo Ámbito del tipo', array(), 'messages') ?> <i><?php echo $ambitotipo -> getNombre() ?></i></h1>
+  <h1><?php echo __('Nuevo Ámbito del tipo', array(), 'messages') ?> <i><?php echo  $sf_user->getAttribute('ambitotipo'); ?></i></h1>
 
   <?php include_partial('ambito/flashes') ?>
 

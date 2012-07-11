@@ -91,13 +91,10 @@ class registroActions extends sfActions {
         /////////////////////////////////////////////////////////////////////////////////////////
 
         $subject = sfConfig::get('app_registro_mail_subject', 'Registro del sistema symfonite');
-        $body = <<< END
-Ha solicitado darse de alta en la aplicacion $nombre_aplicacion. Pulse en el siguiente enlace para completar el registro.
-
-Su nombre de usuario es: $username
-
-Un Saludo. El equipo de symfonite
-END;
+        
+        $fich_temp = sfConfig::get('sf_plugins_dir') . DIRECTORY_SEPARATOR . 'sftRegistroPlugin' . DIRECTORY_SEPARATOR . 'config' . DIRECTORY_SEPARATOR . 'mensaje.php';
+        
+        require($fich_temp);
         $body = sfConfig::get('app_registro_mail_body', $body);
 
         ////////////////////////////////////////////

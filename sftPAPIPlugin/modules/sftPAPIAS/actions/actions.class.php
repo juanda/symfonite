@@ -71,7 +71,7 @@ class sftPAPIASActions extends sfActions
                 {
                     $this->getUser()->setFlash('message',
                             sfConfig::get('app_sft_papi_plugin_as_message_no_auth', 'incorrect login and/or password'));
-                    $this->redirect('sftPAPIAS/signin');
+                    $this->redirect('@papi_signin');
                 }
 
                 $papias = new PAPIAS($this->getUser());

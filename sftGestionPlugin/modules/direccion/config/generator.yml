@@ -14,7 +14,11 @@ generator:
 
     config:
       actions: ~
-      fields:  ~
+      fields:
+        tipovia: {label: Tipo de vía}
+        numero: {label: Número}
+        pais: {label: País}
+        id_tipodireccion: {label: Tipo de dirección}
       list:    
         title: Listado de direcciones
         max_per_page: 10 
@@ -25,5 +29,9 @@ generator:
         class: DireccionIdUsuarioHiddenForm
       edit:    
         title: Edicion de la direccion
+        fields:
+          id_tipodireccion: {label: Tipo de dirección*, help: 'Define el tipo de dirección (casa, trabajo, ...)'}
       new:     
         title: Nueva direccion
+        fields:
+          id_tipodireccion: {label: Tipo de dirección*, help: 'Define el tipo de dirección (casa, trabajo, ...)'}

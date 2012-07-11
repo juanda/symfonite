@@ -222,7 +222,7 @@ class sspmod_sftauth_Auth_Source_SFT extends sspmod_core_Auth_UserPassBase
         ///////////
 
         $query = "SELECT a.codigo as cod_amb, p.codigo as cod_per,
-                 at.nombre as tipo_amb
+                 at.nombre as tipo_amb, ac.id_perfil as id_perfil
                  FROM sft_ambitos AS a, sft_ambitostipos as at,
                  sft_acceso_ambito AS aa, sft_accesos AS ac, sft_periodos as p
                  WHERE ac.id_usuario = :id_usuario
@@ -235,10 +235,11 @@ class sspmod_sftauth_Auth_Source_SFT extends sspmod_core_Auth_UserPassBase
 ";
 
         $ambitos = $this -> query($db, $query, array('id_usuario' => $id_usuario));
-
+        
+        $attributes['cursos'][] = '';
         foreach($ambitos as $ambito)
         {
-            $attributes['ambitos'][] = $ambito['cod_per'].':'.$ambito['tipo_amb'].':'.$ambito['cod_amb'];
+            $attributes[$ambito['tipo_amb']][] = $ambito['cod_amb'] .':'.$ambito['cod_per'].':'.$ambito['id_perfil'].':active';                        
         }
 
         ///////////////////////

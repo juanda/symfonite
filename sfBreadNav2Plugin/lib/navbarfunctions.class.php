@@ -24,7 +24,7 @@ public static function compressNavArray (&$navarray) {
     foreach($navarray as &$nav) {
       array_push($arrlft,$nav->getTreeLeft());
       array_push($arrright,$nav->getTreeRight());
-      array_push($arrvals, array('page' => $nav->getPage(), 'module' => $nav->getModule(), 'action' => $nav->getAction() , 'tree_parent' => $nav->getTreeParent()));
+      array_push($arrvals, array('page' => $nav->getPage(), 'route' => $nav->getRoute(), 'tree_parent' => $nav->getTreeParent()));
       $size += 1;
     }          
   

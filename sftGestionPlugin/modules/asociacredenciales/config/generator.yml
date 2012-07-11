@@ -16,7 +16,7 @@ generator:
       actions: ~
       fields:
         id_aplicacion: { label: Aplicación }
-        SftAplicaciones: { label: Aplicación }
+        SftAplicacion: { label: Aplicación }
         nombre: { label: Nombre }
         descripcion: { label: Descripción }
         sft_perfil_credencial_list: { label: perfiles }

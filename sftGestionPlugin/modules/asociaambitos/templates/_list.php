@@ -78,11 +78,11 @@
 
                                 <?php if($tieneAmbito): ?>
                         <li class="sf_admin_action_delete">
-                                        <?php echo link_to(__('Quitar', array(), 'messages'), 'asociaambitos/ListQuitar?id_ambito='.$SftAmbito->getId(), array()) ?>
+                                        <?php echo link_to(__('Quitar', array(), 'messages'), 'sft_ambito_asociaambitos_object', array('action'=> 'ListQuitar', 'id'=> $SftAmbito->getId())) ?>
                         </li>
                                 <?php else: ?>
                         <li class="sf_admin_action_new">
-                                        <?php echo link_to(__('Poner', array(), 'messages'), 'asociaambitos/ListPoner?id_ambito='.$SftAmbito->getId(), array()) ?>
+                                        <?php echo link_to(__('Poner', array(), 'messages'), 'sft_ambito_asociaambitos_object', array('action'=> 'ListPoner', 'id'=> $SftAmbito ->getId())) ?>
                         </li>
                                 <?php endif; ?>
 

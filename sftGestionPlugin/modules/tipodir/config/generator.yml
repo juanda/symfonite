@@ -24,6 +24,6 @@ generator:
       filter:  ~
       form:    ~
       edit:
-        title: Edición del Tipo de Dirección: %%NOMBRE%%
+        title: 'Edición del Tipo de Dirección: %%NOMBRE%%'
       new:
         title: Nuevo Tipo de Dirección

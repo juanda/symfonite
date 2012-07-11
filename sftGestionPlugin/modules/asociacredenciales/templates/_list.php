@@ -81,11 +81,11 @@
 
                                 <?php if($tieneCredencial): ?>
                         <li class="sf_admin_action_delete">
-                                    <?php echo link_to(__('Quitar', array(), 'messages'), 'asociacredenciales/ListQuitar?id='.$SftCredenciales->getId(), array()) ?>
+                                    <?php echo link_to(__('Quitar', array(), 'messages'), 'sft_credencial_asociacredenciales_object', array('action' => 'ListQuitar', 'id'=> $SftCredenciales->getId())) ?>
                         </li>
                                 <?php else: ?>
                         <li class="sf_admin_action_new">
-                                    <?php echo link_to(__('Poner', array(), 'messages'), 'asociacredenciales/ListPoner?id='.$SftCredenciales->getId(), array()) ?>
+                                    <?php echo link_to(__('Poner', array(), 'messages'), 'sft_credencial_asociacredenciales_object', array('action' => 'ListPoner', 'id'=> $SftCredenciales->getId())) ?>
                         </li>
                                 <?php endif; ?>
 

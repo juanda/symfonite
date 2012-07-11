@@ -6,3 +6,4 @@ all:
     aplicaciones:            true
     ayuda:                   true
     desconectar:             true
+  variables_sesion: [admin_module, sfGuardSecurityUser, SftUser]

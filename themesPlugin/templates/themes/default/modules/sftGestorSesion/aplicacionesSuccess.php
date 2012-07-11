@@ -49,11 +49,18 @@
         $atributo2_css = "sft_aplicacion_atributos_right";
         ?>
         <?php foreach ($aplicaciones as $ap): ?> 
-            <?php $descripcion = ($ap->getRaw('descripcion') == '') ? 'No hay descripción disponible' : $ap->getRaw('descripcion'); ?>
+            <?php $descripcion = ($ap->getRaw('descripcion') == '') ? 'No hay descripción disponible' : $ap->getRaw('descripcion'); 
+                    $ruta = $ap->getRaw('logotipo');
+                    if (!empty($ruta)){
+                        echo $ruta;
+                    }else{
+                        //echo "Default";
+                    }
+                    ?>
             <?php $rutaImagen = ($ap->getRaw('logotipo') == '') ? image_themes_tag('native/images/aplicacion.png', array('title' => $descripcion, 'width' => '50', 'heigth' => '50')) : image_tag('/uploads/' . $ap->getRaw('logotipo'), array('title' => $descripcion, 'width' => '50', 'heigth' => '50')) ?>
             <center>
                 <?php if ($ap->getRaw('clave') != sfConfig::get('app_clave')): ?>
-                    <a href="<?php echo url_for('inicio/abreAplicacion?id_aplicacion=' . $ap['id']) ?>">
+                    <a href="<?php echo url_for('@sftGuardPlugin_abreAplicacion?id_aplicacion=' . $ap['id']) ?>">
                         <div class="<?php echo $aplicacion_css; ?>" >
 
                             <div class="<?php echo $atributo_css; ?>" style="height:50px;margin-top:2px">

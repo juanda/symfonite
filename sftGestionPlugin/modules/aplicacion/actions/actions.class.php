@@ -66,6 +66,12 @@ class aplicacionActions extends autoAplicacionActions
     {
         $aplicacion = SftAplicacionPeer::retrieveByPK($request->getParameter('id'));
 
+        if (!strcmp($aplicacion->getCodigo(), sfConfig::get('sf_app')))
+        {
+            $this->getUser()->setFlash('error', 'No se puede borrar la aplicación donde te encuentres actualmente');
+            $this->redirect('@sft_aplicacion');
+        }
+
         //borramos el menu asociado
         $c = new Criteria();
         $c->add(sfBreadNavApplicationPeer::APPLICATION, $aplicacion->getCodigo());
@@ -80,10 +86,13 @@ class aplicacionActions extends autoAplicacionActions
             $menu->delete();
         }
         $ruta = $aplicacion->getLogotipo();
-        if (!empty($ruta)){
+        if (!empty($ruta))
+        {
             shell_exec("rm " . sfConfig::get('sf_upload_dir') . DIRECTORY_SEPARATOR . $ruta);
-         }
-        
+        }
+        $this->getUser()->setFlash('notice2', 'Recuerda que debes eliminar tanto los controladores frontales como los archivos de la aplicación. Para ejecutar dichas acciones usar los siguientes comandos: ' .
+                'sudo rm ' . sfConfig::get('sf_web_dir') . DIRECTORY_SEPARATOR . $aplicacion->getCodigo() . '* y el comando ' .
+                'sudo rm -R ' . sfConfig::get('sf_apps_dir') . DIRECTORY_SEPARATOR . $aplicacion->getCodigo());
         parent::executeDelete($request);
     }
 
@@ -92,6 +101,15 @@ class aplicacionActions extends autoAplicacionActions
         $form->bind($request->getParameter($form->getName()), $request->getFiles($form->getName()));
         if ($form->isValid())
         {
+            //si el objeto no es nuevo, la aplicacion coge el valor del campo created_at de la base de datos (de la aplicacion actual)
+            $dateAux = null;
+            if (!$form->getObject()->isNew())
+            {
+                $c = new Criteria();
+                $c->add(SftAplicacionPeer::ID, $form->getObject()->getId());
+                $aux = SftAplicacionPeer::doSelectOne($c);
+                $dateAux = $aux->getCreatedAt();
+            }
             $notice = $form->getObject()->isNew() ? 'The item was created successfully.' : 'The item was updated successfully.';
 
             $crearCredencialDeAcceso = $form->getObject()->isNew();
@@ -99,7 +117,6 @@ class aplicacionActions extends autoAplicacionActions
             $file = $form->getValue('logotipo');
             if ($file instanceof sfValidatedFile)
             {
-
                 $nombreFichero = sha1($file->getOriginalName() . rand(11111, 99999)) . $file->getExtension($file->getOriginalExtension());
                 $file->save(sfConfig::get('sf_upload_dir') . '/' . $nombreFichero);
             }
@@ -123,7 +140,8 @@ class aplicacionActions extends autoAplicacionActions
 
                 $SftAplicacion->setIdCredencial($credencial->getId());
                 $SftAplicacion->save();
-            } else
+            }
+            else
             {
                 $credencial = $SftAplicacion->getSftCredencial();
                 $credencial->setNombre($SftAplicacion->getCodigo() . '_ACCESO');
@@ -132,6 +150,20 @@ class aplicacionActions extends autoAplicacionActions
                 $credencial->save();
             }
 
+            $date = time();
+            if (is_null($dateAux))
+            {
+                $form->getObject()->setCreatedAt($date);
+            }
+            else
+            {
+                $form->getObject()->setCreatedAt($dateAux);
+            }
+
+            $form->getObject()->setUpdatedAt($date);
+
+            $form->getObject()->save();
+
             $this->dispatcher->notify(new sfEvent($this, 'admin.save_object', array('object' => $SftAplicacion)));
 
             if ($request->hasParameter('_save_and_add'))
@@ -139,13 +171,15 @@ class aplicacionActions extends autoAplicacionActions
                 $this->getUser()->setFlash('notice', $notice . ' You can add another one below.');
 
                 $this->redirect('@sft_aplicacion_new');
-            } else
+            }
+            else
             {
                 $this->getUser()->setFlash('notice', $notice);
 
                 $this->redirect(array('sf_route' => 'sft_aplicacion_edit', 'sf_subject' => $SftAplicacion));
             }
-        } else
+        }
+        else
         {
             $this->getUser()->setFlash('error', 'The item has not been saved due to some errors.', false);
         }
@@ -171,7 +205,7 @@ class aplicacionActions extends autoAplicacionActions
         }
         $id_menu = $menu->getId();
 
-        $this->redirect('sfBreadNavAdmin/index?scope=' . $id_menu);
+        $this->redirect('@sfBreadNav2Plugin_indexScope?scope=' . $id_menu);
     }
 
     public function executeListCredenciales(sfWebRequest $request)
@@ -183,7 +217,7 @@ class aplicacionActions extends autoAplicacionActions
         $credencial_filter = array('id_aplicacion' => $app->getId());
         $this->getUser()->setAttribute('credencial.filters', $credencial_filter, 'admin_module');
 
-        $this->redirect('credencial/index');
+        $this->redirect('@sft_credencial');
     }
 
     protected function executeBatchLoginSAML(sfWebRequest $request)
@@ -196,7 +230,7 @@ class aplicacionActions extends autoAplicacionActions
             $this->dispatcher->notify(new sfEvent($this, 'admin.kuku_object', array('object' => $object)));
 
             $object->setTipoLogin('saml');
-            $object->save();            
+            $object->save();
         }
 
 //        if ($count >= count($ids))
@@ -209,7 +243,7 @@ class aplicacionActions extends autoAplicacionActions
 
         $this->redirect('@sft_aplicacion');
     }
-    
+
     protected function executeBatchLoginPAPI(sfWebRequest $request)
     {
         $ids = $request->getParameter('ids');
@@ -220,7 +254,7 @@ class aplicacionActions extends autoAplicacionActions
             $this->dispatcher->notify(new sfEvent($this, 'admin.kuku_object', array('object' => $object)));
 
             $object->setTipoLogin('papi');
-            $object->save();            
+            $object->save();
         }
 
 //        if ($count >= count($ids))
@@ -233,7 +267,7 @@ class aplicacionActions extends autoAplicacionActions
 
         $this->redirect('@sft_aplicacion');
     }
-    
+
     protected function executeBatchLoginNormal(sfWebRequest $request)
     {
         $ids = $request->getParameter('ids');
@@ -244,11 +278,11 @@ class aplicacionActions extends autoAplicacionActions
             $this->dispatcher->notify(new sfEvent($this, 'admin.kuku_object', array('object' => $object)));
 
             $object->setTipoLogin('normal');
-            $object->save();            
+            $object->save();
         }
 
 //        if ($count >= count($ids))
-//        {
+//        {     
 //            $this->getUser()->setFlash('notice', 'The selected items have been changed successfully.');
 //        } else
 //        {

@@ -114,7 +114,7 @@ class BasesftGestorSesionActions extends BasesfGuardAuthActions
             $this->redirect('@homepage');
         } else
         {
-            $this->redirect('sftGestorErrores/mensajeError?mensaje=Hay algún problema con tu configuración personal');
+            $this->redirect('@sftGuardPlugin_mensajeError?mensaje=Hay algún problema con tu configuración personal');
         }
     }
 
@@ -266,7 +266,6 @@ class BasesftGestorSesionActions extends BasesfGuardAuthActions
             $this->aplicaciones[$i]['url_svn'] = $aplicacion->getUrlSvn();
             $this->aplicaciones[$i]['clave'] = $aplicacion->getClave();
             $this->aplicaciones[$i]['id_credencial'] = $aplicacion->getIdCredencial();
-
             $i++;
         }
     }
@@ -619,7 +618,7 @@ END;
 
         sfProjectConfiguration::getActive()->loadHelpers(array('Url'));
 
-        $enlaceToken = url_for('sftGestorSesion/cambiarPassword?token=' . $token);
+        $enlaceToken = url_for('@sftGuardPlugin_cambiarPasswordToken?token=' . $token);
         $referer = parse_url($this->getRequest()->getReferer());
 
         $enlaceToken = $referer['scheme'] . '://' . $referer['host'] . $enlaceToken;
@@ -691,7 +690,7 @@ END;
 
         sfProjectConfiguration::getActive()->loadHelpers(array('Url'));
 
-        $enlaceToken = url_for('sftGestorSesion/confirmaRegistro?token=' . $token, true);
+        $enlaceToken = url_for('@sftGuardPlugin_confirmaRegistroToken?token=' . $token, true);
         //$referer = parse_url($this -> getRequest() -> getReferer());
         //$enlaceToken = $referer['scheme'].'://'.$referer['host'].$enlaceToken;
         /////////////////////////////////////////////////////////////////////////////

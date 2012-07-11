@@ -9,7 +9,6 @@
  */
 class SftAmbitoForm extends BaseSftAmbitoForm
 {
-
     public function configure()
     {
         unset($this->widgetSchema['sft_acceso_ambito_list']);
@@ -23,6 +22,7 @@ class SftAmbitoForm extends BaseSftAmbitoForm
             $c->add(SftPeriodoPeer::ID_UO, $this->getOption('idUo'));
         }
 
+        $this->widgetSchema['id_ambitotipo'] = new sfWidgetFormInputHidden();
         $this->widgetSchema['id_periodo'] = new sfWidgetFormPropelChoice(array(
                     'model' => 'SftPeriodo',
                     'criteria' => $c,
@@ -30,7 +30,6 @@ class SftAmbitoForm extends BaseSftAmbitoForm
         
         $this->widgetSchema['estado'] = new sfWidgetFormChoice(array('choices' => array('ACTIVO'=>'Activo', 'INACTIVO' => 'Inactivo')));
         
-
         $this->validatorSchema['id_periodo'] = new sfValidatorPropelChoice(array(
                     'required' => false,
                     'model' => 'SftPeriodo',
@@ -41,5 +40,4 @@ class SftAmbitoForm extends BaseSftAmbitoForm
         
         EmbedI18n::aniadeTraducciones($this);
     }
-
 }

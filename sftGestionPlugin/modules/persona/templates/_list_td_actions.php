@@ -57,7 +57,7 @@ else
         <?php endif; ?>
         <li class="sf_admin_action_asociaperfiles">
             <?php if ($usuario instanceof SftUsuario) : ?>
-                <?php echo link_to(__('Perfiles', array(), 'messages'), 'persona/ListAsociaPerfiles?id=' . $usuario->getId(), array()) ?>
+                <?php echo link_to(__('Perfiles', array(), 'messages'), '@sftGestionPlugin_ListAsociaPerfiles?id='.$usuario->getId(), array()) ?>
             <?php endif; ?>
             <?php
             if ($sf_user->hasCredential('SFTGESTIONPLUGIN_administracion'))
@@ -75,21 +75,21 @@ else
         </li>
 
         <li class="sf_admin_action_emails">
-            <?php echo link_to(__('E-mails', array(), 'messages'), 'persona/ListEmails?id=' . $usuario->getId(), array('class' => 'emails')) ?>
+            <?php echo link_to(__('E-mails', array(), 'messages'), '@sftGestionPlugin_ListEmails?action=ListEmails&id='.$usuario->getId(), array('class' => 'emails')) ?>
             <?php if ($usuario->numeroEmails() > 0) : ?>
                 (<?php echo $usuario->numeroEmails($id_uo) ?>)
             <?php endif; ?>
         </li>
         
         <li class="sf_admin_action_direcciones">
-            <?php echo link_to(__('Direcciones', array(), 'messages'), 'persona/ListDirecciones?id=' . $usuario->getId(), array('class' => 'direcciones')) ?>
+            <?php echo link_to(__('Direcciones', array(), 'messages'), '@sftGestionPlugin_ListDirecciones?action=ListDirecciones&id='.$usuario->getId(), array('class' => 'direcciones')) ?>
             <?php if ($usuario->numeroDirecciones() > 0) : ?>
                 (<?php echo $usuario->numeroDirecciones($id_uo) ?>)
             <?php endif; ?>
         </li>
         
         <li class="sf_admin_action_telefonos">
-            <?php echo link_to(__('Teléfonos', array(), 'messages'), 'persona/ListTelefonos?id=' . $usuario->getId(), array('class' => 'telefonos')) ?>
+            <?php echo link_to(__('Teléfonos', array(), 'messages'), '@sftGestionPlugin_ListTelefonos?action=ListTelefonos&id='.$usuario->getId(), array('class' => 'telefonos')) ?>
             <?php if ($usuario->numeroTelefonos() > 0) : ?>
                 (<?php echo $usuario->numeroTelefonos($id_uo) ?>)
             <?php endif; ?>
@@ -97,7 +97,7 @@ else
 
         <li class="sf_admin_action_atributos">
             <?php if ($usuario instanceof SftUsuario) : ?>
-                <?php echo link_to(__('Attributos', array(), 'messages'), 'persona/ListAtributos?id=' . $usuario->getId(), array('class' => 'atributos')) ?>
+                <?php echo link_to(__('Attributos', array(), 'messages'), '@sftGestionPlugin_ListAtributos?action=ListAtributos&id='.$usuario->getId(), array('class' => 'atributos')) ?>
             <?php endif; ?>
             <?php if ($usuario->numeroAtributos() > 0) : ?>
             (<?php echo $usuario->numeroAtributos($id_uo) ?>)

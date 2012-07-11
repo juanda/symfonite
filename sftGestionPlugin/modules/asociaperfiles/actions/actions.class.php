@@ -96,16 +96,16 @@ class asociaperfilesActions extends autoAsociaperfilesActions
 
     public function executePerfilesAsociados(sfWebRequest $request)
     {
-        $this -> forward404Unless($request -> hasParameter('id_usuario') || $this -> getUser() -> hasAttribute('id_usuario', 'mod_asociaperfiles'));
-        if($request -> hasParameter('id_usuario'))
+        $this -> forward404Unless($request -> hasParameter('id') || $this -> getUser() -> hasAttribute('id_usuario', 'mod_asociaperfiles'));
+        if($request -> hasParameter('id'))
         {
-            $this -> getUser() -> setAttribute('id_usuario', $request -> getParameter('id_usuario'), 'mod_asociaperfiles');
+            $this -> getUser() -> setAttribute('id_usuario', $request -> getParameter('id'), 'mod_asociaperfiles');
         }
         $this -> usuario = SftUsuarioPeer::retrieveByPK($this -> getUser() -> getAttribute('id_usuario', null, 'mod_asociaperfiles'));
 
         $this -> forward404Unless($this -> usuario instanceof SftUsuario);
 
-        $this -> id_usuario     = $request -> getParameter('id_usuario');
+        $this -> id_usuario     = $this->usuario->getId();
 
         $c = new Criteria();
 
@@ -125,7 +125,7 @@ class asociaperfilesActions extends autoAsociaperfilesActions
         $c -> addAscendingOrderByColumn(SftUoPeer::ID);
 
         $this -> perfiles = SftPerfilPeer::doSelect($c);
-        $this -> linkUsuarios = ($this -> usuario -> esPersona())? 'persona/index' : 'organismo/index';
+        $this -> linkUsuarios = ($this -> usuario -> esPersona())? '@sft_persona' : '@sft_organismo';
 
     }
     public function executeListPoner(sfWebRequest $request)
@@ -151,7 +151,7 @@ class asociaperfilesActions extends autoAsociaperfilesActions
         }
         $usuario -> ponPerfil($request -> getParameter('id'));
 
-        $this -> redirect('asociaperfiles/index');
+        $this -> redirect('@sft_perfil_asociaperfiles');
 
     }
 
@@ -178,7 +178,7 @@ class asociaperfilesActions extends autoAsociaperfilesActions
         }
         $usuario -> quitaPerfil($request -> getParameter('id'));
 
-        $this -> redirect('asociaperfiles/index');
+        $this -> redirect('@sft_perfil_asociaperfiles');
     }
 
     function executeMostrarPerfilesAsociados(sfWebRequest $request)
@@ -231,6 +231,6 @@ class asociaperfilesActions extends autoAsociaperfilesActions
 
         $acceso_ambito -> delete();
 
-        $this -> redirect('asociaperfiles/perfilesAsociados?id_usuario='.$request -> getParameter('id_usuario'));
+        $this -> redirect('@sft_perfil_asociaperfiles_object?action=perfilesAsociados&id='.$request -> getParameter('id_usuario'));
     }
 }

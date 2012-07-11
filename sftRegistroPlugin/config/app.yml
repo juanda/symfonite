@@ -1,7 +1,4 @@
 all:
-#  password_expire: 30
-#  registro_enabled: true
-#  id_aplicacion_inicial: 1
-#  id_perfil_inicial: 1
-#  id_periodo_inicial: 1
-#  
+  sugerencias_enabled: true
+  max_sugerencias_por_pagina: 5
+  registro_mail_from: correo-cve@serbal.pntic.mec.es

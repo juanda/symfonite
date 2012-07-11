@@ -36,86 +36,92 @@ require_once dirname(__FILE__) . '/../lib/personaGeneratorHelper.class.php';
  * @author     Your name here
  * @version    SVN: $Id: actions.class.php 12474 2008-10-31 10:41:27Z fabien $
  */
-class personaActions extends autoPersonaActions
-{
+class personaActions extends autoPersonaActions {
 
-    function executeListAsociaPerfiles(sfWebRequest $request)
-    {
-        $this->redirect('asociaperfiles/perfilesAsociados?id_usuario=' . $request->getParameter('id'));
+    function executeListAsociaPerfiles(sfWebRequest $request) {
+
+        $this->redirect('@sft_perfil_asociaperfiles_object?action=perfilesAsociados&id=' . $request->getParameter('id'));
     }
 
-    function executeBorraTelefono(sfWebRequest $request)
-    {
+    function executeBorraTelefono(sfWebRequest $request) {
         $telefono = SftTelefonoPeer::retrieveByPK($request->getParameter('id'));
         $id_persona = $telefono->getSftPersona()->getId();
         $telefono->delete();
 
-        $this->redirect('persona/edit?id=' . $id_persona);
+        $this->redirect('@sft_persona_edit?id=' . $id_persona);
     }
 
-    function executeBorraEmail(sfWebRequest $request)
-    {
+    function executeBorraEmail(sfWebRequest $request) {
         $email = SftEmailPeer::retrieveByPK($request->getParameter('id'));
         $id_persona = $email->getSftPersona()->getId();
         $email->delete();
 
-        $this->redirect('persona/edit?id=' . $id_persona);
+        $this->redirect('@sft_persona_edit?id=' . $id_persona);
     }
 
-    function executeBorraDireccion(sfWebRequest $request)
-    {
+    function executeBorraDireccion(sfWebRequest $request) {
         $direccion = SftDireccionPeer::retrieveByPK($request->getParameter('id'));
         $id_persona = $direccion->getSftPersona()->getId();
         $direccion->delete();
 
-        $this->redirect('persona/edit?id=' . $id_persona);
+        $this->redirect('@sft_persona_edit?id=' . $id_persona);
     }
 
-    function executeListPassword(sfWebRequest $request)
-    {
+    function executeListPassword(sfWebRequest $request) {
         $sftUsuario = SftUsuarioPeer::retrieveByPk($request->getParameter('id'));
 
         $this->redirect('sfGuardUser/edit?id=' . $sftUsuario->dameSfGuardUser()->getId());
     }
 
-    public function executeListAtributos(sfWebRequest $request)
-    {
+    public function executeListAtributos(sfWebRequest $request) {
         $this->forward404Unless($request->hasParameter('id'));
-        
+
         $atributo_filter = array('id_usuario' => $request->getParameter('id'));
         $this->getUser()->setAttribute('asociaatributos.filters', $atributo_filter, 'admin_module');
 
-        $this->redirect('asociaatributos/index');
+        $this->redirect('@sft_usu_atributo_valor_asociaatributos');
     }
 
-    public function executeListEmails(sfWebRequest $request)
-    {
+    public function executeListEmails(sfWebRequest $request) {
         $this->forward404Unless($request->hasParameter('id'));
 
         $email_filter = array('id_usuario' => $request->getParameter('id'));
         $this->getUser()->setAttribute('email.filters', $email_filter, 'admin_module');
 
-        $this->redirect('email/index');
+        $this->redirect('@sft_email');
     }
-    
-    public function executeListTelefonos(sfWebRequest $request)
-    {
+
+    public function executeListTelefonos(sfWebRequest $request) {
         $this->forward404Unless($request->hasParameter('id'));
 
         $telefono_filter = array('id_usuario' => $request->getParameter('id'));
         $this->getUser()->setAttribute('telefono.filters', $telefono_filter, 'admin_module');
 
-        $this->redirect('telefono/index');
+        $this->redirect('@sft_telefono');
     }
-    
-    public function executeListDirecciones(sfWebRequest $request)
-    {
+
+    public function executeListDirecciones(sfWebRequest $request) {
         $this->forward404Unless($request->hasParameter('id'));
 
         $direccion_filter = array('id_usuario' => $request->getParameter('id'));
         $this->getUser()->setAttribute('direccion.filters', $direccion_filter, 'admin_module');
 
-        $this->redirect('direccion/index');
+        $this->redirect('@sft_direccion');
+    }
+
+    public function executeDelete(sfWebRequest $request) {
+        $request->checkCSRFProtection();
+
+        if (!strcmp($request->getParameter('id'), $this->getUser()->getAttribute('idUsuario', null, 'SftUser'))) {
+            $this->getUser()->setFlash('error', '¿Te estás intentando borrar a tí mismo?, creéme, no es una buena idea en absoluto.');
+        } else {
+            $this->dispatcher->notify(new sfEvent($this, 'admin.delete_object', array('object' => $this->getRoute()->getObject())));
+
+            $this->getRoute()->getObject()->delete();
+
+            $this->getUser()->setFlash('notice', 'The item was deleted successfully.');
+        }
+        $this->redirect('@sft_persona');
     }
 
 }

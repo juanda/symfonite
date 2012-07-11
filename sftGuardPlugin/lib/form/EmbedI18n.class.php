@@ -43,4 +43,26 @@ class EmbedI18n
            $form->getWidgetSchema()->setLabel($c -> getNombre(), $c -> getDescripcion());
         }
     }
+    
+    static public function aniadeTraduccionesElegidas($form)
+    {
+        $tCulturasElegidas = sfConfig::get('app_configuracion_culturas');
+
+        $c = new Criteria();
+        $c->add(SftCulturaPeer::NOMBRE, $tCulturasElegidas, CRITERIA::IN);
+        $culturas = SftCulturaPeer::doSelect($c);
+
+        $tCulturas = array();
+        foreach ($culturas as $c)
+        {
+            $tCulturas[] = $c -> getNombre();
+        }
+
+        $form -> embedI18n($tCulturas);
+
+        foreach ($culturas as $c)
+        {
+           $form->getWidgetSchema()->setLabel($c -> getNombre(), $c -> getDescripcion());
+        }
+    }
 }

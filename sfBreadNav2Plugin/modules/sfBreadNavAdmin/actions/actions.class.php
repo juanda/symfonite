@@ -32,7 +32,7 @@ class sfBreadNavAdminActions extends crudactions
             //sfBreadNavPeer::deleteDescendants($page);
             //sfBreadNavPeer::deleteNode($page);
 
-            $this->redirect('sfBreadNavAdmin/index?scope=' . $this->scope);
+            $this->redirect('@sfBreadNav2Plugin_index?scope=' . $this->scope);
         } else
         {
             //display permission error
@@ -45,27 +45,31 @@ class sfBreadNavAdminActions extends crudactions
     public function executeEdithome()
     {     
         $scope = sfContext::getInstance()->getRequest()->getParameter('scope');
-        
-        $menu = sfBreadNavApplicationPeer::retrieveByPK($scope);
-        
-        $this->aplicacion = $menu->getSftAplicacion();
-        
-        $this->setscope();
 
+        $menu = sfBreadNavApplicationPeer::retrieveByPK($scope);
+
+        $this->aplicacion = $menu->getSftAplicacion();
+
+        $this->setscope();
+        
         $this->form = new sfBreadNavEditHomeForm();
         
         //if not post populate and show form.
         //if post validate and save.  redirect to admin.
 
         if ($this->getRequest()->isMethod('post'))
+            
         {
             $values = $this->getRequest()->getParameter('sfbreadnavedithomeform');
             $this->form->bind($values);
             if ($this->form->isValid())
             {
+                //si se crea la raíz
                 if (sfBreadNavPeer::saveHome($values, $this->scope))
                 {
-                    $this->redirect('sfBreadNavAdmin/index?scope=' . $this->scope);
+                    //creamos el primer item de menú con los datos del formulario
+                    sfBreadNavPeer::addPage($values,$this->scope);
+                    $this->redirect('@sfBreadNav2Plugin_index?scope=' . $this->scope);
                 } else
                 {
                     $this->setTemplate('breadnav');
@@ -100,7 +104,7 @@ class sfBreadNavAdminActions extends crudactions
         $scope = sfContext::getInstance()->getRequest()->getParameter('scope');
         
         $menu = sfBreadNavApplicationPeer::retrieveByPK($scope);
-        
+
         $this->aplicacion = $menu->getSftAplicacion();
         
         $this->setscope();
@@ -158,8 +162,7 @@ class sfBreadNavAdminActions extends crudactions
         //save page
         $page = new sfBreadNav();
         $page->setPage($values['page']);
-        $page->setModule($values['module']);
-        $page->setAction($values['action']);
+        $page->setRoute($values['route']);
         $page->setCredential($values['module']);
         $page->save();
     }

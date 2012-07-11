@@ -142,6 +142,8 @@ sft_organismo:
     column:               id
     with_wildcard_routes: true
 
+
+
 sft_perfil_asociaperfiles:
   class: sfPropelRouteCollection
   options:
@@ -249,3 +251,53 @@ sft_periodo:
     prefix_path:          /periodo
     column:               id
     with_wildcard_routes: true
+    
+sftGestionPlugin_ListAsociaCredenciales:
+  url: /perfil/:id/ListAsociaCredenciales
+  params: { module: perfil, action: ListAsociaCredenciales }
+  
+sftGestionPlugin_ListVerCredenciales:
+  url: /perfil/:id/ListVerCredenciales
+  params: { module: perfil, action: ListVerCredenciales }
+  
+sftGestionPlugin_ListGestionarAmbitos:
+  url: /ambitotipo/:id/ListGestionarAmbitos
+  params: { module: ambitotipo, action: ListGestionarAmbitos }
+  
+sftGestionPlugin_ListEmails:
+  url: /persona/:id/ListEmails
+  params: { module: persona, action: ListEmails }
+  
+sftGestionPlugin_ListDirecciones:
+  url: /persona/:id/ListDirecciones
+  params: { module: persona, action: ListDirecciones }
+  
+sftGestionPlugin_ListProvincias:
+  url: /persona/ListProvincias
+  params: { module: direccion, action: ListProvincias }
+  
+sftGestionPlugin_ListLocalidades:
+  url: /persona/ListLocalidades
+  params: { module: direccion, action: ListLocalidades }
+  
+sftGestionPlugin_ListTelefonos:
+  url: /persona/:id/ListTelefonos
+  params: { module: persona, action: ListTelefonos }
+sftGestionPlugin_ListAtributos:
+  url: /persona/:id/ListAtributos
+  params: { module: persona, action: ListAtributos }
+  
+sftGestionPlugin_ListAsociaPerfiles:
+  url: /persona/:id/ListAsociaPerfiles
+  params: { module: persona, action: ListAsociaPerfiles }
+  
+sftGestionPlugin_QuitarAmbito:
+  url: /asociaperfiles/:id_usuario/:id_ambito/quitarAmbito
+  params: { module: asociaperfiles, action: QuitarAmbito }
+  
+  
+sftGestionPlugin_AnadirAmbito:
+  url: /asociaambitos/:id_usuario/:id_perfil/anadir
+  params: { module: asociaambitos, action: index }
+  
+  

@@ -22,13 +22,16 @@
  * los permisos y limitaciones que establece la Licencia.
  */
 ?>
+<?php slot('nav') ?>
+<?php include_component('sfBreadNav', 'compMenu'); ?>
+<?php end_slot(); ?>
 <?php
 $aplicacion = SftAplicacionPeer::dameAplicacionConClave(sfConfig::get('app_clave'));
 ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
     <head>
-        <?php use_themes_stylesheet('sfbreadnav/css/menuh.css') ?>
+
         <?php include_http_metas() ?>
         <?php include_metas() ?>
         <?php include_stylesheets() ?>
@@ -50,12 +53,14 @@ $aplicacion = SftAplicacionPeer::dameAplicacionConClave(sfConfig::get('app_clave
                 <h3><?php echo sfConfig::get('app_titulo') ?></h3>
 
                 <div id="menuprincipal">
-                    <?php include_partial('sfBreadNav/navmenu', array('menu' => 'menu_'.$aplicacion->getCodigo())) ?>
+                    <?php include_slot('nav'); ?>
+                    <?php  //include_component('sfBreadNav', 'compMenu') ?>
+                    <?php //include_partial('sfBreadNav/navmenu', array('menu' => 'menu_'.$aplicacion->getCodigo())) ?>
                 </div>
 
                 <br/>
                 <div id="breadnavbreadcrumbdiv">
-                    <?php include_partial('sfBreadNav/breadcrumb', array('menu' => 'menu_'.$aplicacion->getCodigo())) ?>
+                    <?php //include_partial('sfBreadNav/breadcrumb', array('menu' => 'menu_'.$aplicacion->getCodigo())) ?>
                 </div>
 
 

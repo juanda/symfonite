@@ -19,6 +19,8 @@ generator:
         SftUo:      { label: UO }
         fechainicio: { label: Fecha inicio}
         fechafin: { label: Fecha fin}
+        descripcion: {label: Descripción}
+        codigo: {label: Código}
 
       list:
         title: Listado de Periodos
@@ -27,6 +29,11 @@ generator:
       filter:  ~
       form:    ~
       edit:
-        title: Edición del Periodo: %%FECHAINICIO%% - %%FECHAFIN%% de la UO: <i>%%SFTUO%%</i>
+        title: 'Edición del Periodo: %%FECHAINICIO%% - %%FECHAFIN%% de la UO: <i>%%SFTUO%%</i>'
+        fields:
+          codigo: { label: Código*, help: 'Nombre corto del periodo, va en minúsculas y sin espacios ni símbolos extraños y se suele utilizar para identificarlo'}
       new:
         title: Nuevo Periodo
+        fields:
+          codigo: {label: Código*, help: 'Nombre corto del periodo, va en minúsculas y sin espacios ni símbolos extraños y se suele utilizar para identificarlo'}
+

@@ -38,8 +38,18 @@ generator:
         class: SftPersonaConIdentEmailForm
         display:
           'NONE':           [nombre, apellido1, apellido2, email, id_tipodocidentificacion, docidentificacion, sexo, fechanacimiento, observaciones, profesion, created_at, updated_at ]
-          'identificación': [identificacion]
+          
       edit:
-        title: Edición de la persona: %%NOMBRE%% %%APELLIDO1%% %%APELLIDO2%%
+        title: 'Edición de la persona: %%NOMBRE%% %%APELLIDO1%% %%APELLIDO2%%'
+        fields:
+          nombre: {label: Nombre*, help: 'Nombre real de la persona'}
+          email: {label: Email*, help: 'Dirección de correo de contacto con la persona'}
+        display:
+          'NONE':           [nombre, apellido1, apellido2, email, id_tipodocidentificacion, docidentificacion, sexo, fechanacimiento, observaciones, profesion, created_at, updated_at ]          
+          'identificación': [identificacion]
+          'Usuario': [usuario]
       new:
         title: Nueva Persona
+        fields:
+          nombre: {label: Nombre*, help: 'Nombre real de la persona'}
+          email: {label: Email*, help: 'Dirección de correo de contacto con la persona'}

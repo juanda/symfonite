@@ -56,12 +56,28 @@ class Utilidades
 
     static public function limpiarCadena($cadena)
     {
-        $cadena = strtolower($cadena);
-        $b     = array("á","é","í","ó","ú","ä","ë","ï","ö","ü","à","è","ì","ò","ù","ñ"," ",",",".",";",":","¡","!","¿","?",'"');
-        $c     = array("a","e","i","o","u","a","e","i","o","u","a","e","i","o","u","n","","","","","","","","","",'');
-        $cadena = str_replace($b,$c,$cadena);
-        return trim($cadena);
+        //eliminar acentos, diéresis, etc
+        
+        $normalizeChars = array( 
+             'Á'=>'A', 'À'=>'A', 'Â'=>'A', 'Ã'=>'A', 'Å'=>'A', 'Ä'=>'A', 'Æ'=>'AE', 'Ç'=>'C', 
+             'É'=>'E', 'È'=>'E', 'Ê'=>'E', 'Ë'=>'E', 'Í'=>'I', 'Ì'=>'I', 'Î'=>'I', 'Ï'=>'I', 'Ð'=>'Eth', 
+             'Ñ'=>'N', 'Ó'=>'O', 'Ò'=>'O', 'Ô'=>'O', 'Õ'=>'O', 'Ö'=>'O', 'Ø'=>'O', 
+             'Ú'=>'U', 'Ù'=>'U', 'Û'=>'U', 'Ü'=>'U', 'Ý'=>'Y', 
+     
+             'á'=>'a', 'à'=>'a', 'â'=>'a', 'ã'=>'a', 'å'=>'a', 'ä'=>'a', 'æ'=>'ae', 'ç'=>'c', 
+             'é'=>'e', 'è'=>'e', 'ê'=>'e', 'ë'=>'e', 'í'=>'i', 'ì'=>'i', 'î'=>'i', 'ï'=>'i', 'ð'=>'eth', 
+             'ñ'=>'n', 'ó'=>'o', 'ò'=>'o', 'ô'=>'o', 'õ'=>'o', 'ö'=>'o', 'ø'=>'o', 
+             'ú'=>'u', 'ù'=>'u', 'û'=>'u', 'ü'=>'u', 'ý'=>'y', 
+             
+             'ß'=>'sz', 'þ'=>'thorn', 'ÿ'=>'y' 
+         );
 
+        $cadena = strtr($cadena,$normalizeChars);
+        //Ahora eliminamos todos los caracteres no alfanuméricos \W = [^0-9a-zA-Z]
+        $cadena = preg_replace('/\W/','',$cadena);
+
+        //El trim ya lo haría el preg_replace, pero por si las moscas.
+        return trim($cadena);  
     }
 
     /**

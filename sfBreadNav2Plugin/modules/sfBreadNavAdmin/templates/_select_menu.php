@@ -1,4 +1,4 @@
-<form method='GET' action='<?php echo url_for('sfBreadNavAdmin/index') ?>' name="scopeform">
+<form method='GET' action='<?php echo url_for('@sfBreadNav2Plugin_index') ?>' name="scopeform">
 
 <?php echo $form  ?>
 

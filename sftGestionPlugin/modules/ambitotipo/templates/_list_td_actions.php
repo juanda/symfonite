@@ -15,7 +15,7 @@
         <?php echo $helper->linkToEdit($SftAmbitoTipo, array('params' => array(), 'class_suffix' => 'edit', 'label' => 'Edit',)) ?>
         <?php echo $helper->linkToDelete($SftAmbitoTipo, array('params' => array(), 'confirm' => 'Are you sure?', 'class_suffix' => 'delete', 'label' => 'Delete',)) ?>   
         <li class="sf_admin_action_ambitos">
-            <?php echo link_to(__('Ámbitos', array(), 'messages'), 'ambitotipo/ListGestionarAmbitos?id=' . $SftAmbitoTipo->getId(), array('class' => 'gestionarambitos')) ?>
+            <?php echo link_to(__('Ámbitos', array(), 'messages'), '@sftGestionPlugin_ListGestionarAmbitos?id='.$SftAmbitoTipo->getId() , array('class' => 'gestionarambitos')) ?>
         </li>
     </ul>
 </td>

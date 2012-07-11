@@ -82,7 +82,7 @@ class SftOrganismo extends BaseSftOrganismo
     public function save(PropelPDO $con = null)
     {
         $isNew = $this->isNew();
-
+        $this->setUpdatedAt(time());
         parent::save($con);
 
         if ($isNew) // Hay que crearle su sfUser y su SftUsuario

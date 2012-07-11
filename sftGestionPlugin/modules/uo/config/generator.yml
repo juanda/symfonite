@@ -31,6 +31,10 @@ generator:
         display: [ codigo, observaciones  ]
       form:    ~
       edit:
-        title: Edición de la Unidad Organizativa: %%NOMBRE%%
+        title: 'Edición de la Unidad Organizativa: %%NOMBRE%%'
+        fields:
+          codigo: { label: Código*, help: 'Nombre corto de la UO, va en minúsculas y sin espacios ni simbolos extraños y se suele utilizar para identificarla'}
       new:
         title: Nueva Unidad Organizativa
+        fields:
+          codigo: { label: Código*, help: 'Nombre corto de la UO, va en minúsculas y sin espacios ni simbolos extraños y se suele utilizar para identificarla'}

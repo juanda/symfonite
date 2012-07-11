@@ -25,15 +25,15 @@
   <div id="sf_admin_content">
       <ul class="sf_admin_td_actions">
       <li class="sf_admin_action_emails">
-            <?php echo link_to(__('E-mails', array(), 'messages'), 'persona/ListEmails?id=' . $SftPersona->dameSftUsuario()->getId(), array('class' => 'emails')) ?>
+            <?php echo link_to(__('E-mails', array(), 'messages'), '@sft_persona_object?action=ListEmails&id=' . $SftPersona->dameSftUsuario()->getId(), array('class' => 'emails')) ?>
         </li>
         
         <li class="sf_admin_action_direcciones">
-            <?php echo link_to(__('Direcciones', array(), 'messages'), 'persona/ListDirecciones?id=' . $SftPersona->dameSftUsuario()->getId(), array('class' => 'direcciones')) ?>
+            <?php echo link_to(__('Direcciones', array(), 'messages'), '@sft_persona_object?action=ListDirecciones&id=' . $SftPersona->dameSftUsuario()->getId(), array('class' => 'direcciones')) ?>
         </li>
         
         <li class="sf_admin_action_telefonos">
-            <?php echo link_to(__('Teléfonos', array(), 'messages'), 'persona/ListTelefonos?id=' . $SftPersona->dameSftUsuario()->getId(), array('class' => 'telefonos')) ?>
+            <?php echo link_to(__('Teléfonos', array(), 'messages'), '@sft_persona_object?action=ListTelefonos&id=' . $SftPersona->dameSftUsuario()->getId(), array('class' => 'telefonos')) ?>
         </li>
       </ul>
       <hr/>

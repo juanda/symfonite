@@ -14,8 +14,7 @@ class sfBreadNavAddPageForm extends sfForm
 
         $this->validatorSchema['id'] = new sfValidatorPass();
         $this->validatorSchema['page'] = new sfValidatorString(array('max_length' => 255));
-        $this->validatorSchema['module'] = new sfValidatorString(array('max_length' => 128));
-        $this->validatorSchema['action'] = new sfValidatorString(array('max_length' => 128, 'required' => false));
+        $this->validatorSchema['route'] = new sfValidatorString(array('max_length' => 128));
         $this->validatorSchema['credential'] = new sfValidatorString(array('max_length' => 128, 'required' => false));
         $this->validatorSchema['catch_all'] = new sfValidatorPass();
         $this->validatorSchema['parent'] = new sfValidatorPass();
@@ -38,8 +37,7 @@ class sfBreadNavAddPageForm extends sfForm
 
         $this->widgetSchema['id'] = new sfWidgetFormInputHidden();
         $this->widgetSchema['page'] = new sfWidgetFormInput();
-        $this->widgetSchema['module'] = new sfWidgetFormInput();
-        $this->widgetSchema['action'] = new sfWidgetFormInput();
+        $this->widgetSchema['route'] = new sfWidgetFormInput();
         $this->widgetSchema['credential'] = new sfWidgetFormInput();
         $this->widgetSchema['catch_all'] = new sfWidgetFormInputCheckbox();
         $this->widgetSchema['parent'] = new sfWidgetFormSelect(array('choices' => $parents));

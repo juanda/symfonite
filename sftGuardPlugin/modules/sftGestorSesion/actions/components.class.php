@@ -118,9 +118,9 @@ class sftGestorSesionComponents extends sfComponents
 
     public function executeCompMenuGeneral()
     {
-        $this->linkPerfiles = (sfConfig::get('app_menu_general_perfiles')) ? url_for('sftGestorSesion/perfiles') : null;
-        $this->linkConfiguracionPersonal = (sfConfig::get('app_menu_general_configuracionPersonal')) ? url_for('sftGestorSesion/configuracionPersonal') : null;
-        $this->linkAplicaciones = (sfConfig::get('app_menu_general_aplicaciones')) ? url_for('sftGestorSesion/aplicaciones') : null;
+        $this->linkPerfiles = (sfConfig::get('app_menu_general_perfiles')) ? url_for('@sftGuardPlugin_mostrarperfiles') : null;
+        $this->linkConfiguracionPersonal = (sfConfig::get('app_menu_general_configuracionPersonal')) ? url_for('@sftGuardPlugin_configuracionPersonal') : null;
+        $this->linkAplicaciones = (sfConfig::get('app_menu_general_aplicaciones')) ? url_for('@sftGuardPlugin_aplicaciones') : null;
         $this->linkAyuda = (sfConfig::get('app_menu_general_ayuda')) ? $this->linkAyuda() : null;
 
         $aplicacion = SftAplicacionPeer::dameAplicacionConClave(sfConfig::get('app_clave'));
@@ -129,10 +129,10 @@ class sftGestorSesionComponents extends sfComponents
             switch ($aplicacion->getTipoLogin())
             {                
                 case 'saml':
-                    $linkLogout = url_for('sftSAMLSesion/logout');
+                    $linkLogout = url_for('@sftSAMLPlugin_SAMLLogout');
                     break;
                 default:
-                    $linkLogout = url_for('sftGestorSesion/signout');
+                    $linkLogout = url_for('@sftGuardPlugin_signout');
                     break;
             }
         }
@@ -170,7 +170,7 @@ class sftGestorSesionComponents extends sfComponents
         if (!$aplicacion instanceof SftAplicacion) //la aplicación no está autorizada
         {
             $mensaje = __('La aplicación no está debidamente registrada');
-            sfContext::getInstance()->getController->redirect('sftGestorErrores/mensajeError?mensaje=' . $mensaje);
+            sfContext::getInstance()->getController->redirect('@sftGuardPlugin_mensajeError?mensaje=' . $mensaje);
         }
 
         // Pillamos los ejercicios academicos activos donde tiene perfiles activos el usuario

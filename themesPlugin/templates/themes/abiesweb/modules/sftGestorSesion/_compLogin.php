@@ -54,7 +54,7 @@
                 <div  class="sf_admin_form_row sf_admin_text sf_admin_form_field_password">
                             <?php echo $form['password']->renderError() ?>
                     <div>
-                        <label for="password">Clave:</label>
+                        <label for="password"><?php echo __("Clave:") ?></label>
                         <div class="content"><?php echo $form['password'] ?></div>
                     </div>
                 </div>
@@ -62,7 +62,7 @@
                 <div  class="sf_admin_form_row sf_admin_text sf_admin_form_field_remember">
                             <?php echo $form['remember']->renderError() ?>
                     <div>
-                        <label for="remember">Recuerdame:</label>
+                        <label for="remember"><?php echo __("Recuérdame:") ?></label>
                         <div class="content"><?php echo $form['remember'] ?></div>
                     </div>
 
@@ -72,18 +72,12 @@
                     <?php echo $form->renderHiddenFields() ?>
             <ul class="sf_admin_actions">
                 <li class="sf_admin_action_list">
-                    <input type="submit" value="Continuar" />
-                </li>
-                <li class="sf_admin_action_list">
-                    <input type="button" onclick="document.formLogin.action='<?php echo url_for('sftGestorSesion/reinicioPassword')?>';document.reinicioPasswordForm.submit()" value="Recuperar Password" />
+                    <input type="submit" value="<?php echo __("Entrar") ?>" class="botton"/>
                 </li>
             </ul>
         </form>
     </div>
-
-            <?php echo __('¿Has olvidado tu password? Pulsa en el botón "Recuperar Password" y sigue las instrucciones') ?>
-
-
+  
 </div>
 
 <?php endif; ?>

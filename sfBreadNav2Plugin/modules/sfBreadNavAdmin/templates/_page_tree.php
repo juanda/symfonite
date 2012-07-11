@@ -29,16 +29,9 @@ function bool2string ($bool) {
 
 <br/>
     <table cellspacing="0">
-      <tr class='odd'><th><?php echo __('Nombre del item') ?></th><th><?php echo __('Módulo') ?></th><th><?php echo __('Acción') ?></th><th><?php echo __('Credencial') ?></th><th><?php echo __('Catch all') ?></th></strong></tr>
-      <tr class='even'>
-       <td><a href="<?php echo url_for('sfBreadNavAdmin/edithome?scope=' . $scope) ?>"><?php echo $root->getPage() ?></a></td>
-       <td><?php echo $root->getModule() ?></php></td>
-       <td><?php echo $root->getAction() ?></php></td>
-       <td><?php echo $root->getCredential() ?></php></td>
-       <td><?php echo bool2string($root->getCatchall()) ?></php></td>
-      </tr>
+      <tr class='odd'><th><?php echo __('Nombre del item') ?></th><th><?php echo __('Route') ?></th><th><?php echo __('Credencial') ?></th><th><?php echo __('Catch all') ?></th></strong></tr>
     
-    <?php $rowclass = 'odd'; ?>
+    <?php $rowclass = 'even'; ?>
     
     <?php $rootflag = true; ?>
     <?php foreach ($menu as $page): ?>
@@ -47,10 +40,9 @@ function bool2string ($bool) {
     
     <tr class='<?php echo $rowclass ?>'>
       <td style='padding-left: <?php echo $page->getLevel() + 1?>EM; padding-right: 1EM;'>
-      <?php echo link_to ($page->getPage(), 'sfBreadNavAdmin/index?scope=' .$scope. '&pageid=' . $page->getId()) ?>
+      <?php echo link_to ($page->getPage(), '@sfBreadNav2Plugin_indexScopeId?scope=' .$scope. '&pageid=' . $page->getId()) ?>
       </td>
-      <td><?php echo $page->getModule()?></td>
-      <td><?php echo $page->getAction()?></td>
+      <td><?php echo $page->getRoute()?></td>
       <td><?php echo $page->getCredential()?></td>
       <td><?php echo bool2string($page->getCatchall())?></td>            
     </tr>

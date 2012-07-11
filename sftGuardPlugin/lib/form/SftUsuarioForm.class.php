@@ -12,7 +12,7 @@ class SftUsuarioForm extends BaseSftUsuarioForm
 
     public function configure()
     {
-        $this->widgetSchema['id_culturapref'] = new sfWidgetFormPropelChoice(array('model' => 'SftCultura', 'add_empty' => true));
+        $this->widgetSchema['id_culturapref'] = new sfWidgetFormPropelChoice(array('model' => 'SftCultura', 'add_empty' => false, 'key_method' => 'getNombre'));
     }
 
     public function validarSoloCultura()

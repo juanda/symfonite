@@ -64,7 +64,7 @@ class fid_asociaperfilesActions extends autoFid_asociaperfilesActions
 
         $atributo->ponPerfil($request->getParameter('id'));
 
-        $this->redirect('fid_asociaperfiles/index?id_atributo=' . $id_atributo);
+        $this->redirect('@sft_perfil_fid_asociaperfiles?id_atributo=' . $id_atributo);
 
         $this->setLayout('ventanaNueva');
     }
@@ -80,7 +80,7 @@ class fid_asociaperfilesActions extends autoFid_asociaperfilesActions
 
         $atributo->quitaPerfil($request->getParameter('id'));
 
-        $this->redirect('fid_asociaperfiles/index?id_atributo=' . $id_atributo);
+        $this->redirect('@sft_perfil_fid_asociaperfiles?id_atributo=' . $id_atributo);
 
         $this->setLayout('ventanaNueva');
     }

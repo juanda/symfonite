@@ -5,3 +5,7 @@ login_papi:
 papi_signin:
   url: /papi_signin
   param: { module: sftPAPIAS, action: signin }
+  
+sftPAPIPlugin_poaParams:
+  url: /poaParams
+  param: { module: sftPAPIAdmin, action: poaParams }

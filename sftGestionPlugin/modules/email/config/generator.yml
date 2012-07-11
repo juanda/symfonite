@@ -14,7 +14,8 @@ generator:
 
     config:
       actions: ~
-      fields:  ~
+      fields: 
+        direccion: {label: Dirección}
       list:    
         title: Listado de emails
         max_per_page: 10
@@ -25,5 +26,9 @@ generator:
         class: EmailIdUsuarioHiddenForm
       edit:    
         title: Edicion del email
+        fields: 
+          direccion: {label: Dirección, help: 'Dirección de correo de la persona'}
       new:     
         title: Nuevo email
+        fields: 
+          direccion: {label: Dirección, help: 'Dirección de correo de la persona'}

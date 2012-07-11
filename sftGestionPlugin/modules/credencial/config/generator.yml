@@ -31,5 +31,11 @@ generator:
         display: [ id_aplicacion, nombre, descripcion ]
       edit:
         title: Edición de la Credencial
+        fields: 
+          nombre: {label: Nombre*, help: 'Nombre que identificará la credencial, deberá ser único'}
+          descripcion: { label : Descripción*, help: 'Descripción de los tipos de accesos que permite esta credencial'}
       new:
         title: Nueva Credencial
+        fields: 
+          nombre: {label: Nombre*, help: 'Nombre que identificará la credencial, deberá ser único'}
+          descripcion: { label : Descripción*, help: 'Descripción de los tipos de accesos que permite esta credencial'}

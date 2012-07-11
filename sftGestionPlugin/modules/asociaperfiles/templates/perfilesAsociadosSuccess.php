@@ -58,7 +58,7 @@
             </li>
 
             <li class="sf_admin_action_asociaperfiles">
-                <?php echo link_to(__('asociar/desasociar perfiles'), 'asociaperfiles/index', array('class' =>'asociaperfiles')) ?>
+                <?php echo link_to(__('asociar/desasociar perfiles'), '@sft_perfil_asociaperfiles', array('class' =>'asociaperfiles')) ?>
             </li>
         </ul>
         <br/>
@@ -88,7 +88,7 @@
                                 <td>
                                     <ul class="sf_admin_td_actions">
                                         <li class="sf_admin_action_delete">
-                                                        <?php echo link_to(__('Quitar'), 'asociaperfiles/quitarAmbito?id_usuario='.$usuario -> getId().'&id_ambito='.$ambito -> getId()) ?>
+                                                        <?php echo link_to(__('Quitar'), '@sftGestionPlugin_QuitarAmbito?id_usuario='.$usuario -> getId().'&id_ambito='.$ambito -> getId()) ?>
                                         </li>
                                     </ul>
                                 </td>
@@ -99,7 +99,7 @@
 
                                     <ul class="sf_admin_td_actions">
                                         <li class="sf_admin_action_new">
-                                                    <?php echo link_to(__('Añadir ámbito'), 'asociaambitos/index?id_usuario='.$usuario -> getId().'&id_perfil='.$perfil -> getId(), array('class' => 'asociaambitos')) ?>
+                                                    <?php echo link_to(__('Añadir ámbito'), '@sftGestionPlugin_AnadirAmbito?id_usuario='.$usuario -> getId().'&id_perfil='.$perfil -> getId(), array('class' => 'asociaambitos')) ?>
                                         </li>
                                     </ul>
 

@@ -36,7 +36,7 @@
 
         <div class="caja_password">
             <div class="sf_admin_form">
-                <form id="registro" name="registro" method="POST" action="<?php echo url_for('sftGestorSesion/enviarTokenRegistro')?>">
+                <form id="registro" name="registro" method="POST" action="<?php echo url_for('@sftGuardPlugin_enviarTokenRegistro')?>">
                     <?php echo $formRegistro -> renderGlobalErrors() ?>
                      <?php echo $formRegistro -> renderhiddenFields() ?>
                     <fieldset id="login">

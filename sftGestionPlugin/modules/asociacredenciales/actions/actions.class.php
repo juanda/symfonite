@@ -135,7 +135,7 @@ class asociacredencialesActions extends autoAsociacredencialesActions
         {
             $this->setFilters($this->configuration->getFilterDefaults());
 
-            $this->redirect('asociacredenciales/index' . $query_string);
+            $this->redirect('@sft_credencial_asociacredenciales' . $query_string);
         }
 
         $this->filters = $this->configuration->getFilterForm($this->getFilters());
@@ -148,7 +148,7 @@ class asociacredencialesActions extends autoAsociacredencialesActions
 
             $this->setFilters($this->filters->getValues());
 
-            $this->redirect('asociacredenciales/index' . $query_string);
+            $this->redirect('@sft_credencial_asociacredenciales' . $query_string);
         } else
         {
            echo $this->filters->renderGlobalErrors();exit; 
@@ -171,7 +171,7 @@ class asociacredencialesActions extends autoAsociacredencialesActions
 
         $perfil->ponCredencial($request->getParameter('id'));
 
-        $this->redirect('asociacredenciales/index?asociacred=true&filtro=true&id_perfil=' . $id_perfil);
+        $this->redirect('@sft_credencial_asociacredenciales?asociacred=true&filtro=true&id_perfil=' . $id_perfil);
 
         $this->setLayout('ventanaNueva');
     }
@@ -187,7 +187,7 @@ class asociacredencialesActions extends autoAsociacredencialesActions
 
         $perfil->quitaCredencial($request->getParameter('id'));
 
-        $this->redirect('asociacredenciales/index?asociacred=true&filtro=true&id_perfil=' . $id_perfil);
+        $this->redirect('@sft_credencial_asociacredenciales?asociacred=true&filtro=true&id_perfil=' . $id_perfil);
 
         $this->setLayout('ventanaNueva');
     }

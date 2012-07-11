@@ -105,7 +105,7 @@ EOF;
 
 
         if (((!isset($options['es_admin']) || $options['es_admin'] != 'true') &&
-             (!isset($options['es_registro']) || $options['es_registro'] != 'true')) && !isset($options['clave']) ) {
+                (!isset($options['es_registro']) || $options['es_registro'] != 'true')) && !isset($options['clave'])) {
             throw new sfCommandException(sprintf('Debes indicar la clave de la aplicación.'));
         }
 
@@ -124,7 +124,8 @@ EOF;
 
         if (is_readable(sfConfig::get('sf_data_dir') . '/skeleton/appITE')) {
             $skeletonDir = sfConfig::get('sf_data_dir') . '/skeleton/appITE';
-        } else {
+        }
+        else {
             $skeletonDir = dirname(__FILE__) . '/skeleton/appITE';
         }
 
@@ -196,7 +197,8 @@ EOF;
             $this->runTask('propel:build-model');
             $this->runTask('propel:build-forms');
             $this->runTask('propel:build-filters');
-        } else {
+        }
+        else {
             $this->runTask('doctrine:build-model');
             $this->runTask('doctrine:build-forms');
             $this->runTask('doctrine:build-filters');
@@ -207,13 +209,13 @@ EOF;
 
         $titulo = isset($options['titulo']) ? $options['titulo'] : 'Título aplicación';
         $clave = isset($options['clave']) ? $options['clave'] : '';
-        $url = isset($options['url']) ? $options['url'] : 'http://localhost/sft/web/' . $app .".php";
+        $url = isset($options['url']) ? $options['url'] : 'http://localhost/sft/web/' . $app . ".php";
 
         $this->getFilesystem()->replaceTokens($appDir . '/config/app.yml', '##', '##', array('TITULO' => $titulo));
 //
         $this->getFilesystem()->replaceTokens($appDir . '/config/app.yml', '##', '##', array('TITULO' => $titulo));
         if ((!isset($options['es_admin']) || $options['es_admin'] != 'true') &&
-            (!isset($options['es_registro']) || $options['es_registro'] != 'true')) {
+                (!isset($options['es_registro']) || $options['es_registro'] != 'true')) {
             $aplicacion = SftAplicacionPeer::dameAplicacionConClave($clave);
 
             if ($aplicacion instanceof SftAplicacion) {
@@ -221,7 +223,8 @@ EOF;
                 if (!$credencialDeAcceso instanceof SftCredencial) {
                     throw new sfCommandException(sprintf('Error!, la aplicación no tiene asignada la credencial de acceso!!'));
                 }
-            } else {
+            }
+            else {
                 throw new sfCommandException(sprintf('La aplicación no está registrada. (No hay en el sistema ninguna aplicación con esa clave)'));
             }
             $this->getFilesystem()->replaceTokens($appDir . '/config/security.yml', '##', '##', array('CREDENCIAL' => $credencialDeAcceso->getNombre()));
@@ -240,6 +243,7 @@ EOF;
 
             $settings = sfYaml::load('./apps/' . $app . '/config/settings.yml');
             array_push($settings['all']['.settings']['enabled_modules'], 'registro');
+            array_push($settings['all']['.settings']['enabled_modules'], 'sfBreadNav');
 
             $settings_yml = sfYaml::dump($settings);
 
@@ -288,6 +292,7 @@ END;
 
             $periodo = new SftPeriodo();
             $periodo->setIdUo($uo->getId());
+            $periodo->setCodigo('registro');
             $periodo->setFechainicio(date('Y-m-d'));
             $periodo->setEstado('ACTIVO');
             $periodo->setDescripcion('Registro');
@@ -298,6 +303,7 @@ END;
 
             $perfil = new SftPerfil();
             $perfil->setIdUo($uo->getId());
+            $perfil->setCodigo('invitado');
             $perfil->setNombre('Invitado', 'es_ES');
             $perfil->setNombre('Guest', 'en_GB');
             $perfil->setAbreviatura('Inv', 'es_ES');
@@ -331,12 +337,13 @@ END;
             $this->getFilesystem()->remove('./apps/' . $app . '/config/app.yml');
             $fp = fopen('./apps/' . $app . '/config/app.yml', 'wb');
             fwrite($fp, $settings_yml);
-            
+
             $this->log('##############################################################################################################');
             $this->logSection('Registro:', 'Recuerda modificar el mailer en el archivo factories.yml de la carpeta /conf de la aplicación para 
 añadirle los datos de tu servidor de correo');
             $this->log('##############################################################################################################');
-        }elseif ($options['es_admin'] == 'true') {
+        }
+        elseif ($options['es_admin'] == 'true') {
             $nombre = ($nombre == '') ? 'Gestión Symfonite' : $nombre;
             $clave = ($clave == '') ? 'cambiar' : $clave;
 
@@ -380,7 +387,8 @@ añadirle los datos de tu servidor de correo');
             array_push($settings['all']['.settings']['enabled_modules'], 'fid_asociaperfiles');
             array_push($settings['all']['.settings']['enabled_modules'], 'fid_asociaambitos');
             array_push($settings['all']['.settings']['enabled_modules'], 'fid_mapping');
-            
+            array_push($settings['all']['.settings']['enabled_modules'], 'sfBreadNav');
+
 
             $settings_yml = sfYaml::dump($settings);
 
@@ -465,6 +473,7 @@ END;
 
             $perfil = new SftPerfil();
             $perfil->setIdUo($uo->getId());
+            $perfil->setCodigo('superadmin');
             $perfil->setNombre('SuperAdministrador', 'es_ES');
             $perfil->setNombre('SuperAdministrator', 'en_GB');
             $perfil->setAbreviatura('SuperAdmin', 'es_ES');
@@ -548,8 +557,7 @@ END;
 
             $itemInicio = new sfBreadNav();
             $itemInicio->setPage($menus['page']);
-            $itemInicio->setModule($menus['module']);
-            $itemInicio->setAction($menus['action']);
+            $itemInicio->setRoute($menus['route']);
             $itemInicio->setCredential($menus['credential']);
             $itemInicio->setTreeLeft(1);
             $itemInicio->setTreeRight(2);
@@ -558,38 +566,146 @@ END;
 
             $itemInicio->save();
 
+
+            // alta tipos de documentos
+
+            $tipoDocumento = new SftTipoDocIdentificacion();
+            $tipoDocumento->setFunciondecontrol('');
+            $tipoDocumento->setNombre('DNI', 'es_ES');
+            $tipoDocumento->setNombre('ID card', 'en_GB');
+            $tipoDocumento->save();
+
+            $tipoDocumento = new SftTipoDocIdentificacion();
+            $tipoDocumento->setFunciondecontrol('');
+            $tipoDocumento->setNombre('Pasaporte', 'es_ES');
+            $tipoDocumento->setNombre('Passport', 'en_GB');
+            $tipoDocumento->save();
+
+            $tipoDocumento = new SftTipoDocIdentificacion();
+            $tipoDocumento->setFunciondecontrol('');
+            $tipoDocumento->setNombre('NIE', 'es_ES');
+            $tipoDocumento->setNombre('ARC', 'en_GB');
+            $tipoDocumento->save();
+
+
+            //alta tipos de dirección
+
+            $tipoDireccion = new SftTipoDireccion();
+            $tipoDireccion->setNombre('Casa', 'es_ES');
+            $tipoDireccion->setNombre('Home', 'en_GB');
+            $tipoDireccion->save();
+
+            $tipoDireccion = new SftTipoDireccion();
+            $tipoDireccion->setNombre('Trabajo', 'es_ES');
+            $tipoDireccion->setNombre('Workplace', 'en_GB');
+            $tipoDireccion->save();
+
+
+
+            //alta tipos de teléfono
+
+            $tipoTelefono = new SftTipoTelefono();
+            $tipoTelefono->setNombre('Fijo casa', 'es_ES');
+            $tipoTelefono->setNombre('Home phone', 'en_GB');
+            $tipoTelefono->save();
+
+            $tipoTelefono = new SftTipoTelefono();
+            $tipoTelefono->setNombre('Fijo trabajo', 'es_ES');
+            $tipoTelefono->setNombre('Workplace phone', 'en_GB');
+            $tipoTelefono->save();
+
+            $tipoTelefono = new SftTipoTelefono();
+            $tipoTelefono->setNombre('Móvil personal', 'es_ES');
+            $tipoTelefono->setNombre('Personal mobile', 'en_GB');
+            $tipoTelefono->save();
+
+            $tipoTelefono = new SftTipoTelefono();
+            $tipoTelefono->setNombre('Móvil trabajo', 'es_ES');
+            $tipoTelefono->setNombre('Workmobile', 'en_GB');
+            $tipoTelefono->save();
+
+            //alta tipo de organismo
+
+            $tipoOrganismo = new SftTipoOrganismo();
+            $tipoOrganismo->setCodigo('ONG');
+            $tipoOrganismo->setDescripcion('Organismo sin ánimo de lucro');
+            $tipoOrganismo->setNombre('ONG', 'es_ES');
+            $tipoOrganismo->setNombre('NGO', 'en_GB');
+            $tipoOrganismo->save();
+
+            $tipoOrganismo = new SftTipoOrganismo();
+            $tipoOrganismo->setCodigo('empresa');
+            $tipoOrganismo->setDescripcion('Organismo con fin de lucro');
+            $tipoOrganismo->setNombre('Empresa Privada', 'es_ES');
+            $tipoOrganismo->setNombre('Private Enterprise', 'en_GB');
+            $tipoOrganismo->save();
+
+            $tipoOrganismo = new SftTipoOrganismo();
+            $tipoOrganismo->setCodigo('publico');
+            $tipoOrganismo->setDescripcion('Organismo que ofrece un servicio público a la ciudadanía de un país');
+            $tipoOrganismo->setNombre('Organismo Público', 'es_ES');
+            $tipoOrganismo->setNombre('Public Organism', 'en_GB');
+            $tipoOrganismo->save();
+
+            $tipoOrganismo = new SftTipoOrganismo();
+            $tipoOrganismo->setCodigo('multinacional');
+            $tipoOrganismo->setDescripcion('Organismo con fin de lucro a nivel internacional');
+            $tipoOrganismo->setNombre('Corporación Multinacional', 'es_ES');
+            $tipoOrganismo->setNombre('Multinational Corporation', 'en_GB');
+            $tipoOrganismo->save();
+
+            $tipoOrganismo = new SftTipoOrganismo();
+            $tipoOrganismo->setCodigo('internacional');
+            $tipoOrganismo->setDescripcion('Organismo o institución pública que ofrece un servicio a nivel internacional');
+            $tipoOrganismo->setNombre('Institución internacional', 'es_ES');
+            $tipoOrganismo->setNombre('International Organization', 'en_GB');
+            $tipoOrganismo->save();
+
+            $tipoOrganismo = new SftTipoOrganismo();
+            $tipoOrganismo->setCodigo('intergubernamental');
+            $tipoOrganismo->setDescripcion('Asociación conformada por sujetos de Derecho Internacional Público, regulada por un conjunto de normas propias, con miembros, alcance, o presencia internacional y unos fines comunes');
+            $tipoOrganismo->setNombre('Organizaciones intergubernamental', 'es_ES');
+            $tipoOrganismo->setNombre('Intergovernmental organizations', 'en_GB');
+            $tipoOrganismo->save();
+
+
             //require_once(sfConfig::get('sf_plugins_dir').'/sfBreadNav2Plugin/modules/sfBreadNavAdmin/lib/sfBreadNavAddPageForm.class.php');
-            foreach ($menus['menu'] as $menu1) {
-                $values = array();
-                $values['page'] = $menu1['page'];
-                $values['module'] = $menu1['module'];
-                $values['action'] = $menu1['action'];
-                $values['credential'] = $menu1['credential'];
-                $values['order'] = -1;
-                $values['order_option'] = 'below';
-                $values['parent'] = -1;
-
-                sfBreadNavPeer::addPage($values, $menu->getId());
-
-                $c = new Criteria();
-                $c->add(sfBreadNavPeer::PAGE, $menu1['page']);
-                $objMenu1 = sfBreadNavPeer::doSelectOne($c);
-
-
-                foreach ($menu1['menu'] as $menu2) {
+            if (count($menus['menu']) > 0) {
+                foreach ($menus['menu'] as $menu1) {
                     $values = array();
-                    $values['page'] = $menu2['page'];
-                    $values['module'] = $menu2['module'];
-                    $values['action'] = $menu2['action'];
-                    $values['credential'] = $menu2['credential'];
+                    $values['page'] = $menu1['page'];
+                    $values['route'] = $menu1['route'];
+                    $values['credential'] = $menu1['credential'];
                     $values['order'] = -1;
                     $values['order_option'] = 'below';
-                    $values['parent'] = $objMenu1->getId();
+                    $values['parent'] = -1;
 
                     sfBreadNavPeer::addPage($values, $menu->getId());
+
+                    $c = new Criteria();
+                    $c->add(sfBreadNavPeer::PAGE, $menu1['page']);
+                    $objMenu1 = sfBreadNavPeer::doSelectOne($c);
+
+
+                    if (count($menu1['menu']) > 0) {
+                        foreach ($menu1['menu'] as $menu2) {
+                            $values = array();
+                            $values['page'] = $menu2['page'];
+                            $values['route'] = $menu2['route'];
+                            $values['credential'] = $menu2['credential'];
+                            $values['order'] = -1;
+                            $values['order_option'] = 'below';
+                            $values['parent'] = $objMenu1->getId();
+
+                            sfBreadNavPeer::addPage($values, $menu->getId());
+                        }
+                    }
                 }
             }
-
+            $fich_base = sfConfig::get('sf_plugins_dir') . DIRECTORY_SEPARATOR . 'symfonitePlugin' . DIRECTORY_SEPARATOR . 'config' .  DIRECTORY_SEPARATOR . 'tablasgen.sql';
+            $consulta = file_get_contents($fich_base);
+            $stmt = $connection->prepare($consulta);
+            $stmt->execute();
             $this->getFilesystem()->replaceTokens($appDir . '/config/security.yml', '##', '##', array('CREDENCIAL' => $credencial->getNombre()));
             $this->getFilesystem()->replaceTokens($appDir . '/config/routing.yml', '##', '##', array('MODHOMEPAGE' => 'inicio'));
             $this->getFilesystem()->replaceTokens($appDir . '/config/routing.yml', '##', '##', array('ACCHOMEPAGE' => 'homepage'));

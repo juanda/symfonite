@@ -39,7 +39,7 @@ class organismoActions extends autoOrganismoActions
 {
      function executeListAsociaPerfiles(sfWebRequest $request)
     {
-        $this->redirect('asociaperfiles/perfilesAsociados?id_usuario=' . $request->getParameter('id'));
+        $this->redirect('@sft_perfil_asociaperfiles_object?action=perfilesAsociados&id=' . $request->getParameter('id'));
     }
 
     function executeBorraTelefono(sfWebRequest $request)
@@ -48,7 +48,7 @@ class organismoActions extends autoOrganismoActions
         $id_organismo = $telefono->getSftOrganismo()->getId();
         $telefono->delete();
 
-        $this->redirect('organismo/edit?id=' . $id_organismo);
+        $this->redirect('@sft_organismo_object?action=edit?id=' . $id_organismo);
     }
 
     function executeBorraEmail(sfWebRequest $request)
@@ -57,7 +57,7 @@ class organismoActions extends autoOrganismoActions
         $id_organismo = $email->getSftOrganismo()->getId();
         $email->delete();
 
-        $this->redirect('organismo/edit?id=' . $id_organismo);
+        $this->redirect('@sft_organismo_object?action=edit?id=' . $id_organismo);
     }
 
     function executeBorraDireccion(sfWebRequest $request)
@@ -66,7 +66,7 @@ class organismoActions extends autoOrganismoActions
         $id_organismo = $direccion->getSftOrganismo()->getId();
         $direccion->delete();
 
-        $this->redirect('organismo/edit?id=' . $id_organismo);
+        $this->redirect('@sft_organismo_object?action=edit?id=' . $id_organismo);
     }
 
     function executeListPassword(sfWebRequest $request)
@@ -83,7 +83,7 @@ class organismoActions extends autoOrganismoActions
         $atributo_filter = array('id_usuario' => $request->getParameter('id'));
         $this->getUser()->setAttribute('asociaatributos.filters', $atributo_filter, 'admin_module');
 
-        $this->redirect('asociaatributos/index');
+        $this->redirect('@sft_usu_atributo_valor_asociaatributos');
     }
 
     public function executeListEmails(sfWebRequest $request)
@@ -93,7 +93,7 @@ class organismoActions extends autoOrganismoActions
         $email_filter = array('id_usuario' => $request->getParameter('id'));
         $this->getUser()->setAttribute('email.filters', $email_filter, 'admin_module');
 
-        $this->redirect('email/index');
+        $this->redirect('@sft_email');
     }
     
     public function executeListTelefonos(sfWebRequest $request)
@@ -103,7 +103,7 @@ class organismoActions extends autoOrganismoActions
         $telefono_filter = array('id_usuario' => $request->getParameter('id'));
         $this->getUser()->setAttribute('telefono.filters', $telefono_filter, 'admin_module');
 
-        $this->redirect('telefono/index');
+        $this->redirect('@sft_telefono');
     }
     
     public function executeListDirecciones(sfWebRequest $request)
@@ -113,6 +113,6 @@ class organismoActions extends autoOrganismoActions
         $direccion_filter = array('id_usuario' => $request->getParameter('id'));
         $this->getUser()->setAttribute('direccion.filters', $direccion_filter, 'admin_module');
 
-        $this->redirect('direccion/index');
+        $this->redirect('@sft_direccion');
     }
 }

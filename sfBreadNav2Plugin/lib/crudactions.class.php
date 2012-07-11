@@ -70,7 +70,7 @@ class crudactions extends sfActions
       $this->form->updateObject();
       $sf_bread_nav_application = $this->form->save();
       
-      $this->redirect('sfBreadNavAdmin/list');
+      $this->redirect('@sfBreadNav2Plugin_list');
              
     }
 
@@ -83,15 +83,11 @@ class crudactions extends sfActions
     if (sfBreadNavPeer::scopeowner($request->getParameter('id'))) {     
       $this->forward404Unless($sf_bread_nav_application = sfBreadNavApplicationPeer::retrieveByPk($request->getParameter('id')));
       $sf_bread_nav_application->delete();
-      $this->redirect('sfBreadNavAdmin/list');
+      $this->redirect('@sfBreadNav2Plugin_list');
     }else{
       $this->setTemplate('breadnav');
       $this->message = "You need to be logged in to delete a menu.";
       return sfView::ERROR;
     }
-
-
-
-
   }
 }

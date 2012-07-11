@@ -25,7 +25,7 @@
 
     <div id="sf_admin_content">
         <div class="sf_admin_form">
-            <form name="form" action="<?php echo url_for('sftPAPIAdmin/poaParams') ?>" method="post">
+            <form name="form" action="<?php echo url_for('@sftPAPIPlugin_poaParams') ?>" method="post">
                 <?php echo $form->renderHiddenFields() ?>
                 <?php echo $form->renderGlobalErrors() ?>
 

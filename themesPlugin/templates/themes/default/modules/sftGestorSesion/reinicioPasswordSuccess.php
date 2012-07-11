@@ -36,7 +36,7 @@
 
         <div class="caja_password">
             <div class="sf_admin_form">
-                <form id="reiniciar_password" name="reiniciar_password" action="<?php echo url_for('sftGestorSesion/enviarTokenReinicioPassword')?>">
+                <form id="reiniciar_password" name="reiniciar_password" action="<?php echo url_for('@sftGuardPlugin_enviarTokenReinicioPassword')?>">
                     <?php echo $formReinicioPassword -> renderGlobalErrors() ?>
                      <?php echo $formReinicioPassword -> renderhiddenFields() ?>
                     <fieldset id="login">

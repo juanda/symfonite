@@ -15,6 +15,8 @@ class SftUoForm extends BaseSftUoForm
         EmbedI18n::aniadeTraducciones($this);
 
         $this->widgetSchema['observaciones'] = new sfWidgetFormTextarea(); 
+        $this->widgetSchema['updated_at'] = new sfWidgetFormInputHidden();
+        $this->widgetSchema['created_at'] = new sfWidgetFormInputHidden();
     }
     
     public function save($con=null)

@@ -1,0 +1,68 @@
+/* 
+    Document   : menu.css
+    Created on : 23-may-2012, 15:15:26
+    Author     : mdep0071
+    Description:
+        Purpose of the stylesheet follows.
+*/
+
+#nav{
+    height:25px;
+    line-height:25px;
+    background-color: #3E7087;
+    padding:0 10px;
+    display:inline-block;
+}
+#nav ul,
+#nav ul li {
+    margin:0;
+    padding:0;
+    list-style:none;
+}
+#nav ul li{
+    float:left;
+    display:block;
+}
+
+#nav ul li a:link,
+#nav ul li a:visited{
+    color:#FFF;
+    font-size:14px;
+    font-weight:bold;
+    text-decoration:none;
+    padding:0 20px 0 6px;
+    display:block;
+}
+#nav ul li a:hover{
+    color:#EBEFF7;
+}
+#nav ul li ul li{
+    float:none;
+    display:block;
+}
+#nav ul li ul li a:link,
+#nav ul li ul li a:visited{
+    color:#444;
+    font-size:11px;
+    font-weight:bold;
+    text-decoration:none;
+    padding:0 10px;
+    clear:both;
+    border-bottom:solid 1px #DEDEDE;
+}
+#nav ul li ul li a:hover{
+    color:#3B5998;
+    background:#EBEFF7;
+}
+
+.submenu {
+    position: absolute;
+    width: auto;
+    background: #FFF;
+    padding: 10px;
+    border: solid 1px #2E4B88;
+    border-top: none;
+    display: none;
+    line-height: 26px;
+    z-index: 1000;
+}

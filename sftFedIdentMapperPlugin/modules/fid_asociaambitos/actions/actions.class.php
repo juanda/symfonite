@@ -64,7 +64,7 @@ class fid_asociaambitosActions extends autoFid_asociaambitosActions
 
         $atributo->ponAmbito($request->getParameter('id'));
 
-        $this->redirect('fid_asociaambitos/index?id_atributo=' . $id_atributo);
+        $this->redirect('@sft_ambito_fid_asociaambitos?id_atributo=' . $id_atributo);
 
         $this->setLayout('ventanaNueva');
     }
@@ -80,7 +80,7 @@ class fid_asociaambitosActions extends autoFid_asociaambitosActions
 
         $atributo->quitaAmbito($request->getParameter('id'));
 
-        $this->redirect('fid_asociaambitos/index?id_atributo=' . $id_atributo);
+        $this->redirect('@sft_ambito_fid_asociaambitos?id_atributo=' . $id_atributo);
 
         $this->setLayout('ventanaNueva');
     }

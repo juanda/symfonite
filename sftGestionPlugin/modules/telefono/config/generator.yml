@@ -14,8 +14,8 @@ generator:
     config:
       actions: ~
       fields:  
-        numerotelefono: { label: número }
-        sfttipotelefono: { label: tipo}
+        numerotelefono: { label: Número }
+        id_tipotelefono: { label: Tipo de teléfono}
       list:    
         title: Listado de teléfonos
         max_per_page: 10
@@ -26,5 +26,11 @@ generator:
         class: TelefonoIdUsuarioHiddenForm
       edit:    
         title: Edicion del teléfono
+        fields:  
+          numerotelefono: { label: Número* }
+          id_tipotelefono: { label: Tipo de teléfono*}
       new:     
         title: Nuevo teléfono
+        fields:  
+          numerotelefono: { label: Número* }
+          id_tipotelefono: { label: Tipo de teléfono*}

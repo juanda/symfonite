@@ -1,0 +1,39 @@
+sfBreadNav2Plugin_index:
+  url:   /menu
+  param: { module: sfBreadNavAdmin, action: index }
+  
+sfBreadNav2Plugin_indexScope:
+  url:   /:scope/menu
+  param: { module: sfBreadNavAdmin, action: index }
+  
+sfBreadNav2Plugin_indexScopeId:
+  url:   /:scope/:pageid/menu
+  param: { module: sfBreadNavAdmin, action: index }
+  
+sfBreadNav2Plugin_editaMenu:
+  url:   /:scope/menu/editHome
+  param: { module: sfBreadNavAdmin, action: edithome }
+
+sfBreadNav2Plugin_Update:
+  url:   /menu/update
+  param: { module: sfBreadNavAdmin, action: update }
+  
+sfBreadNav2Plugin_DeletePage:
+  url:   /:pageid/:scope/menu/deletePage
+  param: { module: sfBreadNavAdmin, action: deletepage }
+    
+sfBreadNav2Plugin_Delete:
+  url:   /:id/menu/delete
+  param: { module: sfBreadNavAdmin, action: delete }
+  
+sfBreadNav2Plugin_edit:
+  url:   /:id/menu/edit
+  param: { module: sfBreadNavAdmin, action: edit }
+  
+sfBreadNav2Plugin_list:
+  url:   /menu/list
+  param: { module: sfBreadNavAdmin, action: list }
+  
+sfBreadNav2Plugin_create:
+  url:   /menu/create
+  param: { module: sfBreadNavAdmin, action: create }

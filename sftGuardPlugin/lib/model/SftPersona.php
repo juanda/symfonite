@@ -81,7 +81,12 @@ class SftPersona extends BaseSftPersona
     public function save(PropelPDO $con = null)
     {
         $isNew = $this->isNew();
-
+        $this->setUpdatedAt(time());
+        $documento=$this->getDocidentificacion();
+        if($documento === "")
+        {
+            $this->setDocidentificacion(NULL);
+        }
         parent::save($con);
 
         if ($isNew) // Hay que crearle su sfUser y su SftUsuario
@@ -132,7 +137,7 @@ class SftPersona extends BaseSftPersona
         if ($apellido1)
             $ap_1 = Utilidades::limpiarCadena($apellido1);
         else
-            $ap_1 = substr($nombre, 1);
+            $ap_1 = substr($nom, 1);
 
         if ($apellido2) // Los usuarios anglosajones, p.ej, no utilizan dos apellidos
             $ap_2 = Utilidades::limpiarCadena($apellido2);

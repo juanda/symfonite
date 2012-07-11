@@ -41,5 +41,8 @@
  * @package    plugins.sftGuardPlugin.lib.model
  */
 class GenLocalidad extends BaseGenLocalidad {
-
+  public function __toString()
+  {
+      return self::getNombre();
+  }
 } // GenLocalidad

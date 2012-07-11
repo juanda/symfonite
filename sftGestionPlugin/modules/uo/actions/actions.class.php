@@ -20,7 +20,7 @@ class uoActions extends autoUoActions
         $perfiles_filter = array('id_uo' => $id_uo);
         $this -> getUser() -> setAttribute('perfil.filters', $perfiles_filter, 'admin_module');
 
-        $this -> redirect('perfil/index');
+        $this -> redirect('@sft_perfil');
     }
 
     public function executeListAsociaperiodos(sfWebRequest $request)
@@ -30,7 +30,7 @@ class uoActions extends autoUoActions
         $periodo_filter = array('id_uo' => $id_uo);
         $this -> getUser() -> setAttribute('periodo.filters', $periodo_filter, 'admin_module');
 
-        $this -> redirect('periodo/index');
+        $this -> redirect('@sft_periodo');
     }
 
     public function executeDelete(sfWebRequest $request)
@@ -38,11 +38,12 @@ class uoActions extends autoUoActions
         $uo = SftUoPeer::retrieveByPK($request -> getParameter('id'));
         if(count($uo -> getSftPerfils()) != 0)
         {
-            $this -> redirect('sftGestorErrores/mensajeError?mensaje=La Unidad Organizativa tiene perfiles asociados y no se pudede eliminar');
-        }
-        if(count($uo -> getSftPeriodos()) != 0)
+            $this -> redirect('@sftGuardPlugin_mensajeError?mensaje=La Unidad Organizativa tiene perfiles asociados y no se puede eliminar');
+        }else if(count($uo -> getSftPeriodos()) != 0)
         {
-            $this -> redirect('sftGestorErrores/mensajeError?mensaje=La Unidad Organizativa tiene periodos asociados y no se pudede eliminar');
+            $this -> redirect('@sftGuardPlugin_mensajeError?mensaje=La Unidad Organizativa tiene periodos asociados y no se puede eliminar');
+        }else if(!strcmp($request->getParameter('id'), $this->getUser()->getAttribute('idUnidadOrganizativa', null, 'SftUser'))) {
+            $this -> redirect('@sftGuardPlugin_mensajeError?mensaje=El usuario actual pertenece a la Unidad Organizativa y no se puede eliminar');
         }
 
 

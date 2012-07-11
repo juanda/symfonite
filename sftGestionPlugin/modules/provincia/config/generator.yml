@@ -14,7 +14,10 @@ generator:
 
     config:
       actions: ~
-      fields:  ~
+      fields:
+        codigoprov: {label: Código de la provincia}
+        id_comunidad: {label: 'Id. comunidad'}
+        nombreabrev: {label: Nombre abreviado}
       list:
         title: Listado de Provincias
         max_per_page: 10
@@ -22,6 +25,10 @@ generator:
       filter:  ~
       form:    ~
       edit:
-        title: Edicion de la Provincia: %%NOMBRE%%
+        title: 'Edicion de la Provincia: %%NOMBRE%%'
+        fields:
+          id_comunidad: {label: 'Id. comunidad', help: 'Id. de la comunidad a la que pertenece'}
       new:
         title: Nueva Provincia
+        fields:
+          id_comunidad: {label: 'Id. comunidad', help: 'Id. de la comunidad a la que pertenece'}

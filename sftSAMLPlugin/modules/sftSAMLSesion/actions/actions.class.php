@@ -92,7 +92,7 @@ class sftSAMLSesionActions extends BasesftGestorSesionActions
         // Una vez hecho el logout en el IdP, lo hacemos en el SP. Por eso
         // redirigimos a la acción de logout del SP
         sfContext::getInstance()->getConfiguration()->loadHelpers('Url');
-        $as->logout(url_for('sftGestorSesion/signout'));
+        $as->logout(url_for('@sftGuardPlugin_signout'));
     }
 
 }

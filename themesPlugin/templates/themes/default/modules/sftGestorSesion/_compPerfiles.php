@@ -80,22 +80,22 @@ function porDefectoRow($conf, $confPersonal)
                         <tr <?php echo porDefectoRow(array($perfil['id_perfil'], $ambito['id'], $ea['id_ea']), $confPersonal -> getRaw('conf') ) ?>>
                         <?php if($ambito['nombre'] == 'no_ambitos'): ?>
                             <td>
-                            <a href="<?php echo url_for('sftGestorSesion/cambioDePerfil?eIdPerfil='.$perfil['id_perfil'].'&eIdEa='.$ea['id_ea']) ?>"><?php echo $perfil['nombre_perfil'] ?></a>
+                            <a href="<?php echo url_for('@sftGuardPlugin_cambioDePerfil?eIdPerfil='.$perfil['id_perfil'].'&eIdEa='.$ea['id_ea']) ?>"><?php echo $perfil['nombre_perfil'] ?></a>
                             </td>
                             <td>
-                            <input name="perfil" onclick="jQuery.ajax({ url: '<?php echo url_for('sftGestorSesion/cambioConfPersonal?eIdPerfil='.$perfil['id_perfil'].'&eIdEa='.$ea['id_ea']) ?>' });" <?php echo porDefecto(array($perfil['id_perfil'], $ambito['id'], $ea['id_ea']), $confPersonal -> getRaw('conf') )?> type="radio" />
+                            <input name="perfil" onclick="jQuery.ajax({ url: '<?php echo url_for('@sftGuardPlugin_cambioConfPersonal?eIdPerfil='.$perfil['id_perfil'].'&eIdEa='.$ea['id_ea']) ?>' });" <?php echo porDefecto(array($perfil['id_perfil'], $ambito['id'], $ea['id_ea']), $confPersonal -> getRaw('conf') )?> type="radio" />
                                 <?php //echo link_to('entrar','sftGestorSesion/cambioDePerfil?eIdPerfil='.$perfil['id_perfil'].'&eIdEa='.$ea['id_ea']) ?>
                             </td>
                         <?php elseif($ambito['nombre'] == 'porasociar'): ?>
                             <td> el perfil no tiene ámbitos asociados </td>
                         <?php else: ?>
                             <td>
-                                <?php echo $perfil['nombre_perfil']?>/<a href="<?php echo url_for('sftGestorSesion/cambioDePerfil?eIdPerfil='.$perfil['id_perfil'].'&eIdAmbito='.$ambito['id'].'&eIdEa='.$ea['id_ea']) ?>"><?php echo $ambito['nombre'] ?></a>
+                                <?php echo $perfil['nombre_perfil']?>/<a href="<?php echo url_for('@sftGuardPlugin_cambioDePerfil?eIdPerfil='.$perfil['id_perfil'].'&eIdAmbito='.$ambito['id'].'&eIdEa='.$ea['id_ea']) ?>"><?php echo $ambito['nombre'] ?></a>
                             </td>
                             <td>
-                                <input  onclick="jQuery.ajax({ url: '<?php echo url_for('sftGestorSesion/cambioConfPersonal?eIdPerfil='.$perfil['id_perfil'].'&eIdAmbito='.$ambito['id'].'&eIdEa='.$ea['id_ea']) ?>' });"  name="perfil" <?php echo porDefecto(array($perfil['id_perfil'], $ambito['id'], $ea['id_ea']), $confPersonal -> getRaw('conf') ) ?> type="radio" />
+                                <input  onclick="jQuery.ajax({ url: '<?php echo url_for('@sftGuardPlugin_cambioConfPersonal?eIdPerfil='.$perfil['id_perfil'].'&eIdAmbito='.$ambito['id'].'&eIdEa='.$ea['id_ea']) ?>' });"  name="perfil" <?php echo porDefecto(array($perfil['id_perfil'], $ambito['id'], $ea['id_ea']), $confPersonal -> getRaw('conf') ) ?> type="radio" />
                             </td>
-                            <?php //echo link_to($ambito['nombre'],'sftGestorSesion/cambioDePerfil?eIdPerfil='.$perfil['id_perfil'].'&eIdAmbito='.$ambito['id'].'&eIdEa='.$ea['id_ea']) ?>
+                            <?php //echo link_to($ambito['nombre'],'@sftGuardPlugin_cambioDePerfil?eIdPerfil='.$perfil['id_perfil'].'&eIdAmbito='.$ambito['id'].'&eIdEa='.$ea['id_ea']) ?>
                         <?php endif; ?>
 
                         </tr>
